@@ -1,0 +1,24 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  included_files = ["server/**"]
+
+# Optional alias — app also calls /.netlify/functions/book-demo directly
+[[redirects]]
+  from = "/api/book-demo"
+  to = "/.netlify/functions/book-demo"
+  status = 200
+  force = true
+
+# SPA fallback (does not override the rule above)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
