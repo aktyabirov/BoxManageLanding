@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { Features } from './components/Features'
 import { AiSection } from './components/AiSection'
+import { AiChatSection } from './components/AiChatSection'
 import { PlatformPreview } from './components/PlatformPreview'
 import { Pricing } from './components/Pricing'
 import { Founders } from './components/Founders'
@@ -18,6 +19,7 @@ export default function App() {
         <Hero />
         <Features />
         <AiSection />
+        <AiChatSection />
         <PlatformPreview />
         <Pricing />
         <Founders />

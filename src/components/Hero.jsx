@@ -5,11 +5,13 @@ import {
   Zap,
   TrendingUp,
   Shield,
+  MessageSquare,
 } from 'lucide-react'
 import { APP_NAME, SITE_URL } from '../config'
 import { BookDemoButton } from './BookDemoButton'
 
 const pills = [
+  { icon: MessageSquare, label: 'AI fleet insights chat' },
   { icon: Sparkles, label: 'AI rate con parsing' },
   { icon: Zap, label: 'Loads in seconds' },
   { icon: TrendingUp, label: 'Live analytics' },

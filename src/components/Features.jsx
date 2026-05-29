@@ -9,9 +9,17 @@ import {
   Search,
   Tags,
   FileText,
+  MessageSquare,
 } from 'lucide-react'
 
 const features = [
+  {
+    icon: MessageSquare,
+    title: 'AI fleet chat',
+    description:
+      'Ask “Who’s our best dispatcher?” or “Highest paying loads?” — AI analyzes your database and returns rankings, charts, and tables instantly.',
+    accent: 'cyan',
+  },
   {
     icon: Package,
     title: 'Load management',

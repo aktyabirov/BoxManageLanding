@@ -5,7 +5,8 @@ import { BookDemoButton } from './BookDemoButton'
 
 const links = [
   { href: '#features', label: 'Features' },
-  { href: '#ai', label: 'AI' },
+  { href: '#ai-chat', label: 'AI Chat' },
+  { href: '#ai-loads', label: 'AI Loads' },
   { href: '#platform', label: 'Platform' },
   { href: '#pricing', label: 'Pricing' },
   { href: '#founders', label: 'Founders' },

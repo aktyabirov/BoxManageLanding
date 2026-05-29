@@ -9,7 +9,7 @@ const steps = [
 
 export function AiSection() {
   return (
-    <section id="ai" className="relative overflow-hidden py-24 lg:py-32">
+    <section id="ai-loads" className="relative overflow-hidden py-24 lg:py-32">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-950/50 via-transparent to-transparent" />
       <div className="pointer-events-none absolute right-0 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-brand-600/15 blur-[100px]" />
 
