@@ -10,9 +10,41 @@ import {
   Tags,
   FileText,
   MessageSquare,
+  Smartphone,
+  Gavel,
+  Bot,
+  MapPin,
 } from 'lucide-react'
 
 const features = [
+  {
+    icon: Smartphone,
+    title: 'Driver mobile app',
+    description:
+      'Native app for drivers — share live GPS location, view assigned loads, and stay synced with dispatch from the road.',
+    accent: 'cyan',
+  },
+  {
+    icon: Gavel,
+    title: 'Load bidding',
+    description:
+      'Drivers bid on available loads from their phone. Dispatchers see all bids on the load list and submit offers to brokers.',
+    accent: 'emerald',
+  },
+  {
+    icon: Bot,
+    title: 'AI booking agents',
+    description:
+      'AI agents negotiate with brokers and coordinate with drivers — booking loads end-to-end without endless phone calls.',
+    accent: 'brand',
+  },
+  {
+    icon: MapPin,
+    title: 'Live fleet tracking',
+    description:
+      'Real-time driver locations on the dispatch map. Know who’s closest when a load needs covering fast.',
+    accent: 'cyan',
+  },
   {
     icon: MessageSquare,
     title: 'AI fleet chat',
@@ -134,8 +166,8 @@ export function Features() {
         <div className="mt-12 flex items-center justify-center gap-3 rounded-2xl border border-dashed border-white/10 bg-white/[0.02] px-6 py-8">
           <FileText className="h-5 w-5 shrink-0 text-brand-400" />
           <p className="text-center text-sm text-slate-400 sm:text-base">
-            <span className="font-medium text-slate-200">Plus:</span> user invites, company settings,
-            best-profit load highlights, and batch load operations — all included.
+            <span className="font-medium text-slate-200">Plus:</span> driver mobile app, load bidding,
+            AI booking agents, user invites, and batch operations — all included.
           </p>
         </div>
       </div>

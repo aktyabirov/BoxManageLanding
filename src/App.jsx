@@ -2,6 +2,7 @@ import { DemoModalProvider } from './context/DemoModalContext'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { Features } from './components/Features'
+import { MobileFleetSection } from './components/MobileFleetSection'
 import { AiSection } from './components/AiSection'
 import { AiChatSection } from './components/AiChatSection'
 import { PlatformPreview } from './components/PlatformPreview'
@@ -18,6 +19,7 @@ export default function App() {
       <main>
         <Hero />
         <Features />
+        <MobileFleetSection />
         <AiSection />
         <AiChatSection />
         <PlatformPreview />

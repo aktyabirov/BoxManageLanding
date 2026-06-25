@@ -3,18 +3,20 @@ import {
   Sparkles,
   Truck,
   Zap,
-  TrendingUp,
   Shield,
   MessageSquare,
+  Smartphone,
+  Bot,
 } from 'lucide-react'
 import { APP_NAME, SITE_URL } from '../config'
 import { BookDemoButton } from './BookDemoButton'
 
 const pills = [
-  { icon: MessageSquare, label: 'AI fleet insights chat' },
+  { icon: Smartphone, label: 'Driver mobile app' },
+  { icon: Bot, label: 'AI booking agents' },
+  { icon: MessageSquare, label: 'AI fleet insights' },
   { icon: Sparkles, label: 'AI rate con parsing' },
   { icon: Zap, label: 'Loads in seconds' },
-  { icon: TrendingUp, label: 'Live analytics' },
 ]
 
 export function Hero() {

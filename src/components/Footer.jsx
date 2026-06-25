@@ -1,9 +1,10 @@
 import { Box } from 'lucide-react'
-import { APP_NAME } from '../config'
+import { APP_NAME, COMPANY_NAME } from '../config'
 import { useDemoModal } from '../context/DemoModalContext'
 
 const footerLinks = [
   { href: '#features', label: 'Features' },
+  { href: '#mobile-fleet', label: 'Mobile' },
   { href: '#ai-chat', label: 'AI Chat' },
   { href: '#ai-loads', label: 'AI Loads' },
   { href: '#platform', label: 'Platform' },
@@ -23,7 +24,7 @@ export function Footer() {
           </div>
           <div>
             <p className="font-display text-sm font-bold text-white">{APP_NAME}</p>
-            <p className="text-xs text-slate-600">Box Truck Management Platform</p>
+            <p className="text-xs text-slate-600">by {COMPANY_NAME}</p>
           </div>
         </div>
 
@@ -47,7 +48,7 @@ export function Footer() {
         </nav>
 
         <p className="text-xs text-slate-600">
-          © {new Date().getFullYear()} {APP_NAME}. All rights reserved.
+          © {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.
         </p>
       </div>
     </footer>
