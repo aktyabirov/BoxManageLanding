@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Box } from 'lucide-react'
 import { APP_NAME, COMPANY_NAME } from '../config'
 import { useDemoModal } from '../context/DemoModalContext'
@@ -38,6 +39,12 @@ export function Footer() {
               {l.label}
             </a>
           ))}
+          <Link to="/privacy" className="text-sm text-slate-500 transition-colors hover:text-slate-300">
+            Privacy
+          </Link>
+          <Link to="/terms" className="text-sm text-slate-500 transition-colors hover:text-slate-300">
+            Terms
+          </Link>
           <button
             type="button"
             onClick={openDemo}

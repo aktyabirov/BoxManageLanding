@@ -1,34 +1,24 @@
+import { Routes, Route } from 'react-router-dom'
 import { DemoModalProvider } from './context/DemoModalContext'
-import { Navbar } from './components/Navbar'
-import { Hero } from './components/Hero'
-import { Features } from './components/Features'
-import { MobileFleetSection } from './components/MobileFleetSection'
-import { AiSection } from './components/AiSection'
-import { AiChatSection } from './components/AiChatSection'
-import { PlatformPreview } from './components/PlatformPreview'
-import { Pricing } from './components/Pricing'
-import { Founders } from './components/Founders'
-import { Cta } from './components/Cta'
-import { Footer } from './components/Footer'
+import { LandingPage } from './pages/LandingPage'
+import { PrivacyPolicy } from './pages/PrivacyPolicy'
+import { TermsAndConditions } from './pages/TermsAndConditions'
 
 export default function App() {
   return (
-    <DemoModalProvider>
-    <div className="relative min-h-screen">
-      <Navbar />
-      <main>
-        <Hero />
-        <Features />
-        <MobileFleetSection />
-        <AiSection />
-        <AiChatSection />
-        <PlatformPreview />
-        <Pricing />
-        <Founders />
-        <Cta />
-      </main>
-      <Footer />
-    </div>
-    </DemoModalProvider>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <DemoModalProvider>
+            <LandingPage />
+          </DemoModalProvider>
+        }
+      />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<TermsAndConditions />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+    </Routes>
   )
 }

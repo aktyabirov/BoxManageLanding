@@ -65,3 +65,12 @@ netlify deploy --prod
 npm run build
 npm run preview
 ```
+
+## Mobile app store URLs
+
+Use these public links in App Store / Google Play submissions:
+
+- **Privacy Policy:** https://boxtruckmanage.com/privacy
+- **Terms & Conditions:** https://boxtruckmanage.com/terms
+
+Alternate paths: `/privacy-policy` and `/terms-and-conditions`.
