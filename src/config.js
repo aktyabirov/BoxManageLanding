@@ -7,3 +7,7 @@ export const CONTACT_EMAIL = 'info@smartfleetllc.com'
 export const BOOK_DEMO_API = import.meta.env.DEV
   ? '/api/book-demo'
   : '/.netlify/functions/book-demo'
+
+export const DELETE_ACCOUNT_API = import.meta.env.DEV
+  ? '/api/delete-account'
+  : '/.netlify/functions/delete-account'

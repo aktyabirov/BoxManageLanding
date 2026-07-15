@@ -74,3 +74,5 @@ Use these public links in App Store / Google Play submissions:
 - **Terms & Conditions:** https://boxtruckmanage.com/terms
 
 Alternate paths: `/privacy-policy` and `/terms-and-conditions`.
+
+- **Delete account URL (Google Play):** https://boxtruckmanage.com/delete-account

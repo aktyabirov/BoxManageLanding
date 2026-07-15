@@ -1,2 +1,3 @@
 /api/book-demo  /.netlify/functions/book-demo  200!
+/api/delete-account  /.netlify/functions/delete-account  200!
 /*    /index.html   200

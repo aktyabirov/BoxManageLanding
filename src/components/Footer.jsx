@@ -45,6 +45,9 @@ export function Footer() {
           <Link to="/terms" className="text-sm text-slate-500 transition-colors hover:text-slate-300">
             Terms
           </Link>
+          <Link to="/delete-account" className="text-sm text-slate-500 transition-colors hover:text-slate-300">
+            Delete account
+          </Link>
           <button
             type="button"
             onClick={openDemo}

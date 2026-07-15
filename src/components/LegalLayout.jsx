@@ -46,6 +46,9 @@ export function LegalLayout({ title, lastUpdated, children }) {
           <Link to="/terms" className="hover:text-slate-400">
             Terms &amp; Conditions
           </Link>
+          <Link to="/delete-account" className="hover:text-slate-400">
+            Delete account
+          </Link>
           <span>© {new Date().getFullYear()} {COMPANY_NAME}</span>
         </div>
       </footer>
