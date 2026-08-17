@@ -20,6 +20,7 @@ export default function App() {
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsAndConditions />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      <Route path="/deleteaccount" element={<DeleteAccount />} />
       <Route path="/delete-account" element={<DeleteAccount />} />
       <Route path="/account-deletion" element={<DeleteAccount />} />
     </Routes>

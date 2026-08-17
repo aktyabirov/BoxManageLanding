@@ -134,8 +134,8 @@ export function PrivacyPolicy() {
           Depending on your location, you may have rights to access, correct, delete, or restrict
           certain processing of your personal information. To request deletion of your driver
           account, visit{' '}
-          <a href={`${SITE_URL}/delete-account`} className="text-brand-400 hover:text-brand-300">
-            {SITE_URL}/delete-account
+          <a href={`${SITE_URL}/deleteaccount`} className="text-brand-400 hover:text-brand-300">
+            {SITE_URL}/deleteaccount
           </a>{' '}
           or contact us using the information below. You may also manage notification and location
           preferences in the app and on your device.
