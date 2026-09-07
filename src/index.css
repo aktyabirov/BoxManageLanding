@@ -1,22 +1,146 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────────────────────
+ * BoxManage dark palette — the product's own colours, stated in oklch.
+ *
+ * Two layers:
+ *   1. @theme — Tailwind's scales, remapped onto this palette. `brand-*` is the
+ *      warm orange; `slate-*` is the product's pure-neutral grey ramp (no blue
+ *      cast); `emerald / sky(cyan) / amber / rose` are the product's status hues.
+ *      Every colour a component already writes therefore lands on-palette with
+ *      no class churn.
+ *   2. :root — the raw product token names (--paper, --ink, --brand …) for CSS
+ *      that wants them directly, same values, same names as the app.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Plus Jakarta Sans", var(--font-sans);
 
-  --color-brand-50: oklch(0.97 0.02 285);
-  --color-brand-100: oklch(0.93 0.05 285);
-  --color-brand-200: oklch(0.86 0.1 285);
-  --color-brand-300: oklch(0.75 0.16 285);
-  --color-brand-400: oklch(0.62 0.22 285);
-  --color-brand-500: oklch(0.52 0.26 285);
-  --color-brand-600: oklch(0.45 0.26 285);
-  --color-brand-700: oklch(0.38 0.22 285);
-  --color-brand-800: oklch(0.32 0.18 285);
-  --color-brand-900: oklch(0.26 0.14 285);
+  /* ── Surfaces — two steps off black, never black itself ─────────────────── */
+  /* The ladder carries a trace of the brand hue — chroma 0.008 at the brand's
+   * own 58°. It is far below the threshold where a surface reads as "orange",
+   * but it stops the greys reading as cold next to the brand fill, which is what
+   * a neutral ramp under a warm accent always does. Neutral values are the same
+   * lightness with chroma 0. */
+  --color-paper: oklch(0.2562 0.008 58);   /* #26221f page background */
+  --color-sheet: oklch(0.2972 0.008 58);   /* #302c29 cards, inputs, panels */
+  --color-sunk: oklch(0.3368 0.008 58);    /* #3a3633 headers, hover, disabled */
+  --color-line: oklch(0.3867 0.008 58);    /* #484340 borders */
+  --color-hair: oklch(0.3485 0.008 58);    /* #3d3936 dividers, hairlines */
 
-  --color-accent: oklch(0.72 0.14 195);
-  --color-accent-emerald: oklch(0.72 0.17 155);
+  /* ── Text ───────────────────────────────────────────────────────────────── */
+  --color-ink: oklch(0.9642 0 0);          /* #f3f3f3 primary — 12:1 on paper */
+  --color-ink2: oklch(0.7348 0 0);         /* #a9a9a9 secondary */
+  --color-ink3: oklch(0.6665 0 0);         /* #949494 tertiary, placeholders */
+
+  /* ── Brand (warm orange) — 500 is the product's #e28122 exactly ─────────── */
+  --color-brand-50: oklch(0.97 0.018 70);
+  --color-brand-100: oklch(0.94 0.038 70);
+  --color-brand-200: oklch(0.89 0.072 68);
+  --color-brand-300: oklch(0.83 0.108 65);
+  --color-brand-400: oklch(0.7653 0.14 61);
+  --color-brand-500: oklch(0.6954 0.1547 58.38);
+  --color-brand-600: oklch(0.63 0.152 52.78);
+  --color-brand-700: oklch(0.54 0.132 50);
+  --color-brand-800: oklch(0.44 0.105 47);
+  --color-brand-900: oklch(0.35 0.08 46);
+  --color-brand-950: oklch(0.2151 0.0452 46.74);
+
+  /* Text that goes ON a brand fill: white measures 2.44:1 there, so it is the
+   * near-black below instead. */
+  --color-brand-fg: oklch(0.2151 0.0452 46.74);
+  --color-brand-hi: oklch(0.7348 0.1504 60.92);
+
+  /* The mark's three cube faces, one step apart, lit from above. */
+  --color-logo-f1: oklch(0.8474 0.1304 76.61);
+  --color-logo-f2: oklch(0.7313 0.1575 59.05);
+  --color-logo-f3: oklch(0.63 0.152 52.78);
+
+  /* ── Neutrals — the `slate-*` scale remapped to the product's pure greys ── */
+  --color-slate-50: oklch(0.985 0 0);
+  --color-slate-100: oklch(0.9642 0 0);    /* #f3f3f3 --ink */
+  --color-slate-200: oklch(0.9052 0 0);
+  --color-slate-300: oklch(0.8452 0 0);
+  --color-slate-400: oklch(0.7348 0 0);    /* #a9a9a9 --ink2 */
+  --color-slate-500: oklch(0.6665 0 0);    /* #949494 --ink3 */
+  --color-slate-600: oklch(0.575 0 0);
+  --color-slate-700: oklch(0.5103 0 0);
+  --color-slate-800: oklch(0.3867 0.008 58); /* #484340 --line */
+  --color-slate-900: oklch(0.2972 0.008 58); /* #302c29 --sheet */
+  --color-slate-950: oklch(0.2562 0.008 58); /* #26221f --paper */
+
+  /* ── Status hues — the exception to the greys: loads and money ──────────── */
+  --color-emerald-50: oklch(0.97 0.025 165);
+  --color-emerald-100: oklch(0.94 0.05 165);
+  --color-emerald-200: oklch(0.9 0.09 165);
+  --color-emerald-300: oklch(0.87 0.112 165);
+  --color-emerald-400: oklch(0.8452 0.1299 164.98); /* #6ee7b7 --st-emerald */
+  --color-emerald-500: oklch(0.76 0.145 164);
+  --color-emerald-600: oklch(0.596 0.1274 163.23);  /* #059669 board dot */
+  --color-emerald-700: oklch(0.5 0.11 164);
+  --color-emerald-800: oklch(0.4 0.085 166);
+  --color-emerald-900: oklch(0.32 0.065 168);
+  --color-emerald-950: oklch(0.2621 0.0487 172.55);
+
+  --color-cyan-50: oklch(0.97 0.015 230);
+  --color-cyan-100: oklch(0.94 0.033 230);
+  --color-cyan-200: oklch(0.89 0.068 230);
+  --color-cyan-300: oklch(0.86 0.086 230);
+  --color-cyan-400: oklch(0.8276 0.1013 230.32);    /* #7dd3fc --st-sky */
+  --color-cyan-500: oklch(0.75 0.115 232);
+  --color-cyan-600: oklch(0.66 0.117 235);
+  --color-cyan-700: oklch(0.55 0.1 238);
+  --color-cyan-800: oklch(0.45 0.08 240);
+  --color-cyan-900: oklch(0.36 0.062 242);
+  --color-cyan-950: oklch(0.28 0.048 244);
+
+  --color-amber-50: oklch(0.98 0.022 95);
+  --color-amber-100: oklch(0.96 0.05 95);
+  --color-amber-200: oklch(0.93 0.1 94);
+  --color-amber-300: oklch(0.9 0.135 92);
+  --color-amber-400: oklch(0.879 0.1534 91.61);     /* #fcd34d --st-amber */
+  --color-amber-500: oklch(0.82 0.155 85);
+  --color-amber-600: oklch(0.72 0.148 72);
+  --color-amber-700: oklch(0.6 0.13 62);
+  --color-amber-800: oklch(0.48 0.105 58);
+  --color-amber-900: oklch(0.38 0.082 56);
+  --color-amber-950: oklch(0.28 0.058 55);
+
+  --color-rose-50: oklch(0.97 0.015 10);
+  --color-rose-100: oklch(0.94 0.032 10);
+  --color-rose-200: oklch(0.89 0.06 11);
+  --color-rose-300: oklch(0.85 0.082 11);
+  --color-rose-400: oklch(0.8097 0.1061 11.64);     /* #fda4af --st-rose */
+  --color-rose-500: oklch(0.7084 0.16 8.99);        /* #f2718c --danger */
+  --color-rose-600: oklch(0.6 0.2 12);
+  --color-rose-700: oklch(0.5 0.18 14);
+  --color-rose-800: oklch(0.4 0.145 14);
+  --color-rose-900: oklch(0.3 0.105 13);
+  --color-rose-950: oklch(0.2026 0.0565 11.27);     /* #2b0910 --danger-fg */
+
+  --color-sky-400: oklch(0.8276 0.1013 230.32);
+  --color-indigo-400: oklch(0.7853 0.1041 274.71);
+  --color-violet-400: oklch(0.8112 0.1013 293.57);
+
+  /* ── Aliases the page already reaches for ───────────────────────────────── */
+  --color-accent: oklch(0.8276 0.1013 230.32);      /* --st-sky */
+  --color-accent-emerald: oklch(0.8452 0.1299 164.98);
+
+  /* ── Elevation ───────────────────────────────────────────────────────────
+   * There is none. On a #232323 ground a drop shadow has no darkness to sink
+   * into, so it reads as grey haze around the box rather than as lift. Depth is
+   * carried entirely by the palette's four surface steps — paper → sheet → sunk
+   * → line — plus a 1px `--sheen` highlight on the top edge of anything raised.
+   * The scale below is flattened to near-nothing so that a stray `shadow-*`
+   * class cannot reintroduce the haze. */
+  --shadow-2xs: 0 0 #0000;
+  --shadow-xs: 0 0 #0000;
+  --shadow-sm: 0 0 #0000;
+  --shadow-md: 0 0 #0000;
+  --shadow-lg: 0 0 #0000;
+  --shadow-xl: 0 0 #0000;
+  --shadow-2xl: 0 0 #0000;
 
   --animate-float: float 7s ease-in-out infinite;
   --animate-float-delayed: float 7s ease-in-out 2s infinite;
@@ -25,6 +149,72 @@
   --animate-slide-up: slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-in: fade-in 0.6s ease forwards;
   --animate-scan: scan 3s ease-in-out infinite;
+}
+
+/* The product's own token names, for CSS that wants them directly. */
+:root {
+  color-scheme: dark;
+
+  --paper: oklch(0.2562 0.008 58);
+  --sheet: oklch(0.2972 0.008 58);
+  --sunk: oklch(0.3368 0.008 58);
+  --line: oklch(0.3867 0.008 58);
+  --hair: oklch(0.3485 0.008 58);
+
+  --ink: oklch(0.9642 0 0);
+  --ink2: oklch(0.7348 0 0);
+  --ink3: oklch(0.6665 0 0);
+
+  --brand: oklch(0.6954 0.1547 58.38);
+  --brand-hi: oklch(0.7348 0.1504 60.92);
+  --brand-fg: oklch(0.2151 0.0452 46.74);
+  --brand-ink: oklch(0.6954 0.1547 58.38);
+  --brand-soft: oklch(0.6954 0.1547 58.38 / 0.15);
+  --brand-line: oklch(0.6954 0.1547 58.38 / 0.42);
+  --brand-shadow: oklch(0 0 0 / 0.42);
+  --brand-glow: oklch(0 0 0 / 0.34);
+  --focus: oklch(0.6954 0.1547 58.38 / 0.42);
+  --btn: var(--brand);
+  --btn-fg: var(--brand-fg);
+
+  --danger: oklch(0.7084 0.16 8.99);
+  --danger-hi: oklch(0.7586 0.1325 7.68);
+  --danger-fg: oklch(0.2026 0.0565 11.27);
+  --danger-bg: oklch(0.7084 0.16 8.99 / 0.14);
+  --danger-shadow: oklch(0 0 0 / 0.42);
+
+  --sig: oklch(0.8822 0 0);
+  --sig-bg: oklch(1 0 0 / 0.09);
+  --warn: oklch(0.65 0 0);
+  --warn-bg: oklch(1 0 0 / 0.06);
+  --stop: oklch(1 0 0);
+  --stop-bg: oklch(1 0 0 / 0.12);
+  --cool: oklch(0.7476 0 0);
+  --cool-bg: oklch(1 0 0 / 0.07);
+
+  --st-sky: oklch(0.8276 0.1013 230.32);
+  --st-sky-bg: oklch(0.8276 0.1013 230.32 / 0.15);
+  --st-indigo: oklch(0.7853 0.1041 274.71);
+  --st-indigo-bg: oklch(0.7853 0.1041 274.71 / 0.15);
+  --st-violet: oklch(0.8112 0.1013 293.57);
+  --st-violet-bg: oklch(0.8112 0.1013 293.57 / 0.15);
+  --st-emerald: oklch(0.8452 0.1299 164.98);
+  --st-emerald-bg: oklch(0.8452 0.1299 164.98 / 0.15);
+  --st-amber: oklch(0.879 0.1534 91.61);
+  --st-amber-bg: oklch(0.879 0.1534 91.61 / 0.15);
+  --st-rose: oklch(0.8097 0.1061 11.64);
+  --st-rose-bg: oklch(0.8097 0.1061 11.64 / 0.15);
+
+  --logo-f1: oklch(0.8474 0.1304 76.61);
+  --logo-f2: oklch(0.7313 0.1575 59.05);
+  --logo-f3: oklch(0.63 0.152 52.78);
+
+  --glass: oklch(0.2972 0.008 58 / 0.66);
+  --glass-deep: oklch(0.2562 0.008 58 / 0.78);
+  --scrim: oklch(0 0 0 / 0.52);
+
+  --sheen: oklch(1 0 0 / 0.16);
+  --shadow-ink: oklch(0 0 0 / 0.5);
 }
 
 @keyframes float {
@@ -66,11 +256,14 @@
   }
 
   body {
-    @apply bg-[#06060f] text-slate-100 font-sans overflow-x-hidden;
+    @apply bg-paper text-ink font-sans overflow-x-hidden;
+    /* Money and figures line up in columns, as in the product. */
+    letter-spacing: -0.005em;
   }
 
   ::selection {
-    @apply bg-brand-500/40 text-white;
+    background: var(--brand-soft);
+    color: var(--ink);
   }
 }
 
@@ -79,19 +272,137 @@
 }
 
 @utility text-gradient-brand {
-  @apply bg-gradient-to-r from-brand-300 via-brand-400 to-accent bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 bg-clip-text text-transparent;
+}
+
+/* ── Surfaces ────────────────────────────────────────────────────────────────
+ * Tone does all of the separating, exactly as the palette intends: "a card on
+ * `--sheet` over `--paper` separates without a border doing the work." The 1px
+ * `--sheen` on the top edge is what reads as a lit surface; it is not a shadow
+ * and costs nothing on this ground. */
+
+/* A card sitting in the flow. */
+@utility panel {
+  background: var(--sheet);
+  border: 1px solid var(--hair);
+}
+
+/* One step further up, for a tile inside a panel. */
+@utility panel-hi {
+  background: var(--sunk);
+  border: 1px solid var(--line);
+}
+
+/* Something that leaves the page — a modal, a menu. It separates by taking a
+ * brighter edge, not by casting a shadow. */
+@utility raised {
+  background: var(--sheet);
+  border: 1px solid var(--line);
 }
 
 @utility glass {
-  @apply border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl;
+  border: 1px solid var(--hair);
+  background: var(--sheet);
 }
 
 @utility glass-strong {
-  @apply border border-white/[0.12] bg-white/[0.07] backdrop-blur-2xl;
+  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: blur(40px) saturate(115%);
 }
 
-@utility glow-brand {
-  box-shadow: 0 0 80px -20px oklch(0.52 0.26 285 / 0.5);
+/* Primary fill: gradient, 1px brand border, inner highlight. No cast shadow. */
+@utility btn-brand {
+  background: linear-gradient(to bottom, var(--brand-hi), var(--brand));
+  border: 1px solid var(--brand);
+  color: var(--brand-fg);
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+@utility btn-brand-hover {
+  filter: brightness(1.07);
+}
+
+/* Quiet secondary: a step up in tone, no fill colour. */
+@utility btn-quiet {
+  background: var(--sunk);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* Destructive fill — same construction, and the same reason for the dark label:
+ * white on --danger measures 3:1. */
+@utility btn-danger {
+  background: linear-gradient(to bottom, var(--danger-hi), var(--danger));
+  border: 1px solid var(--danger);
+  color: var(--danger-fg);
+  transition: filter 0.15s ease;
+}
+
+/* A field is the inverse of a panel: it sinks to --paper under the --sheet card
+ * it sits on, with the highlight moved to an inset shadow at the top. A milky
+ * white overlay reads as fog on this ground; a tone step reads as a slot. */
+@utility field {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  transition: border-color 0.15s ease, outline-color 0.15s ease;
+}
+
+@utility field-focus {
+  border-color: var(--brand);
+  outline: 3px solid var(--focus);
+  outline-offset: -1px;
+}
+
+/* Quiet secondary: a step up in tone, no fill colour, same sheen language. */
+/* Tinted chip. */
+/* A surface the page is pointing at — the featured plan, the CTA panel. Flat
+ * --brand-soft over --sheet with the brand hairline, which is `chip-brand` at
+ * panel scale. A gradient from brand-950 to sheet fades to mud on this ground. */
+/* Section ground. The brand swells in the middle of the section and is back to
+ * nothing at both edges, so every boundary between two sections happens at
+ * transparent — there is no seam to see. A tint that starts at full strength at
+ * the top edge draws a hard line across the page instead.
+ *
+ * These fade a low alpha of the brand to `transparent`, never between two opaque
+ * colours: that is what made the old `brand-950 → sheet` washes muddy, because
+ * every midpoint of such a fade is a real, mixed brown. */
+@utility section-tint {
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    oklch(0.6954 0.1547 58.38 / 0.07) 50%,
+    transparent
+  );
+}
+
+/* The same swell, held a little higher and softer, for variety down the page. */
+@utility section-tint-b {
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    oklch(0.6954 0.1547 58.38 / 0.05) 38%,
+    transparent
+  );
+}
+
+@utility panel-brand {
+  background-color: var(--sheet);
+  background-image: linear-gradient(
+    155deg,
+    oklch(0.6954 0.1547 58.38 / 0.16),
+    oklch(0.6954 0.1547 58.38 / 0.05) 45%,
+    transparent 85%
+  );
+  border: 1px solid var(--brand-line);
+}
+
+@utility chip-brand {
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-line);
+  color: var(--brand-ink);
 }
 
 .legal-content a {
@@ -108,7 +419,7 @@
 
 @utility grid-bg {
   background-image:
-    linear-gradient(oklch(1 0 0 / 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(1 0 0 / 0.03) 1px, transparent 1px);
+    linear-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(1 0 0 / 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
 }

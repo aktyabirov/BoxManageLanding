@@ -4,7 +4,7 @@ import { APP_NAME, COMPANY_NAME, CONTACT_EMAIL, SITE_URL } from '../config'
 function Section({ title, children }) {
   return (
     <section>
-      <h2 className="font-display text-lg font-semibold text-white sm:text-xl">{title}</h2>
+      <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">{title}</h2>
       <div className="mt-3 space-y-3 text-slate-400">{children}</div>
     </section>
   )

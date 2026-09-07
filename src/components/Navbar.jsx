@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Box, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { cn } from '../lib/cn'
+import { Logo } from './Logo'
 import { BookDemoButton } from './BookDemoButton'
 
 const links = [
@@ -10,7 +11,6 @@ const links = [
   { href: '#ai-loads', label: 'AI Loads' },
   { href: '#platform', label: 'Platform' },
   { href: '#pricing', label: 'Pricing' },
-  { href: '#founders', label: 'Founders' },
 ]
 
 export function Navbar() {
@@ -27,17 +27,12 @@ export function Navbar() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        scrolled ? 'border-b border-white/[0.06] bg-[#06060f]/80 backdrop-blur-xl' : 'bg-transparent'
+        scrolled ? 'border-b border-hair bg-paper/80 backdrop-blur-xl' : 'bg-transparent'
       )}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#" className="group flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-lg shadow-brand-600/30">
-            <Box className="h-[18px] w-[18px] text-white" strokeWidth={2.25} />
-          </div>
-          <span className="font-display text-lg font-bold tracking-tight text-white">
-            BoxTruck<span className="text-brand-400">Manage</span>
-          </span>
+        <a href="#" className="group flex items-center">
+          <Logo className="gap-1.5" markClassName="-ml-1 h-11 w-11" textClassName="text-lg" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -45,7 +40,7 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-slate-400 transition-colors hover:text-white"
+              className="text-sm font-medium text-slate-400 transition-colors hover:text-ink"
             >
               {l.label}
             </a>
@@ -67,7 +62,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="glass-strong border-t border-white/[0.06] px-4 py-4 md:hidden">
+        <div className="glass-strong border-t border-hair px-4 py-4 md:hidden">
           <div className="flex flex-col gap-3">
             {links.map((l) => (
               <a
@@ -80,7 +75,7 @@ export function Navbar() {
               </a>
             ))}
             <BookDemoButton
-              className="w-full rounded-xl bg-brand-600 px-4 py-2.5 text-center"
+              className="w-full text-center"
               onClick={() => setOpen(false)}
             />
           </div>

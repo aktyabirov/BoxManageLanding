@@ -22,106 +22,108 @@ const features = [
     title: 'Driver mobile app',
     description:
       'Native app for drivers — share live GPS location, view assigned loads, and stay synced with dispatch from the road.',
-    accent: 'cyan',
+    accent: 'cyan'
   },
   {
     icon: Gavel,
     title: 'Load bidding',
     description:
       'Drivers bid on available loads from their phone. Dispatchers see all bids on the load list and submit offers to brokers.',
-    accent: 'emerald',
+    accent: 'emerald'
   },
   {
     icon: Bot,
     title: 'AI booking agents',
     description:
       'AI agents negotiate with brokers and coordinate with drivers — booking loads end-to-end without endless phone calls.',
-    accent: 'brand',
+    accent: 'brand'
   },
   {
     icon: MapPin,
     title: 'Live fleet tracking',
     description:
       'Real-time driver locations on the dispatch map. Know who’s closest when a load needs covering fast.',
-    accent: 'cyan',
+    accent: 'cyan'
   },
   {
     icon: MessageSquare,
     title: 'AI fleet chat',
     description:
       'Ask “Who’s our best dispatcher?” or “Highest paying loads?” — AI analyzes your database and returns rankings, charts, and tables instantly.',
-    accent: 'cyan',
+    accent: 'cyan'
   },
   {
     icon: Package,
     title: 'Load management',
     description:
       'Create, track, and update loads with multi-stop routing, status workflows, tags, dispatcher notes, and full audit history.',
-    accent: 'brand',
+    accent: 'brand'
   },
   {
     icon: CreditCard,
     title: 'Billing & invoices',
     description:
       'Batch billing, broker management, RTS submission, and pay summaries — built for how box truck carriers actually invoice.',
-    accent: 'cyan',
+    accent: 'cyan'
   },
   {
     icon: Wallet,
     title: 'Payroll & settlements',
     description:
       'Driver statements, load assignments, deductions, and payout tracking in one place instead of scattered spreadsheets.',
-    accent: 'emerald',
+    accent: 'emerald'
   },
   {
     icon: Receipt,
     title: 'Driver expenses',
     description:
       'Capture fuel, tolls, maintenance, and other costs with clear visibility into what each driver and load actually costs.',
-    accent: 'amber',
+    accent: 'amber'
   },
   {
     icon: BarChart3,
     title: 'Analytics dashboard',
     description:
       'Revenue trends, utilization charts, driver performance, status breakdowns, and monthly company reports at a glance.',
-    accent: 'brand',
+    accent: 'brand'
   },
   {
     icon: Users,
     title: 'Drivers & hiring',
     description:
       'Onboard drivers, manage statuses, documents, and HR notes — linked directly to loads and payroll.',
-    accent: 'cyan',
+    accent: 'cyan'
   },
   {
     icon: Building2,
     title: 'Multi-company ops',
     description:
       'Run multiple carriers or divisions with role-based access so each team sees only what they need.',
-    accent: 'emerald',
+    accent: 'emerald'
   },
   {
     icon: Search,
     title: 'Global search',
     description:
       'Find loads, drivers, brokers, and records instantly from anywhere in the platform.',
-    accent: 'amber',
+    accent: 'amber'
   },
   {
     icon: Tags,
     title: 'Tags & statuses',
     description:
       'Custom tags and status pipelines that match your dispatch workflow — filter and report on what matters.',
-    accent: 'brand',
+    accent: 'brand'
   },
 ]
 
+
+
 const accentMap = {
-  brand: 'from-brand-500/20 text-brand-400 ring-brand-500/20',
-  cyan: 'from-cyan-500/20 text-cyan-400 ring-cyan-500/20',
-  emerald: 'from-emerald-500/20 text-emerald-400 ring-emerald-500/20',
-  amber: 'from-amber-500/20 text-amber-400 ring-amber-500/20',
+  brand: 'bg-brand-500/15 text-brand-400 ring-brand-500/25',
+  cyan: 'bg-cyan-500/15 text-cyan-400 ring-cyan-500/25',
+  emerald: 'bg-emerald-500/15 text-emerald-400 ring-emerald-500/25',
+  amber: 'bg-amber-500/15 text-amber-400 ring-amber-500/25',
 }
 
 export function Features() {
@@ -132,7 +134,7 @@ export function Features() {
           <p className="text-sm font-semibold uppercase tracking-widest text-brand-400">
             Everything in one platform
           </p>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
             From dispatch to dollars —{' '}
             <span className="text-gradient-brand">no more tool sprawl</span>
           </h2>
@@ -152,18 +154,18 @@ export function Features() {
                 className="group rounded-2xl glass p-6 transition-all duration-300 hover:border-white/15 hover:bg-white/[0.06] hover:-translate-y-0.5"
               >
                 <div
-                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${accent} ring-1`}
+                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${accent} ring-1`}
                 >
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-4 font-display text-lg font-semibold text-white">{f.title}</h3>
+                <h3 className="mt-4 font-display text-lg font-semibold text-ink">{f.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-400">{f.description}</p>
               </article>
             )
           })}
         </div>
 
-        <div className="mt-12 flex items-center justify-center gap-3 rounded-2xl border border-dashed border-white/10 bg-white/[0.02] px-6 py-8">
+        <div className="mt-12 flex items-center justify-center gap-3 rounded-2xl border border-dashed border-line bg-white/[0.02] px-6 py-8">
           <FileText className="h-5 w-5 shrink-0 text-brand-400" />
           <p className="text-center text-sm text-slate-400 sm:text-base">
             <span className="font-medium text-slate-200">Plus:</span> driver mobile app, load bidding,

@@ -16,16 +16,16 @@ export function BookDemoButton({
 
   const variants = {
     primary:
-      'rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:shadow-brand-500/40 hover:brightness-110',
+      'rounded-xl btn-brand px-5 py-2.5 text-sm font-semibold hover:btn-brand-hover',
     secondary:
-      'rounded-2xl border border-white/10 bg-white/[0.04] px-8 py-4 text-base font-semibold text-white backdrop-blur transition-all hover:border-white/20 hover:bg-white/[0.08]',
-    hero: 'group inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 px-8 py-4 text-base font-semibold text-white shadow-xl shadow-brand-600/30 transition-all hover:scale-[1.02] hover:shadow-brand-500/40',
-    cta: 'inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-[#06060f] transition-all hover:bg-slate-100',
+      'rounded-2xl btn-quiet px-8 py-4 text-base font-semibold backdrop-blur hover:border-brand-500/50 hover:bg-line',
+    hero: 'group inline-flex items-center justify-center gap-2 rounded-2xl btn-brand px-8 py-4 text-base font-semibold hover:btn-brand-hover hover:-translate-y-px',
+    cta: 'inline-flex items-center justify-center gap-2 rounded-2xl btn-brand px-8 py-4 text-base font-semibold hover:btn-brand-hover hover:-translate-y-px',
     card: 'block w-full rounded-xl py-3.5 text-center text-sm font-semibold transition-all',
     cardHighlight:
-      'block w-full rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 py-3.5 text-center text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:brightness-110',
+      'block w-full rounded-xl btn-brand py-3.5 text-center text-sm font-semibold hover:btn-brand-hover',
     cardOutline:
-      'block w-full rounded-xl border border-white/10 bg-white/[0.04] py-3.5 text-center text-sm font-semibold text-white transition-all hover:bg-white/[0.08]',
+      'block w-full rounded-xl btn-quiet py-3.5 text-center text-sm font-semibold hover:border-brand-500/50 hover:bg-line',
   }
 
   return (

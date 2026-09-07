@@ -16,13 +16,12 @@ import { APP_NAME } from '../config'
 function PhoneFrame({ children }) {
   return (
     <div className="relative mx-auto w-[260px] shrink-0">
-      <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-brand-600/40 to-cyan-500/30 blur-2xl" />
-      <div className="relative overflow-hidden rounded-[2rem] border-[3px] border-slate-700 bg-[#0a0a12] shadow-2xl">
-        <div className="flex items-center justify-center gap-2 border-b border-white/[0.06] bg-[#12121c] py-2">
+      <div className="relative overflow-hidden rounded-[2rem] border-[3px] border-slate-700 bg-sheet lifted">
+        <div className="flex items-center justify-center gap-2 border-b border-hair bg-sunk py-2">
           <span className="h-1 w-8 rounded-full bg-slate-700" />
         </div>
         <div className="min-h-[420px]">{children}</div>
-        <div className="flex justify-center border-t border-white/[0.06] py-2">
+        <div className="flex justify-center border-t border-hair py-2">
           <span className="h-1 w-20 rounded-full bg-slate-700" />
         </div>
       </div>
@@ -37,7 +36,7 @@ function DriverAppMock() {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-xs text-slate-500">Driver app</p>
-            <p className="font-display text-sm font-bold text-white">Marcus T.</p>
+            <p className="font-display text-sm font-bold text-ink">Marcus T.</p>
           </div>
           <span className="flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-medium text-emerald-400">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
@@ -45,17 +44,17 @@ function DriverAppMock() {
           </span>
         </div>
 
-        <div className="relative mt-4 h-36 overflow-hidden rounded-xl bg-[#12121f] ring-1 ring-white/[0.08]">
+        <div className="relative mt-4 h-36 overflow-hidden rounded-xl bg-sunk ring-1 ring-hair">
           <div className="absolute inset-0 opacity-40">
             <svg viewBox="0 0 200 120" className="h-full w-full">
-              <path d="M0,60 L40,45 L80,70 L120,35 L160,50 L200,30" fill="none" stroke="oklch(0.52 0.26 285)" strokeWidth="1.5" strokeDasharray="4 4" />
+              <path d="M0,60 L40,45 L80,70 L120,35 L160,50 L200,30" fill="none" stroke="oklch(0.6954 0.1547 58.38)" strokeWidth="1.5" strokeDasharray="4 4" />
             </svg>
           </div>
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="relative">
               <span className="absolute -inset-3 animate-ping rounded-full bg-brand-500/30" />
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 shadow-lg shadow-brand-600/50">
-                <Navigation className="h-5 w-5 text-white" />
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-b from-brand-hi to-brand-500 ring-1 ring-inset ring-white/20">
+                <Navigation className="h-5 w-5 text-ink" />
               </div>
             </div>
           </div>
@@ -74,18 +73,18 @@ function DriverAppMock() {
           ].map((load) => (
             <div
               key={load.lane}
-              className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-3"
+              className="rounded-xl border border-hair bg-white/[0.03] p-3"
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-white">{load.lane}</p>
+                  <p className="text-sm font-semibold text-ink">{load.lane}</p>
                   <p className="text-xs text-slate-500">{load.miles}</p>
                 </div>
                 <p className="font-display text-sm font-bold text-emerald-400">{load.rate}</p>
               </div>
               <button
                 type="button"
-                className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg bg-brand-600 py-2 text-xs font-semibold text-white"
+                className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg bg-gradient-to-b from-brand-hi to-brand-500 py-2 text-xs font-semibold text-brand-fg"
               >
                 <Gavel className="h-3.5 w-3.5" />
                 Place bid
@@ -106,10 +105,10 @@ function DispatcherBidsMock() {
   ]
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a14] shadow-xl">
-      <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-3">
+    <div className="overflow-hidden rounded-2xl panel">
+      <div className="flex items-center justify-between border-b border-hair px-4 py-3">
         <div>
-          <p className="text-sm font-semibold text-white">Load board</p>
+          <p className="text-sm font-semibold text-ink">Load board</p>
           <p className="text-[10px] text-slate-500">Dispatcher view · live driver bids</p>
         </div>
         <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-medium text-amber-300">
@@ -119,7 +118,7 @@ function DispatcherBidsMock() {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[340px] text-left text-xs">
           <thead>
-            <tr className="border-b border-white/[0.06] text-slate-500">
+            <tr className="border-b border-hair text-slate-500">
               <th className="px-3 py-2 font-medium">Load</th>
               <th className="px-3 py-2 font-medium">Lane</th>
               <th className="px-3 py-2 font-medium">Bids</th>
@@ -139,13 +138,13 @@ function DispatcherBidsMock() {
                   </span>
                 </td>
                 <td className="px-3 py-2.5">
-                  <span className="font-semibold text-white">{row.top}</span>
+                  <span className="font-semibold text-ink">{row.top}</span>
                   <p className="text-[10px] text-slate-500">{row.driver}</p>
                 </td>
                 <td className="px-3 py-2.5">
                   <button
                     type="button"
-                    className="rounded-lg bg-emerald-600/90 px-2 py-1 text-[10px] font-semibold text-white"
+                    className="rounded-lg bg-emerald-500/90 px-2 py-1 text-[10px] font-semibold text-emerald-950"
                   >
                     Bid broker
                   </button>
@@ -155,7 +154,7 @@ function DispatcherBidsMock() {
           </tbody>
         </table>
       </div>
-      <div className="border-t border-white/[0.06] bg-brand-950/40 px-4 py-2.5">
+      <div className="border-t border-hair bg-brand-950/40 px-4 py-2.5">
         <p className="text-[10px] text-slate-400">
           <span className="font-medium text-brand-300">BM-3201:</span> Marcus T. bid $2,840 ·
           Dispatcher submitted $2,900 to Swift Logistics
@@ -168,13 +167,13 @@ function DispatcherBidsMock() {
 function AiAgentMock() {
   return (
     <div className="space-y-3">
-      <div className="rounded-2xl border border-white/10 bg-[#0a0a14] p-4">
+      <div className="rounded-2xl border border-line bg-sheet p-4">
         <div className="mb-3 flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-600 to-cyan-600">
-            <Bot className="h-4 w-4 text-white" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-500">
+            <Bot className="h-4 w-4 text-brand-fg" />
           </div>
           <div>
-            <p className="text-sm font-semibold text-white">AI Booking Agent</p>
+            <p className="text-sm font-semibold text-ink">AI Booking Agent</p>
             <p className="text-[10px] text-slate-500">Negotiating load #BM-3201</p>
           </div>
           <span className="ml-auto flex items-center gap-1 text-[10px] text-emerald-400">
@@ -186,7 +185,7 @@ function AiAgentMock() {
         <div className="space-y-2.5">
           <div className="flex gap-2">
             <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />
-            <div className="rounded-xl rounded-tl-sm bg-white/[0.05] px-3 py-2 text-xs text-slate-300 ring-1 ring-white/[0.06]">
+            <div className="rounded-xl rounded-tl-sm bg-white/[0.05] px-3 py-2 text-xs text-slate-300 ring-1 ring-hair">
               <p className="mb-0.5 text-[10px] font-medium text-slate-500">Agent → Broker</p>
               Box truck available DAL→HOU Thursday. Best rate on your posted load?
             </div>
@@ -199,7 +198,7 @@ function AiAgentMock() {
           </div>
           <div className="flex gap-2">
             <Phone className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />
-            <div className="rounded-xl rounded-tl-sm bg-white/[0.05] px-3 py-2 text-xs text-slate-300 ring-1 ring-white/[0.06]">
+            <div className="rounded-xl rounded-tl-sm bg-white/[0.05] px-3 py-2 text-xs text-slate-300 ring-1 ring-hair">
               <p className="mb-0.5 text-[10px] font-medium text-slate-500">Agent → Driver</p>
               Marcus, broker at $2,750 DAL→HOU Thu 8 AM. Can you cover?
             </div>
@@ -245,16 +244,15 @@ const pillars = [
 export function MobileFleetSection() {
   return (
     <section id="mobile-fleet" className="relative overflow-hidden py-24 lg:py-32">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cyan-950/20 via-transparent to-brand-950/20" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-hair" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm font-medium text-cyan-200">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-sm font-medium text-brand-200">
             <Smartphone className="h-4 w-4" />
             Mobile + AI booking
           </div>
-          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
             Drivers on the road.{' '}
             <span className="text-gradient-brand">Dispatch in control.</span>
           </h2>
@@ -267,10 +265,10 @@ export function MobileFleetSection() {
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {pillars.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="rounded-2xl glass p-5 text-center sm:text-left">
-              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-400 sm:mx-0">
+              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/15 text-brand-400 sm:mx-0">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-3 font-display font-semibold text-white">{title}</h3>
+              <h3 className="mt-3 font-display font-semibold text-ink">{title}</h3>
               <p className="mt-1.5 text-sm text-slate-500">{desc}</p>
             </div>
           ))}
@@ -300,7 +298,7 @@ export function MobileFleetSection() {
               ].map(({ icon: Icon, label }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-slate-400"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-hair bg-white/[0.03] px-3 py-1.5 text-xs text-slate-400"
                 >
                   <Icon className="h-3.5 w-3.5 text-brand-400" />
                   {label}

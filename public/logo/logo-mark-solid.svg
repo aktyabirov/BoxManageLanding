@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" role="img" aria-label="Box Truck Manage">
+  <path fill-rule="evenodd" fill="#FBB03F" transform="matrix(10.39 -6 10.39 6 5.61 10)" d="M.02 .02 H.98 V.98 H.02 Z"></path>
+  <path fill-rule="evenodd" fill="#E4761A" transform="matrix(10.39 6 0 12 5.61 10)" d="M.02 .02 H.98 V.98 H.02 Z"></path>
+  <path fill-rule="evenodd" fill="#BF5A0E" transform="matrix(10.39 -6 0 12 16 16)" d="M.02 .02 H.98 V.98 H.02 Z"></path>
+</svg>

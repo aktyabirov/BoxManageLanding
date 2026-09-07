@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" role="img" aria-label="Box Truck Manage">
+  <path fill-rule="evenodd" fill="#FBB03F" transform="matrix(10.39 -6 10.39 6 5.61 10)" d="M.02 .02 H.98 V.98 H.02 Z M.20 .16 H.52 C.66 .16 .73 .22 .73 .32 C.73 .41 .67 .47 .60 .49 C.69 .51 .77 .57 .77 .67 C.77 .78 .69 .84 .55 .84 H.20 Z M.34 .27 H.52 C.58 .27 .62 .29 .62 .325 C.62 .36 .58 .38 .52 .38 H.34 Z M.34 .60 H.55 C.61 .60 .66 .625 .66 .665 C.66 .705 .61 .73 .55 .73 H.34 Z"></path>
+  <path fill-rule="evenodd" fill="#E4761A" transform="matrix(10.39 6 0 12 5.61 10)" d="M.02 .02 H.98 V.98 H.02 Z M.14 .16 H.86 V.30 H.575 V.84 H.425 V.30 H.14 Z"></path>
+  <path fill-rule="evenodd" fill="#BF5A0E" transform="matrix(10.39 -6 0 12 16 16)" d="M.02 .02 H.98 V.98 H.02 Z M.13 .84 V.16 H.29 L.50 .52 L.71 .16 H.87 V.84 H.735 V.40 L.555 .70 H.445 L.265 .40 V.84 Z"></path>
+</svg>

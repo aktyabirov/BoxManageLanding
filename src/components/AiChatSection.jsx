@@ -69,14 +69,14 @@ function LeaderboardVisual() {
   const badgeClass = {
     gold: 'bg-amber-500/20 text-amber-300 ring-amber-500/30',
     silver: 'bg-slate-400/20 text-slate-300 ring-slate-400/30',
-    bronze: 'bg-orange-500/20 text-orange-300 ring-orange-500/30',
+    bronze: 'bg-brand-500/20 text-brand-300 ring-brand-500/30',
   }
   return (
     <div className="space-y-2">
       {dispatchers.map((d) => (
         <div
           key={d.name}
-          className="flex items-center gap-3 rounded-xl bg-white/[0.04] px-3 py-2.5 ring-1 ring-white/[0.06]"
+          className="flex items-center gap-3 rounded-xl bg-white/[0.04] px-3 py-2.5 ring-1 ring-hair"
         >
           <span
             className={cn(
@@ -87,7 +87,7 @@ function LeaderboardVisual() {
             #{d.rank}
           </span>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold text-white">{d.name}</p>
+            <p className="text-sm font-semibold text-ink">{d.name}</p>
             <p className="text-xs text-slate-500">{d.loads} loads · {d.otp} on-time</p>
           </div>
           {d.rank === 1 && (
@@ -105,14 +105,14 @@ function LoadsVisual() {
       {topLoads.map((load, i) => (
         <div
           key={load.id}
-          className="flex items-center justify-between rounded-xl bg-white/[0.04] px-3 py-2.5 ring-1 ring-white/[0.06]"
+          className="flex items-center justify-between rounded-xl bg-white/[0.04] px-3 py-2.5 ring-1 ring-hair"
         >
           <div className="flex items-center gap-3">
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-500/20 text-xs font-bold text-brand-300">
               {i + 1}
             </span>
             <div>
-              <p className="text-sm font-medium text-white">{load.lane}</p>
+              <p className="text-sm font-medium text-ink">{load.lane}</p>
               <p className="text-xs text-slate-500">{load.id} · {load.driver}</p>
             </div>
           </div>
@@ -125,10 +125,10 @@ function LoadsVisual() {
 
 function ChartVisual() {
   return (
-    <div className="rounded-xl bg-white/[0.03] p-4 ring-1 ring-white/[0.06]">
+    <div className="rounded-xl bg-white/[0.03] p-4 ring-1 ring-hair">
       <div className="mb-3 flex items-end justify-between">
         <div>
-          <p className="text-2xl font-bold text-white">94%</p>
+          <p className="text-2xl font-bold text-ink">94%</p>
           <p className="text-xs text-emerald-400">+8% vs last month</p>
         </div>
         <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-xs font-medium text-emerald-300">
@@ -139,7 +139,7 @@ function ChartVisual() {
         {chartBars.map((h, i) => (
           <div
             key={i}
-            className="flex-1 rounded-t bg-gradient-to-t from-brand-600 to-brand-400 opacity-90"
+            className="flex-1 rounded-t bg-brand-500 opacity-90"
             style={{ height: `${h}%` }}
           />
         ))}
@@ -155,13 +155,13 @@ function DriversVisual() {
       {drivers.map((d, i) => (
         <div
           key={d.name}
-          className="flex items-center gap-3 rounded-xl bg-white/[0.04] px-3 py-2.5 ring-1 ring-white/[0.06]"
+          className="flex items-center gap-3 rounded-xl bg-white/[0.04] px-3 py-2.5 ring-1 ring-hair"
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500/15">
             <User className="h-4 w-4 text-cyan-400" />
           </div>
           <div className="flex-1">
-            <p className="text-sm font-medium text-white">{d.name}</p>
+            <p className="text-sm font-medium text-ink">{d.name}</p>
             <p className="text-xs text-slate-500">{d.miles} miles</p>
           </div>
           <span className="font-display text-lg font-bold text-brand-300">{d.loads}</span>
@@ -223,18 +223,15 @@ export function AiChatSection() {
   const displayedPrompt = prompt.slice(0, typedLen)
 
   return (
-    <section id="ai-chat" className="relative overflow-hidden py-24 lg:py-32">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.45_0.26_285/0.25),transparent)]" />
-      <div className="pointer-events-none absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-cyan-600/10 blur-[100px]" />
-      <div className="pointer-events-none absolute -right-40 top-1/3 h-96 w-96 rounded-full bg-brand-600/15 blur-[120px]" />
+    <section id="ai-chat" className="relative section-tint-b overflow-hidden py-24 lg:py-32">
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm font-medium text-cyan-200">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-sm font-medium text-brand-200">
             <MessageSquare className="h-4 w-4" />
             AI fleet insights
           </div>
-          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
             Ask your data anything.{' '}
             <span className="text-gradient-brand">Get answers instantly.</span>
           </h2>
@@ -267,7 +264,7 @@ export function AiChatSection() {
                     <Sparkles className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-medium text-white">{item.title}</p>
+                    <p className="font-medium text-ink">{item.title}</p>
                     <p className="mt-0.5 text-sm text-slate-500">{item.desc}</p>
                   </div>
                 </li>
@@ -284,7 +281,7 @@ export function AiChatSection() {
                     'rounded-full border px-3 py-1.5 text-left text-xs font-medium transition-all sm:text-sm',
                     i === activeIndex
                       ? 'border-brand-500/50 bg-brand-500/15 text-brand-200'
-                      : 'border-white/10 bg-white/[0.03] text-slate-400 hover:border-white/20 hover:text-slate-200'
+                      : 'border-hair bg-white/[0.03] text-slate-400 hover:border-white/20 hover:text-slate-200'
                   )}
                 >
                   {d.prompt}
@@ -294,15 +291,14 @@ export function AiChatSection() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-brand-600/30 via-cyan-500/20 to-brand-800/30 blur-xl" />
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a14] shadow-2xl">
-              <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-3">
+            <div className="relative overflow-hidden rounded-2xl panel">
+              <div className="flex items-center justify-between border-b border-hair px-4 py-3">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-600 to-cyan-600">
-                    <Bot className="h-4 w-4 text-white" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-500">
+                    <Bot className="h-4 w-4 text-brand-fg" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white">Fleet AI</p>
+                    <p className="text-sm font-semibold text-ink">Fleet AI</p>
                     <p className="text-[10px] text-slate-500">Analyzing your database…</p>
                   </div>
                 </div>
@@ -314,10 +310,10 @@ export function AiChatSection() {
 
               <div className="min-h-[420px] space-y-4 p-4 sm:p-5">
                 <div className="flex justify-end">
-                  <div className="max-w-[90%] rounded-2xl rounded-br-md bg-brand-600 px-4 py-2.5 text-sm text-white shadow-lg shadow-brand-900/30">
+                  <div className="max-w-[90%] rounded-2xl rounded-br-md bg-brand-500 px-4 py-2.5 text-sm text-brand-fg">
                     {displayedPrompt}
                     {phase === 'typing' && (
-                      <span className="ml-0.5 inline-block h-4 w-0.5 animate-pulse bg-white/80" />
+                      <span className="ml-0.5 inline-block h-4 w-0.5 animate-pulse bg-brand-fg/70" />
                     )}
                   </div>
                 </div>
@@ -340,8 +336,8 @@ export function AiChatSection() {
                 )}
               </div>
 
-              <div className="border-t border-white/[0.06] p-3">
-                <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5">
+              <div className="border-t border-hair p-3">
+                <div className="flex items-center gap-2 rounded-xl border border-line bg-white/[0.03] px-3 py-2.5">
                   <input
                     readOnly
                     value={phase === 'typing' ? '' : 'Ask about loads, drivers, revenue…'}
@@ -350,7 +346,7 @@ export function AiChatSection() {
                   />
                   <button
                     type="button"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-b from-brand-hi to-brand-500 text-brand-fg"
                     aria-label="Send"
                   >
                     <Send className="h-4 w-4" />

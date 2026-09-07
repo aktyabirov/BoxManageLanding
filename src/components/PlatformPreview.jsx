@@ -6,6 +6,7 @@ import {
   CreditCard,
   Receipt,
 } from 'lucide-react'
+import { LogoMark } from './Logo'
 
 const modules = [
   { icon: LayoutDashboard, name: 'Dashboard', active: true },
@@ -31,7 +32,7 @@ export function PlatformPreview() {
           <p className="text-sm font-semibold uppercase tracking-widest text-brand-400">
             Platform preview
           </p>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
             Your operations,{' '}
             <span className="text-gradient-brand">one clear view</span>
           </h2>
@@ -41,12 +42,15 @@ export function PlatformPreview() {
           </p>
         </div>
 
-        <div className="mt-14 overflow-hidden rounded-2xl border border-white/10 bg-[#08080f] shadow-2xl">
+        <div className="mt-14 overflow-hidden rounded-2xl border border-line bg-sheet lifted">
           <div className="flex min-h-[420px] flex-col lg:flex-row">
-            <aside className="flex flex-row gap-1 overflow-x-auto border-b border-white/[0.06] bg-[#0a0a12] p-3 lg:w-52 lg:flex-col lg:border-b-0 lg:border-r">
-              <div className="mb-2 hidden px-2 lg:block">
-                <p className="font-display text-sm font-bold text-white">BoxTruckManage</p>
-                <p className="text-[10px] uppercase tracking-widest text-slate-600">Operations</p>
+            <aside className="flex flex-row gap-1 overflow-x-auto border-b border-hair bg-sheet p-3 lg:w-52 lg:flex-col lg:border-b-0 lg:border-r">
+              <div className="mb-2 hidden items-center gap-2 px-2 lg:flex">
+                <LogoMark className="-ml-1 h-8 w-8" />
+                <div>
+                  <p className="font-display text-sm font-bold text-ink">BoxTruckManage</p>
+                  <p className="text-[10px] uppercase tracking-widest text-slate-600">Operations</p>
+                </div>
               </div>
               {modules.map((m) => {
                 const Icon = m.icon
@@ -55,7 +59,7 @@ export function PlatformPreview() {
                     key={m.name}
                     className={`flex shrink-0 items-center gap-2.5 rounded-xl px-3 py-2 text-sm ${
                       m.active
-                        ? 'bg-gradient-to-r from-brand-600 to-brand-700 text-white shadow-lg shadow-brand-600/20'
+                        ? 'bg-gradient-to-b from-brand-hi to-brand-500 text-brand-fg'
                         : 'text-slate-500'
                     }`}
                   >
@@ -69,21 +73,21 @@ export function PlatformPreview() {
             <div className="flex-1 p-4 sm:p-6">
               <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <h3 className="font-display text-lg font-semibold text-white">Loads</h3>
+                  <h3 className="font-display text-lg font-semibold text-ink">Loads</h3>
                   <p className="text-xs text-slate-500">47 active · Updated live</p>
                 </div>
                 <button
                   type="button"
-                  className="rounded-xl bg-brand-600 px-4 py-2 text-xs font-semibold text-white"
+                  className="rounded-xl bg-gradient-to-b from-brand-hi to-brand-500 px-4 py-2 text-xs font-semibold text-brand-fg"
                 >
                   + New load
                 </button>
               </div>
 
-              <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
+              <div className="overflow-x-auto rounded-xl border border-hair">
                 <table className="w-full min-w-[520px] text-left text-sm">
                   <thead>
-                    <tr className="border-b border-white/[0.06] bg-white/[0.02] text-xs text-slate-500">
+                    <tr className="border-b border-hair bg-white/[0.02] text-xs text-slate-500">
                       <th className="px-4 py-3 font-medium">Load</th>
                       <th className="px-4 py-3 font-medium">Lane</th>
                       <th className="px-4 py-3 font-medium">Driver</th>
@@ -97,7 +101,7 @@ export function PlatformPreview() {
                         <td className="px-4 py-3 font-medium text-brand-300">{row.id}</td>
                         <td className="px-4 py-3 text-slate-300">{row.lane}</td>
                         <td className="px-4 py-3 text-slate-400">{row.driver}</td>
-                        <td className="px-4 py-3 font-medium text-white">{row.rate}</td>
+                        <td className="px-4 py-3 font-medium text-ink">{row.rate}</td>
                         <td className="px-4 py-3">
                           <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${row.statusColor}`}>
                             {row.status}

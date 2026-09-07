@@ -70,11 +70,11 @@ export function BookDemoModal({ open, onClose }) {
         aria-label="Close"
       />
 
-      <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-[#0c0c18] p-6 shadow-2xl">
+      <div className="relative w-full max-w-md rounded-2xl raised p-6">
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-lg p-1.5 text-slate-500 transition-colors hover:bg-white/10 hover:text-white"
+          className="absolute right-4 top-4 rounded-lg p-1.5 text-slate-500 transition-colors hover:bg-white/10 hover:text-ink"
           aria-label="Close"
         >
           <X className="h-5 w-5" />
@@ -82,14 +82,14 @@ export function BookDemoModal({ open, onClose }) {
 
         {status === 'success' ? (
           <div className="py-8 text-center">
-            <p className="font-display text-xl font-semibold text-white">Request sent!</p>
+            <p className="font-display text-xl font-semibold text-ink">Request sent!</p>
             <p className="mt-2 text-sm text-slate-400">
               We&apos;ll get back to you shortly.
             </p>
           </div>
         ) : (
           <>
-            <h2 id="demo-modal-title" className="font-display text-xl font-bold text-white">
+            <h2 id="demo-modal-title" className="font-display text-xl font-bold text-ink">
               Book a demo
             </h2>
             <p className="mt-1 text-sm text-slate-400">
@@ -105,7 +105,7 @@ export function BookDemoModal({ open, onClose }) {
                   required
                   value={form.name}
                   onChange={set('name')}
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none ring-brand-500/0 transition focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/30"
+                  className="w-full field rounded-xl px-4 py-2.5 text-sm outline-none focus:field-focus"
                   placeholder="Your name"
                   autoComplete="name"
                 />
@@ -120,7 +120,7 @@ export function BookDemoModal({ open, onClose }) {
                   type="tel"
                   value={form.phone}
                   onChange={set('phone')}
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/30"
+                  className="w-full field rounded-xl px-4 py-2.5 text-sm outline-none focus:field-focus"
                   placeholder="+1 (555) 000-0000"
                   autoComplete="tel"
                 />
@@ -133,7 +133,7 @@ export function BookDemoModal({ open, onClose }) {
                 <input
                   value={form.company}
                   onChange={set('company')}
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/30"
+                  className="w-full field rounded-xl px-4 py-2.5 text-sm outline-none focus:field-focus"
                   placeholder="Carrier or fleet name"
                   autoComplete="organization"
                 />
@@ -147,7 +147,7 @@ export function BookDemoModal({ open, onClose }) {
                   value={form.message}
                   onChange={set('message')}
                   rows={3}
-                  className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/30"
+                  className="w-full resize-none field rounded-xl px-4 py-2.5 text-sm outline-none focus:field-focus"
                   placeholder="Fleet size, what you need help with…"
                 />
               </div>
@@ -162,7 +162,7 @@ export function BookDemoModal({ open, onClose }) {
                 type="submit"
                 disabled={status === 'loading'}
                 className={cn(
-                  'flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 disabled:opacity-60'
+                  'flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-brand-hi to-brand-500 py-3 text-sm font-semibold text-brand-fg transition-all hover:brightness-110 disabled:opacity-60'
                 )}
               >
                 {status === 'loading' ? (

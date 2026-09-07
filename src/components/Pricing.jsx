@@ -62,15 +62,15 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="relative py-24 lg:py-32">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent" />
+    <section id="pricing" className="relative section-tint py-24 lg:py-32">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-hair" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-brand-400">
             Pricing
           </p>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
             Pricing that{' '}
             <span className="text-gradient-brand">scales with your revenue</span>
           </h2>
@@ -87,32 +87,32 @@ export function Pricing() {
               className={cn(
                 'relative flex flex-col rounded-2xl p-8 transition-all duration-300',
                 plan.highlighted
-                  ? 'border-2 border-brand-500/50 bg-gradient-to-b from-brand-950/80 to-[#0a0a14] shadow-2xl shadow-brand-600/20 scale-[1.02] lg:scale-105'
+                  ? 'panel-brand border-2 border-brand-500/50 scale-[1.02] lg:scale-105'
                   : 'glass hover:border-white/15'
               )}
             >
               {plan.badge && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-brand-600 px-3 py-1 text-xs font-semibold text-white shadow-lg">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-b from-brand-hi to-brand-500 px-3 py-1 text-xs font-semibold text-brand-fg">
                   <Sparkles className="h-3 w-3" />
                   {plan.badge}
                 </span>
               )}
 
-              <h3 className="font-display text-xl font-bold text-white">{plan.name}</h3>
+              <h3 className="font-display text-xl font-bold text-ink">{plan.name}</h3>
               <p className="mt-2 text-sm text-slate-400">{plan.description}</p>
 
               <div className="mt-6">
                 {plan.isCustom ? (
-                  <span className="font-display text-4xl font-extrabold text-white">Custom</span>
+                  <span className="font-display text-4xl font-extrabold text-ink">Custom</span>
                 ) : (
                   <div className="flex items-baseline gap-1">
-                    <span className="font-display text-4xl font-extrabold text-white">
+                    <span className="font-display text-4xl font-extrabold text-ink">
                       {plan.rate}
                     </span>
                     <span className="text-slate-500">{plan.rateLabel}</span>
                   </div>
                 )}
-                <p className="mt-2 rounded-lg bg-white/[0.04] px-3 py-2 text-sm font-medium text-brand-200 ring-1 ring-white/[0.06]">
+                <p className="mt-2 rounded-lg bg-white/[0.04] px-3 py-2 text-sm font-medium text-brand-200 ring-1 ring-hair">
                   Monthly gross: {plan.grossRange}
                 </p>
               </div>

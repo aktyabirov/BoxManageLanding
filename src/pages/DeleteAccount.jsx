@@ -12,8 +12,8 @@ import { cn } from '../lib/cn'
 
 function InfoBlock({ title, children }) {
   return (
-    <section className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 sm:p-6">
-      <h2 className="font-display text-lg font-semibold text-white">{title}</h2>
+    <section className="rounded-2xl border border-hair bg-white/[0.03] p-5 sm:p-6">
+      <h2 className="font-display text-lg font-semibold text-ink">{title}</h2>
       <div className="mt-3 space-y-3 text-sm text-slate-400 sm:text-base">{children}</div>
     </section>
   )
@@ -121,13 +121,13 @@ export function DeleteAccount() {
           </p>
         </InfoBlock>
 
-        <div className="rounded-2xl border border-brand-500/25 bg-gradient-to-b from-brand-950/50 to-[#0a0a14] p-5 sm:p-6">
+        <div className="rounded-2xl panel-brand p-5 sm:p-6">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500/15 text-rose-400">
               <Trash2 className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="font-display text-lg font-semibold text-white">
+              <h2 className="font-display text-lg font-semibold text-ink">
                 Submit deletion request
               </h2>
               <p className="text-sm text-slate-500">
@@ -160,7 +160,7 @@ export function DeleteAccount() {
                   type="tel"
                   value={form.phone}
                   onChange={set('phone')}
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/30"
+                  className="w-full field rounded-xl px-4 py-2.5 text-sm outline-none focus:field-focus"
                   placeholder="+1 (555) 000-0000"
                   autoComplete="tel"
                 />
@@ -168,10 +168,10 @@ export function DeleteAccount() {
 
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t border-white/[0.06]" />
+                  <span className="w-full border-t border-hair" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-[#0a0a14] px-2 text-slate-600">or</span>
+                  <span className="bg-sheet px-2 text-slate-600">or</span>
                 </div>
               </div>
 
@@ -183,7 +183,7 @@ export function DeleteAccount() {
                   type="email"
                   value={form.email}
                   onChange={set('email')}
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/30"
+                  className="w-full field rounded-xl px-4 py-2.5 text-sm outline-none focus:field-focus"
                   placeholder="you@example.com"
                   autoComplete="email"
                 />
@@ -197,7 +197,7 @@ export function DeleteAccount() {
                   value={form.reason}
                   onChange={set('reason')}
                   rows={2}
-                  className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/30"
+                  className="w-full resize-none field rounded-xl px-4 py-2.5 text-sm outline-none focus:field-focus"
                   placeholder="Helps us locate your account"
                 />
               </div>
@@ -212,7 +212,7 @@ export function DeleteAccount() {
                 type="submit"
                 disabled={status === 'loading'}
                 className={cn(
-                  'flex w-full items-center justify-center gap-2 rounded-xl bg-rose-600 py-3 text-sm font-semibold text-white transition-all hover:bg-rose-500 disabled:opacity-60'
+                  'flex w-full items-center justify-center gap-2 rounded-xl btn-danger py-3 text-sm font-semibold hover:brightness-110 disabled:opacity-60'
                 )}
               >
                 {status === 'loading' ? (

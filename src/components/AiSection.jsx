@@ -10,8 +10,6 @@ const steps = [
 export function AiSection() {
   return (
     <section id="ai-loads" className="relative overflow-hidden py-24 lg:py-32">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-950/50 via-transparent to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-brand-600/15 blur-[100px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -20,7 +18,7 @@ export function AiSection() {
               <Sparkles className="h-3.5 w-3.5" />
               AI-powered
             </div>
-            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
               Create loads in{' '}
               <span className="text-gradient-brand">seconds, not hours</span>
             </h2>
@@ -39,7 +37,7 @@ export function AiSection() {
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-medium text-white">
+                      <p className="font-medium text-ink">
                         <span className="mr-2 text-brand-500">{i + 1}.</span>
                         {step.title}
                       </p>
@@ -52,9 +50,9 @@ export function AiSection() {
           </div>
 
           <div className="relative">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a14] shadow-2xl">
-              <div className="border-b border-white/[0.06] px-5 py-4">
-                <p className="text-sm font-medium text-white">New load — AI assist</p>
+            <div className="overflow-hidden rounded-2xl panel">
+              <div className="border-b border-hair px-5 py-4">
+                <p className="text-sm font-medium text-ink">New load — AI assist</p>
                 <p className="text-xs text-slate-500">Rate con uploaded · parsing complete</p>
               </div>
 
@@ -75,7 +73,7 @@ export function AiSection() {
                   ].map((row) => (
                     <div
                       key={row.label}
-                      className="flex items-center justify-between rounded-lg bg-white/[0.03] px-4 py-2.5 ring-1 ring-white/[0.06]"
+                      className="flex items-center justify-between rounded-lg bg-white/[0.03] px-4 py-2.5 ring-1 ring-hair"
                     >
                       <span className="text-xs text-slate-500">{row.label}</span>
                       <span className="text-sm font-medium text-slate-200">{row.value}</span>
