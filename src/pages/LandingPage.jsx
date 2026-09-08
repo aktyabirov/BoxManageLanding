@@ -21,7 +21,7 @@ export function LandingPage() {
         <AiSection />
         <AiChatSection />
         <PlatformPreview />
-        <Pricing />
+        {/* <Pricing /> */}
         <Founders />
         <Cta />
       </main>

@@ -1,5 +1,5 @@
 export const APP_NAME = 'BoxTruckManage'
-export const COMPANY_NAME = 'Smart Fleet LLC'
+export const COMPANY_NAME = 'Nahl Group'
 export const SITE_URL = 'https://boxtruckmanage.com'
 export const CONTACT_EMAIL = 'info@smartfleetllc.com'
 

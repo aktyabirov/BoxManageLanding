@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./fonts.css";
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * BoxManage dark palette — the product's own colours, stated in oklch.
@@ -14,8 +15,10 @@
  * ─────────────────────────────────────────────────────────────────────────── */
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Plus Jakarta Sans", var(--font-sans);
+  /* Gilroy for everything, as the product ships it. It carries both roles here:
+   * `font-display` exists only so the headline class keeps working. */
+  --font-sans: "Gilroy", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Gilroy", var(--font-sans);
 
   /* ── Surfaces — two steps off black, never black itself ─────────────────── */
   /* The ladder carries a trace of the brand hue — chroma 0.008 at the brand's
@@ -257,8 +260,15 @@
 
   body {
     @apply bg-paper text-ink font-sans overflow-x-hidden;
-    /* Money and figures line up in columns, as in the product. */
     letter-spacing: -0.005em;
+  }
+
+  /* Every figure, as the product sets them: columns of money line up and the
+   * tighter tracking keeps a long number from sprawling. */
+  .figure,
+  table {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
   }
 
   ::selection {

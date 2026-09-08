@@ -11,12 +11,13 @@
       content="BoxTruckManage — AI-powered box truck fleet management. Create loads in seconds, track finances, payroll, expenses, and real-time analytics."
     />
     <title>BoxTruckManage — Box Truck Fleet Management Platform</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Gilroy is self-hosted from /public/fonts, so there is no third-party font
+         request. Only the four weights the page opens with are preloaded; the
+         rest are fetched on demand by the @font-face rules in src/fonts.css. -->
+    <link rel="preload" href="/fonts/Gilroy-Medium.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Gilroy-Semibold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Gilroy-Extrabold.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <div id="root"></div>

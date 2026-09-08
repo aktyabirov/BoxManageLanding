@@ -10,7 +10,7 @@ const links = [
   { href: '#ai-chat', label: 'AI Chat' },
   { href: '#ai-loads', label: 'AI Loads' },
   { href: '#platform', label: 'Platform' },
-  { href: '#pricing', label: 'Pricing' },
+  // { href: '#pricing', label: 'Pricing' },
 ]
 
 export function Navbar() {
