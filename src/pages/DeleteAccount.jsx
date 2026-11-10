@@ -6,6 +6,7 @@ import {
   COMPANY_NAME,
   CONTACT_EMAIL,
   DELETE_ACCOUNT_API,
+  DRIVER_APP_NAME,
   SITE_URL,
 } from '../config'
 import { cn } from '../lib/cn'
@@ -60,8 +61,9 @@ export function DeleteAccount() {
     <LegalLayout title="Delete your account" lastUpdated="July 15, 2026">
       <div className="space-y-6">
         <p className="text-slate-400">
-          This page is for drivers who use the <strong className="text-slate-200">{APP_NAME}</strong>{' '}
-          mobile app, operated by <strong className="text-slate-200">{COMPANY_NAME}</strong>. Use the
+          This page is for drivers who use the{' '}
+          <strong className="text-slate-200">{DRIVER_APP_NAME}</strong> mobile app for {APP_NAME},
+          operated by <strong className="text-slate-200">{COMPANY_NAME}</strong>. Use the
           form below to request deletion of your driver account and associated personal data.
         </p>
 
@@ -131,7 +133,7 @@ export function DeleteAccount() {
                 Submit deletion request
               </h2>
               <p className="text-sm text-slate-500">
-                {APP_NAME} driver app · {COMPANY_NAME}
+                {DRIVER_APP_NAME} app · {COMPANY_NAME}
               </p>
             </div>
           </div>

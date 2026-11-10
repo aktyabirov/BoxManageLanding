@@ -5,11 +5,11 @@ import { useDemoModal } from '../context/DemoModalContext'
 
 const footerLinks = [
   { href: '#features', label: 'Features' },
-  { href: '#mobile-fleet', label: 'Mobile' },
-  { href: '#ai-chat', label: 'AI Chat' },
-  { href: '#ai-loads', label: 'AI Loads' },
-  { href: '#platform', label: 'Platform' },
-  { href: '#pricing', label: 'Pricing' },
+  { href: '#load-board', label: 'Load board' },
+  { href: '#driver-app', label: 'Driver app' },
+  { href: '#conversations', label: 'Conversations' },
+  { href: '#ai-loads', label: 'AI loads' },
+  { href: '#operations', label: 'Team & money' },
   { href: '#founders', label: 'Founders' },
 ]
 

@@ -1,5 +1,5 @@
 import { LegalLayout } from '../components/LegalLayout'
-import { APP_NAME, COMPANY_NAME, CONTACT_EMAIL, SITE_URL } from '../config'
+import { APP_NAME, COMPANY_NAME, CONTACT_EMAIL, DRIVER_APP_NAME, SITE_URL } from '../config'
 
 function Section({ title, children }) {
   return (
@@ -15,8 +15,8 @@ export function TermsAndConditions() {
     <LegalLayout title="Terms & Conditions" lastUpdated="July 14, 2026">
       <Section title="Agreement">
         <p>
-          These Terms &amp; Conditions (&quot;Terms&quot;) govern your use of the {APP_NAME} driver
-          mobile application and related services (the &quot;Service&quot;) provided by{' '}
+          These Terms &amp; Conditions (&quot;Terms&quot;) govern your use of the {DRIVER_APP_NAME}
+          mobile application for {APP_NAME} and related services (the &quot;Service&quot;) provided by{' '}
           {COMPANY_NAME}. By downloading, accessing, or using the app, you agree to these Terms. If
           you do not agree, do not use the Service.
         </p>

@@ -1,5 +1,5 @@
 import { LegalLayout } from '../components/LegalLayout'
-import { APP_NAME, COMPANY_NAME, CONTACT_EMAIL, SITE_URL } from '../config'
+import { APP_NAME, COMPANY_NAME, CONTACT_EMAIL, DRIVER_APP_NAME, SITE_URL } from '../config'
 
 function Section({ title, children }) {
   return (
@@ -16,7 +16,7 @@ export function PrivacyPolicy() {
       <Section title="Introduction">
         <p>
           {COMPANY_NAME} (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) operates the{' '}
-          {APP_NAME} driver mobile application and related services (collectively, the
+          {DRIVER_APP_NAME} mobile application for {APP_NAME} and related services (collectively, the
           &quot;Service&quot;). This Privacy Policy explains how we collect, use, disclose, and
           protect information when you use the {APP_NAME} mobile app as a driver or authorized user
           of a carrier account.

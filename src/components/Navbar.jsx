@@ -6,10 +6,10 @@ import { BookDemoButton } from './BookDemoButton'
 
 const links = [
   { href: '#features', label: 'Features' },
-  { href: '#mobile-fleet', label: 'Mobile' },
-  { href: '#ai-chat', label: 'AI Chat' },
-  { href: '#ai-loads', label: 'AI Loads' },
-  { href: '#platform', label: 'Platform' },
+  { href: '#load-board', label: 'Load board' },
+  { href: '#driver-app', label: 'Driver app' },
+  { href: '#conversations', label: 'Conversations' },
+  { href: '#operations', label: 'Team & money' },
   // { href: '#pricing', label: 'Pricing' },
 ]
 

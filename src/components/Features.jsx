@@ -1,123 +1,113 @@
 import {
-  Package,
-  CreditCard,
-  Wallet,
-  Receipt,
-  BarChart3,
-  Users,
-  Building2,
-  Search,
-  Tags,
-  FileText,
-  MessageSquare,
-  Smartphone,
+  Radio,
+  Crosshair,
   Gavel,
-  Bot,
+  Mail,
+  Sparkles,
   MapPin,
+  Smartphone,
+  Trophy,
+  Wallet,
+  Landmark,
+  UserPlus,
+  ShieldBan,
+  ShieldCheck,
 } from 'lucide-react'
+import { APP_NAME, DRIVER_APP_NAME } from '../config'
 
 const features = [
   {
-    icon: Smartphone,
-    title: 'Driver mobile app',
+    icon: Radio,
+    title: 'Live load board',
     description:
-      'Native app for drivers — share live GPS location, view assigned loads, and stay synced with dispatch from the road.',
-    accent: 'cyan'
+      'New loads stream onto the board the moment they post, with a bell when something worth your time comes in.',
+    accent: 'brand',
+  },
+  {
+    icon: Crosshair,
+    title: 'Nearest-truck matching',
+    description:
+      'Every load shows your closest available truck and whether the vehicle fits, is tight, or is too small.',
+    accent: 'emerald',
   },
   {
     icon: Gavel,
-    title: 'Load bidding',
+    title: 'Bids with profit in view',
     description:
-      'Drivers bid on available loads from their phone. Dispatchers see all bids on the load list and submit offers to brokers.',
-    accent: 'emerald'
+      'Bid the broker with driver pay and your margin on screen. The email goes out from your own mailbox.',
+    accent: 'amber',
   },
   {
-    icon: Bot,
-    title: 'AI booking agents',
+    icon: Mail,
+    title: 'Broker conversations',
     description:
-      'AI agents negotiate with brokers and coordinate with drivers — booking loads end-to-end without endless phone calls.',
-    accent: 'brand'
+      'Every broker thread in one inbox, with the deal pinned on top and an AI-suggested reply ready to send.',
+    accent: 'cyan',
+  },
+  {
+    icon: Sparkles,
+    title: 'Rate con to load in seconds',
+    description:
+      'Drop a rate confirmation and AI fills the load: broker, stops, times in the facility’s time zone, and rate.',
+    accent: 'brand',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Automatic rate con check',
+    description:
+      'Incoming rate cons are compared with what you agreed in the thread, so a wrong rate gets caught before pickup.',
+    accent: 'emerald',
+  },
+  {
+    icon: Smartphone,
+    title: `${DRIVER_APP_NAME} mobile app`,
+    description:
+      'Drivers connect to your company, share their profile, truck and documents, and bid on loads from their phone.',
+    accent: 'brand',
   },
   {
     icon: MapPin,
-    title: 'Live fleet tracking',
+    title: 'Tracking & availability',
     description:
-      'Real-time driver locations on the dispatch map. Know who’s closest when a load needs covering fast.',
-    accent: 'cyan'
+      'A daily location queue, availability and out-of-service in one list, plus each driver’s app connection status.',
+    accent: 'cyan',
   },
   {
-    icon: MessageSquare,
-    title: 'AI fleet chat',
+    icon: Trophy,
+    title: 'Dispatch leaderboard',
     description:
-      'Ask “Who’s our best dispatcher?” or “Highest paying loads?” — AI analyzes your database and returns rankings, charts, and tables instantly.',
-    accent: 'cyan'
-  },
-  {
-    icon: Package,
-    title: 'Load management',
-    description:
-      'Create, track, and update loads with multi-stop routing, status workflows, tags, dispatcher notes, and full audit history.',
-    accent: 'brand'
-  },
-  {
-    icon: CreditCard,
-    title: 'Billing & invoices',
-    description:
-      'Batch billing, broker management, RTS submission, and pay summaries — built for how box truck carriers actually invoice.',
-    accent: 'cyan'
+      'Rank dispatchers by gross and profit, see the market on a US map, and track daily bonuses on a calendar.',
+    accent: 'amber',
   },
   {
     icon: Wallet,
-    title: 'Payroll & settlements',
+    title: 'Driver payouts',
     description:
-      'Driver statements, load assignments, deductions, and payout tracking in one place instead of scattered spreadsheets.',
-    accent: 'emerald'
+      'Pending, confirmed and paid in one pipeline, with Quick Pay fees, holds and expenses handled for you.',
+    accent: 'emerald',
   },
   {
-    icon: Receipt,
-    title: 'Driver expenses',
+    icon: Landmark,
+    title: 'Factoring',
     description:
-      'Capture fuel, tolls, maintenance, and other costs with clear visibility into what each driver and load actually costs.',
-    accent: 'amber'
+      'Move loads from good-to-invoice to invoiced to paid, and flag short pays as soon as they land.',
+    accent: 'cyan',
   },
   {
-    icon: BarChart3,
-    title: 'Analytics dashboard',
+    icon: UserPlus,
+    title: 'Driver onboarding',
     description:
-      'Revenue trends, utilization charts, driver performance, status breakdowns, and monthly company reports at a glance.',
-    accent: 'brand'
+      'Send one invite link. Drivers fill the form, e-sign the W-9 and contractor agreement, and AI reads their documents.',
+    accent: 'brand',
   },
   {
-    icon: Users,
-    title: 'Drivers & hiring',
+    icon: ShieldBan,
+    title: 'Broker ratings & blacklist',
     description:
-      'Onboard drivers, manage statuses, documents, and HR notes — linked directly to loads and payroll.',
-    accent: 'cyan'
-  },
-  {
-    icon: Building2,
-    title: 'Multi-company ops',
-    description:
-      'Run multiple carriers or divisions with role-based access so each team sees only what they need.',
-    accent: 'emerald'
-  },
-  {
-    icon: Search,
-    title: 'Global search',
-    description:
-      'Find loads, drivers, brokers, and records instantly from anywhere in the platform.',
-    accent: 'amber'
-  },
-  {
-    icon: Tags,
-    title: 'Tags & statuses',
-    description:
-      'Custom tags and status pipelines that match your dispatch workflow — filter and report on what matters.',
-    accent: 'brand'
+      'Rate brokers and keep MC numbers on file. Blacklisted brokers disappear from your load board.',
+    accent: 'amber',
   },
 ]
-
-
 
 const accentMap = {
   brand: 'bg-brand-500/15 text-brand-400 ring-brand-500/25',
@@ -135,26 +125,25 @@ export function Features() {
             Everything in one platform
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
-            From dispatch to dollars —{' '}
+            From load board to payout —{' '}
             <span className="text-gradient-brand">no more tool sprawl</span>
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            BoxTruckManage replaces disconnected spreadsheets, billing software, and payroll
-            hacks with a single system designed for box truck operations.
+            {APP_NAME} replaces the load board tab, the inbox, the spreadsheets and the payroll
+            workarounds with one system built for box truck dispatch.
           </p>
         </div>
 
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => {
             const Icon = f.icon
-            const accent = accentMap[f.accent]
             return (
               <article
                 key={f.title}
                 className="group rounded-2xl glass p-6 transition-all duration-300 hover:border-white/15 hover:bg-white/[0.06] hover:-translate-y-0.5"
               >
                 <div
-                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${accent} ring-1`}
+                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${accentMap[f.accent]} ring-1`}
                 >
                   <Icon className="h-6 w-6" />
                 </div>
@@ -166,10 +155,11 @@ export function Features() {
         </div>
 
         <div className="mt-12 flex items-center justify-center gap-3 rounded-2xl border border-dashed border-line bg-white/[0.02] px-6 py-8">
-          <FileText className="h-5 w-5 shrink-0 text-brand-400" />
+          <Mail className="h-5 w-5 shrink-0 text-brand-400" />
           <p className="text-center text-sm text-slate-400 sm:text-base">
-            <span className="font-medium text-slate-200">Plus:</span> driver mobile app, load bidding,
-            AI booking agents, user invites, and batch operations — all included.
+            <span className="font-medium text-slate-200">Plus:</span> connect your own mailbox
+            (Google, Microsoft 365, Zoho or IMAP), roles and permissions, salaries and bonus
+            rules, custom statuses and tags.
           </p>
         </div>
       </div>

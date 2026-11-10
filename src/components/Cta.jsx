@@ -1,5 +1,5 @@
 import { Mail } from 'lucide-react'
-import { APP_NAME } from '../config'
+import { APP_NAME, DRIVER_APP_NAME } from '../config'
 import { BookDemoButton } from './BookDemoButton'
 
 export function Cta() {
@@ -10,11 +10,11 @@ export function Cta() {
 
           <div className="relative">
             <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
-              Ready to modernize your box truck operations?
+              Set up in minutes. Dispatch by this afternoon.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-slate-400">
-              See why fleets are switching to {APP_NAME} for dispatch, finance, and AI-powered
-              load creation — built specifically for the box truck market.
+              Book a demo and we’ll walk you through {APP_NAME} and the {DRIVER_APP_NAME} app
+              with your own lanes and trucks.
             </p>
 
             <BookDemoButton variant="cta" className="mt-10">
