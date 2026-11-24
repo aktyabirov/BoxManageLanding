@@ -4,6 +4,7 @@ import { cn } from '../lib/cn'
 import { prefersReducedMotion, useInView } from '../lib/motion'
 import { SectionHead } from './SectionHead'
 import { ContactBtns, Pill } from './mock/ui'
+import { BuiltForYou } from './BuiltForYou'
 
 /* ── Tracking: a ZIP is typed for the first truck, Enter saves it and moves to the next. ── */
 const TRACK = [
@@ -280,7 +281,7 @@ function Onboarding() {
 
 export function DriversSection() {
   return (
-    <section id="drivers" className="relative border-t border-line bg-sheet py-24 lg:py-32">
+    <section id="drivers" className="relative border-t border-line py-24 lg:py-32">
       <div className="wrap">
         <SectionHead
           eyebrow="Drivers"
@@ -331,6 +332,10 @@ export function DriversSection() {
             </p>
           </div>
         </div>
+        <BuiltForYou className="mt-12">
+          Your hiring stages, your documents and contract, leads dealt to your hiring team in turn, and drivers moved in from the system
+          you use today.
+        </BuiltForYou>
       </div>
     </section>
   )

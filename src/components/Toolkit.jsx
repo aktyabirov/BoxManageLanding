@@ -12,7 +12,7 @@ const ITEMS = [
 
 export function Toolkit() {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative border-t border-line bg-sheet py-24 lg:py-32">
       <div className="wrap">
         <SectionHead eyebrow="Also included" title="The details a dispatch team lives in" />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

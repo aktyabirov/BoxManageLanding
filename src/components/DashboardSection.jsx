@@ -5,6 +5,7 @@ import { useCountUp, useInView } from '../lib/motion'
 import { SectionHead } from './SectionHead'
 import { StateMap, LOADS } from './mock/StateMap'
 import { Avatar, LiveBadge } from './mock/ui'
+import { BuiltForYou } from './BuiltForYou'
 
 function Count({ to, start, format = (n) => Math.round(n).toLocaleString('en-US') }) {
   const v = useCountUp(to, { start, duration: 1000 })
@@ -107,7 +108,7 @@ export function DashboardSection() {
   const lbStart = useInView(lb, { once: true, threshold: 0.3 })
 
   return (
-    <section id="dashboard" className="relative py-24 lg:py-32">
+    <section id="dashboard" className="relative border-t border-line bg-sheet py-24 lg:py-32">
       <div className="wrap">
         <SectionHead
           eyebrow="Dashboard"
@@ -305,6 +306,10 @@ export function DashboardSection() {
             </div>
           </div>
         </div>
+        <BuiltForYou className="mt-10">
+          The numbers your management reads, laid out your way: your KPIs and goals, your P&amp;L by week or month, and the reports you send
+          today from spreadsheets.
+        </BuiltForYou>
       </div>
     </section>
   )

@@ -3,6 +3,7 @@ import { useReveal } from '../lib/motion'
 import { Navbar } from '../components/Navbar'
 import { Hero } from '../components/Hero'
 import { HowItWorks } from '../components/HowItWorks'
+import { CustomSection } from '../components/CustomSection'
 import { DashboardSection } from '../components/DashboardSection'
 import { DriversSection } from '../components/DriversSection'
 import { MoneySection } from '../components/MoneySection'
@@ -24,6 +25,7 @@ export function LandingPage() {
       <main>
         <Hero />
         <HowItWorks />
+        <CustomSection />
         <DashboardSection />
         <DriversSection />
         <MoneySection />

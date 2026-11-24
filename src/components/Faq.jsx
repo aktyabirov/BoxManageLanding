@@ -8,6 +8,10 @@ const QA = [
     'The real BoxTruckManage web app with a sample company, Redwood Freight LLC: 30 trucks, loads streaming onto the board, broker conversations, drivers in hiring and onboarding, payouts and factoring. Each visitor gets a private copy that lives in their own browser. Nothing you do reaches a real broker or driver.',
   ],
   [
+    'Do we have to work the way the software works?',
+    'No. Every company starts with the core you see in the demo, and then we customize it to how you work: your hiring steps, pay rules, factoring company, reports and P&L. Anything your team still does by hand or in a spreadsheet, we can build into the same platform.',
+  ],
+  [
     'Which mailboxes can send bids?',
     'The ones your dispatchers already use: Google Workspace or Gmail, Microsoft 365, Zoho, or any mailbox with IMAP and SMTP. Each bid goes out from the dispatcher’s own address, and the broker’s reply comes back into Conversations, tied to the load.',
   ],
@@ -21,7 +25,7 @@ const QA = [
   ],
   [
     'How do we get started?',
-    'Open the live demo first if you like. Then book a demo and we walk you through BoxTruckManage with your own lanes and trucks.',
+    'Open the live demo first if you like. Then book a demo and tell us how your fleet works: we walk you through BoxTruckManage with your own lanes and trucks and go over what we would build for you.',
   ],
   ['Who makes BoxTruckManage?', `${COMPANY_NAME} builds and runs BoxTruckManage and both apps.`],
 ]

@@ -50,7 +50,7 @@ const APPS = [
 
 export function AppsSection() {
   return (
-    <section id="apps" className="relative overflow-hidden border-t border-line bg-sheet py-24 lg:py-32">
+    <section id="apps" className="relative overflow-hidden border-t border-line py-24 lg:py-32">
       <div className="wrap">
         <SectionHead
           center
@@ -61,7 +61,7 @@ export function AppsSection() {
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {APPS.map((a, k) => (
-            <article key={a.name} className="relative overflow-hidden rounded-[28px] border border-line bg-ground p-6 sm:p-8" data-reveal style={{ '--i': 3 + k }}>
+            <article key={a.name} className="relative overflow-hidden rounded-[28px] border border-line bg-sheet p-6 shadow-[var(--shadow)] sm:p-8" data-reveal style={{ '--i': 3 + k }}>
               <div className="flex items-center gap-3">
                 <img src={asset('logo/logo-mark.svg')} alt="" className="h-11 w-11 rounded-xl bg-sheet p-1.5 shadow-[var(--shadow)]" />
                 <div>

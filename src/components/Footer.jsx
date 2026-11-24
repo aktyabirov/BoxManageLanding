@@ -11,6 +11,7 @@ export function Footer() {
       'Product',
       [
         ['How it works', '#how'],
+        ['Built for you', '#custom'],
         ['Dashboard', '#dashboard'],
         ['Drivers', '#drivers'],
         ['Money', '#money'],
@@ -35,7 +36,7 @@ export function Footer() {
           <div>
             <Logo size={36} />
             <p className="mt-4 max-w-[300px] text-[14.5px] leading-relaxed text-ink2">
-              The dispatch platform for box truck fleets, from posted load to paid driver. Made by {COMPANY_NAME}.
+              The dispatch platform for box truck fleets, customized for each company, from hiring to P&amp;L. Made by {COMPANY_NAME}.
             </p>
             <a href={`mailto:${CONTACT_EMAIL}`} className="mt-3 inline-flex min-h-9 items-center text-[14.5px] font-semibold text-brand-ink hover:underline">
               {CONTACT_EMAIL}

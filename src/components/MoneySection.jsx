@@ -4,6 +4,7 @@ import { cn } from '../lib/cn'
 import { useCountUp, useInView } from '../lib/motion'
 import { SectionHead } from './SectionHead'
 import { Pill, Stars } from './mock/ui'
+import { BuiltForYou } from './BuiltForYou'
 
 const money = (n) => `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 
@@ -245,7 +246,7 @@ function Brokers() {
 
 export function MoneySection() {
   return (
-    <section id="money" className="relative py-24 lg:py-32">
+    <section id="money" className="relative border-t border-line bg-sheet py-24 lg:py-32">
       <div className="wrap">
         <SectionHead
           eyebrow="Money"
@@ -309,6 +310,9 @@ export function MoneySection() {
             </div>
           </div>
         </div>
+        <BuiltForYou className="mt-10">
+          Your pay rules, salaries, bonuses and deductions, your factoring company in one click, and a P&amp;L worked out from every load.
+        </BuiltForYou>
       </div>
     </section>
   )

@@ -9,11 +9,11 @@ import { TryDemoButton } from './TryDemoButton'
 
 export const NAV_LINKS = [
   { id: 'how', label: 'How it works' },
+  { id: 'custom', label: 'Built for you' },
   { id: 'dashboard', label: 'Dashboard' },
   { id: 'drivers', label: 'Drivers' },
   { id: 'money', label: 'Money' },
   { id: 'apps', label: 'Apps' },
-  { id: 'faq', label: 'FAQ' },
 ]
 
 /* Which section is under the bar: the last one whose top has passed the middle of the screen. */

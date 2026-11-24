@@ -66,9 +66,9 @@ export function Hero() {
           </h1>
 
           <p className="lede mx-auto mt-6 max-w-[640px] text-[clamp(17px,1.8vw,19px)]" style={beat(300)}>
-            BoxTruckManage is the dispatch platform for box truck fleets. Every load on the board shows your nearest
-            truck, bids go out from your own mailbox, and the same system carries the load through tracking, payouts
-            and factoring.
+            BoxTruckManage is the dispatch platform for box truck fleets, built around how your company works. You get
+            everything other fleets use, and we customize the rest for you, from hiring to dispatch, accounting and
+            P&amp;L, until every step of your workflow runs in one place.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row" style={beat(380)}>

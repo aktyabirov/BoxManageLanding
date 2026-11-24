@@ -141,7 +141,7 @@ export function BookDemoModal({ open, origin, onClose }) {
               Book a demo
             </h2>
             <p className="mt-1.5 text-[15px] text-ink2">
-              Leave a number and we walk you through it with your own lanes and trucks.
+              Tell us how your fleet works. We walk you through it with your own lanes and trucks and show what we would build for you.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">

@@ -25,6 +25,9 @@ export function DemoCta() {
               Use Demo opens a private copy of Redwood Freight LLC, a sample fleet with 30 trucks, loads streaming in, brokers, drivers and
               payouts. Bid, book, hire and pay. Nothing you do reaches a real broker or driver.
             </p>
+            <p className="mx-auto mt-3 max-w-[600px] text-[15px] leading-relaxed text-[#8AB4FF]">
+              The demo is the core every fleet starts with. Yours gets built around your workflow.
+            </p>
 
             <ul className="mx-auto mt-7 flex max-w-[620px] flex-wrap justify-center gap-2">
               {PAGES.map((p) => (
