@@ -11,13 +11,13 @@ export function BuiltForYou({ children, className }) {
       )}
       data-reveal
     >
-      <span className="flex shrink-0 items-center gap-1.5 text-[13.5px] font-bold text-brand-ink">
+      <span className="flex shrink-0 items-center gap-1.5 text-[15px] font-bold text-brand-ink">
         <Sparkles className="h-4 w-4" aria-hidden="true" />
         Built for you
       </span>
-      <span className="text-[14.5px] leading-relaxed text-ink2">{children}</span>
+      <span className="text-[16px] leading-relaxed text-ink2">{children}</span>
       <a href="#custom" className="shrink-0 text-[13.5px] font-semibold text-brand-ink hover:underline sm:ml-auto">
-        How it works
+        How we customize
       </a>
     </div>
   )

@@ -294,8 +294,8 @@ export function DriversSection() {
             <Tracking />
           </div>
           <div className="space-y-4" data-reveal style={{ '--i': 4 }}>
-            <h3 className="text-[20px] font-bold tracking-tight text-ink">Tracking that fills itself in</h3>
-            <ul className="space-y-3.5 text-[15px] leading-relaxed text-ink2">
+            <h3 className="text-[24px] font-bold tracking-tight text-ink">Tracking that fills itself in</h3>
+            <ul className="space-y-4 text-[16.5px] leading-relaxed text-ink2">
               {[
                 ['Drivers on BTM Driver share their location', 'their trucks update on their own and show as Connected.'],
                 ['Everyone else takes one ZIP a day', 'type it and press Enter, or press Still there when the truck has not moved.'],
@@ -319,8 +319,8 @@ export function DriversSection() {
             <Hiring />
           </div>
           <div data-reveal style={{ '--i': 1 }}>
-            <h3 className="text-[20px] font-bold tracking-tight text-ink">Hiring and onboarding</h3>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink2">
+            <h3 className="text-[24px] font-bold tracking-tight text-ink">Hiring and onboarding</h3>
+            <p className="mt-3 text-[16.5px] leading-relaxed text-ink2">
               Send one invite link. Drivers fill in the form, upload their documents and sign. Drag a driver to the next column as they move
               through hiring; they stay Active until their first load.
             </p>

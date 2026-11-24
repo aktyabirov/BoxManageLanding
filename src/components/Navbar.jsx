@@ -5,7 +5,6 @@ import { prefersReducedMotion } from '../lib/motion'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
 import { BookDemoButton } from './BookDemoButton'
-import { TryDemoButton } from './TryDemoButton'
 
 /* `also`: further sections that light up the same link (Product covers the three product tours). */
 export const NAV_LINKS = [
@@ -127,7 +126,7 @@ export function Navbar() {
         scrolled || open ? 'border-line bg-[var(--glass)] backdrop-blur-xl backdrop-saturate-150' : 'border-transparent bg-transparent'
       )}
     >
-      <nav className="wrap flex h-[68px] items-center gap-4" aria-label="Main">
+      <nav className="wrap flex h-[72px] items-center gap-4" aria-label="Main">
         <a href="#top" className="-ml-1 rounded-lg p-1" aria-label="BoxTruckManage home">
           <Logo size={34} />
         </a>
@@ -139,7 +138,7 @@ export function Navbar() {
               data-id={l.id}
               href={`#${l.id}`}
               className={cn(
-                'rounded-lg px-3 py-2.5 text-[14.5px] font-semibold transition-colors duration-150',
+                'rounded-lg px-3 py-2.5 text-[15px] font-semibold transition-colors duration-150',
                 active === l.id ? 'text-ink' : 'text-ink2 hover:text-ink'
               )}
               aria-current={active === l.id ? 'true' : undefined}
@@ -156,10 +155,7 @@ export function Navbar() {
 
         <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
           <ThemeToggle />
-          <BookDemoButton className="hidden md:inline-flex" />
-          <TryDemoButton place="nav" className="hidden sm:inline-flex">
-            Try the demo
-          </TryDemoButton>
+          <BookDemoButton place="Top bar" className="hidden sm:inline-flex" />
           <button
             type="button"
             className="relative grid h-11 w-11 place-items-center rounded-xl text-ink2 hover:bg-sunk lg:hidden"
@@ -188,9 +184,8 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <div className="mt-2 grid gap-2 border-t border-line p-2 pt-3 sm:grid-cols-2">
-              <TryDemoButton place="nav-mobile" className="w-full" />
-              <BookDemoButton className="w-full" onClick={() => setOpen(false)} />
+            <div className="mt-2 border-t border-line p-2 pt-3">
+              <BookDemoButton place="Menu" className="w-full" onClick={() => setOpen(false)} />
             </div>
           </div>
         </div>

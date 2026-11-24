@@ -25,6 +25,8 @@ export const handler = async (event) => {
     const phone = String(body.phone ?? '').trim()
     const company = String(body.company ?? '').trim()
     const message = String(body.message ?? '').trim()
+    const source = String(body.source ?? '').trim().slice(0, 60)
+    const page = String(body.page ?? event.headers?.referer ?? '').trim()
 
     if (!name || !phone) {
       return {
@@ -34,7 +36,7 @@ export const handler = async (event) => {
       }
     }
 
-    await sendDemoToTelegram({ name, phone, company, message })
+    await sendDemoToTelegram({ name, phone, company, message, source, page })
 
     return {
       statusCode: 200,

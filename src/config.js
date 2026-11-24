@@ -9,14 +9,6 @@ export const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 /* Preview builds (VITE_PREVIEW=1) render without a server: no router history, no form endpoint. */
 export const IS_PREVIEW = import.meta.env.VITE_PREVIEW === '1'
 
-/* The interactive demo: the real web app with sample data, no sign-up. The demo keeps the utm
- * tags of the first URL it opens with, so each button says where it was pressed. */
-export const DEMO_URL = 'https://demo.boxtruckmanage.com'
-export function demoHref(place) {
-  const q = new URLSearchParams({ utm_source: 'landing', utm_medium: 'web', utm_content: place })
-  return `${DEMO_URL}/?${q}`
-}
-
 export const DRIVER_APP_NAME = 'BTM Driver'
 export const DISPATCH_APP_NAME = 'BTM Dispatch'
 

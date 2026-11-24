@@ -23,7 +23,7 @@ import { cn } from '../../lib/cn'
 import { useFlip, useInView, useInterval, useReducedMotion } from '../../lib/motion'
 import { LiveBadge, Stars } from './ui'
 
-/* Sample loads in the demo's own words (Redwood Freight LLC's board). All names are invented. */
+/* Sample loads for a sample company, Redwood Freight LLC. All names are invented. */
 const START = [
   { id: 'a1', age: 2, pu: 'PORTLAND, OR 97204', puT: 'Tomorrow 00:13 PST', del: 'HOUSTON, TX 77002', delT: 'Thu 08:13 CST', mi: 2164, rate: '$4,570', veh: 'Cargo van', truck: ['Mateo Price', 127, 3, '1 cargo van within 150 mi'], broker: 'Riverbend Shipping Group', stars: 5, bid: 'Dmitri Young #106 bid $5,150 · 1m ago' },
   { id: 'a2', age: 4, pu: 'LOUISVILLE, KY 40202', puT: 'Tomorrow 15:09 EST', del: 'EL PASO, TX 79901', delT: 'Direct', mi: 1478, rate: '$3,970', veh: 'Large straight', truck: ['Nikolai Green', 193, 94, '1 large straight within 150 mi'], broker: 'Granite Peak Transport', stars: 4, note: 'Good lanes out of Texas. Ask for Megan.' },
@@ -78,7 +78,7 @@ function Sidebar() {
         </span>
       </div>
       <p className="mt-2 flex items-center gap-1 whitespace-nowrap pl-9 text-[10.5px] text-ink3">
-        Redwood Freight LLC <span className="font-semibold text-brand-ink">Demo</span>
+        Redwood Freight LLC
       </p>
       {SIDE.map(([group, items]) => (
         <div key={group} className="mt-4">

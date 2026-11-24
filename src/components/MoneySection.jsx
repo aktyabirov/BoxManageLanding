@@ -260,11 +260,11 @@ export function MoneySection() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1fr]">
           <div className="card p-5" data-reveal>
-            <p className="flex items-center gap-2 text-[15px] font-bold text-ink">
+            <p className="flex items-center gap-2 text-[18px] font-bold text-ink">
               <FileText className="h-4 w-4 text-ink3" aria-hidden="true" />
               Loads, with the totals on top
             </p>
-            <p className="mt-1.5 text-[14px] text-ink2">Every booked load with its broker, driver, status and tags. The totals follow your filters.</p>
+            <p className="mt-2 text-[15.5px] text-ink2">Every booked load with its broker, driver, status and tags. The totals follow your filters.</p>
             <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
               {[
                 ['Loads', '644', 'Match the filters'],
@@ -301,8 +301,8 @@ export function MoneySection() {
           </div>
 
           <div data-reveal style={{ '--i': 1 }}>
-            <p className="text-[15px] font-bold text-ink">Brokers your team rates</p>
-            <p className="mt-1.5 text-[14px] text-ink2">
+            <p className="text-[18px] font-bold text-ink">Brokers your team rates</p>
+            <p className="mt-2 text-[15.5px] text-ink2">
               Ratings and team comments show on the load board and in the load window. Blacklisted brokers disappear from the board.
             </p>
             <div className="mt-4">

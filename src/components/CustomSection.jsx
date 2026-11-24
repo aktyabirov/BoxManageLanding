@@ -31,7 +31,7 @@ const LANE = [
 ]
 
 const STEPS = [
-  ['Start with the core', 'Everything you see in the demo: the board, bids, conversations, tracking, hiring, accounting and both apps.'],
+  ['Start with the core', 'Everything on this page: the board, bids, conversations, tracking, hiring, accounting and both apps.'],
   ['Show us how you work', 'Your dedicated account manager goes through each step your team does today, including every spreadsheet, side tool and manual habit.'],
   ['We build the rest', 'Your rules, reports and integrations go into the same platform, one step at a time, until nothing is manual. Support answers 24/7.'],
 ]
@@ -52,7 +52,7 @@ function Lane() {
   return (
     <div ref={ref} className="card-lg overflow-hidden" data-reveal style={{ '--i': 2 }}>
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-line px-5 py-4">
-        <p className="text-[15px] font-bold text-ink">Your workflow, in one platform</p>
+        <p className="text-[17px] font-bold text-ink">Your workflow, in one platform</p>
         <span className="flex items-center gap-1.5 text-[12.5px] text-ink2 sm:ml-auto">
           <span className="grid h-4 w-4 place-items-center rounded bg-sunk2 text-ink2">
             <Check className="h-2.5 w-2.5" strokeWidth={3} aria-hidden="true" />
@@ -80,7 +80,7 @@ function Lane() {
                   style={{ transform: on ? 'scaleX(1)' : 'scaleX(0)', transition: `transform 260ms var(--e-out) ${200 + i * 90}ms` }}
                 />
               )}
-              <p className="flex items-center gap-2 text-[14px] font-bold text-ink">
+              <p className="flex items-center gap-2 text-[15px] font-bold text-ink">
                 <span className={cn('grid h-8 w-8 shrink-0 place-items-center rounded-lg', last ? 'border border-dashed border-ink4 text-ink2' : 'bg-brand-soft text-brand-ink')}>
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </span>
@@ -89,7 +89,7 @@ function Lane() {
               {core.length > 0 && (
                 <ul className="space-y-1.5">
                   {core.map((c) => (
-                    <li key={c} className="flex items-start gap-1.5 text-[12.5px] leading-snug text-ink2">
+                    <li key={c} className="flex items-start gap-1.5 text-[13.5px] leading-snug text-ink2">
                       <Check className="mt-0.5 h-3 w-3 shrink-0 text-ink3" strokeWidth={3} aria-hidden="true" />
                       {c}
                     </li>
@@ -98,7 +98,7 @@ function Lane() {
               )}
               <p
                 className={cn(
-                  'mt-auto flex items-start gap-1.5 rounded-lg border border-dashed px-2.5 py-2 text-[12.5px] font-semibold leading-snug',
+                  'mt-auto flex items-start gap-1.5 rounded-lg border border-dashed px-2.5 py-2 text-[13.5px] font-semibold leading-snug',
                   last ? 'border-ink4 text-ink' : 'border-brand/45 bg-brand-soft text-brand-ink'
                 )}
                 style={{
@@ -142,8 +142,8 @@ export function CustomSection() {
               <li key={title} className="flex gap-4 rounded-2xl border border-line bg-sheet p-4 shadow-[var(--shadow)]" data-reveal style={{ '--i': 2 + i }}>
                 <span className="tnum grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand text-[13.5px] font-bold text-on-brand">{i + 1}</span>
                 <span>
-                  <span className="block text-[16px] font-bold tracking-tight text-ink">{title}</span>
-                  <span className="mt-0.5 block text-[14.5px] leading-relaxed text-ink2">{text}</span>
+                  <span className="block text-[18px] font-bold tracking-tight text-ink">{title}</span>
+                  <span className="mt-1 block text-[16px] leading-relaxed text-ink2">{text}</span>
                 </span>
               </li>
             ))}
@@ -155,10 +155,10 @@ export function CustomSection() {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-[clamp(22px,2.4vw,28px)] font-extrabold tracking-tight text-ink" data-reveal>
+          <h3 className="text-[clamp(24px,2.4vw,34px)] font-extrabold tracking-tight text-ink" data-reveal>
             A few things we have built for fleets on BoxTruckManage
           </h3>
-          <p className="mt-2 max-w-[640px] text-[15.5px] leading-relaxed text-ink2" data-reveal style={{ '--i': 1 }}>
+          <p className="mt-3 max-w-[720px] text-[17px] leading-relaxed text-ink2" data-reveal style={{ '--i': 1 }}>
             Each one started as a step a customer did by hand. Now it runs inside the platform, next to everything else.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -168,8 +168,8 @@ export function CustomSection() {
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span>
-                  <span className="block text-[16px] font-bold tracking-tight text-ink">{title}</span>
-                  <span className="mt-1 block text-[14px] leading-relaxed text-ink2">{text}</span>
+                  <span className="block text-[18px] font-bold tracking-tight text-ink">{title}</span>
+                  <span className="mt-1 block text-[15.5px] leading-relaxed text-ink2">{text}</span>
                 </span>
               </article>
             ))}

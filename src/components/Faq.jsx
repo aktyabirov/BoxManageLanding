@@ -4,12 +4,12 @@ import { SectionHead } from './SectionHead'
 
 const QA = [
   [
-    'What is in the live demo?',
-    'The real BoxTruckManage web app with a sample company, Redwood Freight LLC: 30 trucks, loads streaming onto the board, broker conversations, drivers in hiring and onboarding, payouts and factoring. Each visitor gets a private copy that lives in their own browser. Nothing you do reaches a real broker or driver.',
+    'What happens in a demo?',
+    'We walk you through BoxTruckManage with your own lanes and trucks, look at how your team works today, and show what we would customize and automate for you. You get your price on the same call.',
   ],
   [
     'Do we have to work the way the software works?',
-    'No. Every company starts with the core you see in the demo, and then we customize it to how you work: your hiring steps, pay rules, factoring company, reports and P&L. Anything your team still does by hand or in a spreadsheet, we can build into the same platform.',
+    'No. Every company starts with the core you see on this page, and then we customize it to how you work: your hiring steps, pay rules, factoring company, reports and P&L. Anything your team still does by hand or in a spreadsheet, we can build into the same platform.',
   ],
   [
     'How much does it cost?',
@@ -33,7 +33,7 @@ const QA = [
   ],
   [
     'How do we get started?',
-    'Open the live demo first if you like. Then book a demo and tell us how your fleet works: we walk you through BoxTruckManage with your own lanes and trucks and go over what we would build for you.',
+    'Book a demo and tell us how your fleet works. From there your dedicated account manager is your one contact for the setup and for everything we build for you.',
   ],
   ['Who makes BoxTruckManage?', `${COMPANY_NAME} builds and runs BoxTruckManage and both apps.`],
 ]
@@ -48,17 +48,17 @@ export function Faq() {
         .faq summary::-webkit-details-marker { display: none; }
       `}</style>
       <div className="wrap grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-        <SectionHead eyebrow="FAQ" title="Questions people ask before the demo" />
+        <SectionHead eyebrow="FAQ" title="Questions fleets ask us first" />
         <div className="divide-y divide-line border-y border-line" data-reveal style={{ '--i': 2 }}>
           {QA.map(([q, a], i) => (
             <details key={q} className="faq group" open={i === 0}>
-              <summary className="flex min-h-[64px] list-none items-center gap-4 py-4 text-left text-[17px] font-bold tracking-tight text-ink transition-colors hover:text-brand-ink">
+              <summary className="flex min-h-[64px] list-none items-center gap-4 py-4 text-left text-[19px] font-bold tracking-tight text-ink transition-colors hover:text-brand-ink">
                 <span className="flex-1">{q}</span>
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-sunk text-ink2">
                   <ChevronDown className="faq-chev h-4 w-4 transition-transform duration-200 ease-out" aria-hidden="true" />
                 </span>
               </summary>
-              <p className="faq-a max-w-[640px] pb-6 pr-12 text-[15.5px] leading-relaxed text-ink2">{a}</p>
+              <p className="faq-a max-w-[760px] pb-6 pr-12 text-[17px] leading-relaxed text-ink2">{a}</p>
             </details>
           ))}
         </div>

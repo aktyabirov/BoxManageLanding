@@ -9,7 +9,7 @@ const EXIT = Math.round(ENTER * 0.8) /* exits are 20% shorter than entrances */
 
 /* Book a demo. The card scales up from 0.95 out of the button that opened it, and goes back
  * into that button when closed. */
-export function BookDemoModal({ open, origin, onClose }) {
+export function BookDemoModal({ open, origin, source, onClose }) {
   const [form, setForm] = useState(initialForm)
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState('')
@@ -46,7 +46,8 @@ export function BookDemoModal({ open, origin, onClose }) {
         )
         scrim.current?.animate([{ opacity: 0 }, { opacity: 1 }], { duration: ENTER, easing: 'ease-out' })
       }
-      firstField.current?.focus({ preventScroll: true })
+      /* On phones the keyboard would cover the form at once; let people tap a field themselves. */
+      if (!window.matchMedia?.('(pointer: coarse)').matches) firstField.current?.focus({ preventScroll: true })
     } else {
       const done = () => {
         setMounted(false)
@@ -98,7 +99,7 @@ export function BookDemoModal({ open, origin, onClose }) {
       const res = await fetch(BOOK_DEMO_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, source, page: window.location.href }),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error || 'Request failed')
@@ -114,10 +115,10 @@ export function BookDemoModal({ open, origin, onClose }) {
   const input = 'field w-full rounded-xl px-4 py-3 text-[15px] outline-none focus:field-focus'
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
-      <button ref={scrim} type="button" tabIndex={-1} className="absolute inset-0 bg-[var(--scrim)] backdrop-blur-[3px]" onClick={onClose} aria-label="Close" />
-
-      <div ref={card} className="card-lg relative w-full max-w-md p-6 sm:p-7">
+    <div className="fixed inset-0 z-[100] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+      <button ref={scrim} type="button" tabIndex={-1} className="fixed inset-0 bg-[var(--scrim)] backdrop-blur-[3px]" onClick={onClose} aria-label="Close" />
+      <div className="pointer-events-none relative flex min-h-full items-center justify-center p-4">
+      <div ref={card} className="card-lg pointer-events-auto relative w-full max-w-md p-6 sm:p-7">
         <button
           type="button"
           onClick={onClose}
@@ -192,6 +193,7 @@ export function BookDemoModal({ open, origin, onClose }) {
             </form>
           </>
         )}
+      </div>
       </div>
     </div>
   )

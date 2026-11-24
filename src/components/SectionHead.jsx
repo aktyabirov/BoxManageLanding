@@ -3,7 +3,7 @@ import { cn } from '../lib/cn'
 /* Eyebrow, heading and lede for a section; arrives in three beats. */
 export function SectionHead({ eyebrow, title, lede, center = false, className, children }) {
   return (
-    <div className={cn(center ? 'mx-auto max-w-[760px] text-center' : 'max-w-[720px]', className)}>
+    <div className={cn(center ? 'mx-auto max-w-[940px] text-center' : 'max-w-[880px]', className)}>
       {eyebrow && (
         <p className="eyebrow" data-reveal>
           {eyebrow}
@@ -13,7 +13,7 @@ export function SectionHead({ eyebrow, title, lede, center = false, className, c
         {title}
       </h2>
       {lede && (
-        <p className={cn('lede mt-4', center && 'mx-auto max-w-[640px]')} data-reveal style={{ '--i': 2 }}>
+        <p className={cn('lede mt-5', center && 'mx-auto max-w-[760px]')} data-reveal style={{ '--i': 2 }}>
           {lede}
         </p>
       )}

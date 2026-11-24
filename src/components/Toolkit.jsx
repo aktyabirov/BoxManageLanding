@@ -19,15 +19,15 @@ export function Toolkit() {
           {ITEMS.map(([Icon, title, text], i) => (
             <article
               key={title}
-              className="group card p-6 transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[var(--shadow-2)]"
+              className="group card p-7 transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[var(--shadow-2)]"
               data-reveal
               style={{ '--i': i % 3 }}
             >
               <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-brand-ink">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
-              <h3 className="mt-4 text-[17px] font-bold tracking-tight text-ink">{title}</h3>
-              <p className="mt-1.5 text-[14.5px] leading-relaxed text-ink2">{text}</p>
+              <h3 className="mt-4 text-[19px] font-bold tracking-tight text-ink">{title}</h3>
+              <p className="mt-2 text-[16px] leading-relaxed text-ink2">{text}</p>
             </article>
           ))}
         </div>

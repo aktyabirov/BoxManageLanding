@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { COMPANY_NAME, CONTACT_EMAIL, DISPATCH_APP, DRIVER_APP, demoHref } from '../config'
+import { COMPANY_NAME, CONTACT_EMAIL, DISPATCH_APP, DRIVER_APP } from '../config'
 import { useDemoModal } from '../context/DemoModalContext'
 import { Logo } from './Logo'
 
 export function Footer() {
   const { openDemo } = useDemoModal()
-  const link = 'inline-flex min-h-9 items-center text-[14.5px] text-ink2 transition-colors hover:text-ink'
+  const link = 'inline-flex min-h-9 items-center text-[15.5px] text-ink2 transition-colors hover:text-ink'
   const cols = [
     [
       'Product',
@@ -36,7 +36,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Logo size={36} />
-            <p className="mt-4 max-w-[300px] text-[14.5px] leading-relaxed text-ink2">
+            <p className="mt-4 max-w-[340px] text-[15.5px] leading-relaxed text-ink2">
               The dispatch platform for box truck fleets, customized for each company, from hiring to P&amp;L. Made by {COMPANY_NAME}.
             </p>
             <a href={`mailto:${CONTACT_EMAIL}`} className="mt-3 inline-flex min-h-9 items-center text-[14.5px] font-semibold text-brand-ink hover:underline">
@@ -61,12 +61,7 @@ export function Footer() {
             <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-ink3">Company</p>
             <ul className="mt-3 space-y-0.5">
               <li>
-                <a href={demoHref('footer')} target="_blank" rel="noopener" className={link}>
-                  Live demo
-                </a>
-              </li>
-              <li>
-                <button type="button" onClick={openDemo} className={link}>
+                <button type="button" onClick={(e) => openDemo(e, 'Footer link')} className={link}>
                   Book a demo
                 </button>
               </li>

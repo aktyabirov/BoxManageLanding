@@ -72,7 +72,7 @@ export function HowItWorks() {
         />
 
         {/* Wide: list and stage. */}
-        <div ref={stage} className="mt-14 hidden grid-cols-[minmax(300px,380px)_1fr] gap-12 lg:grid" onPointerEnter={() => setHold(true)} onPointerLeave={() => setHold(false)}>
+        <div ref={stage} className="mt-14 hidden grid-cols-[minmax(320px,440px)_1fr] gap-12 lg:grid" onPointerEnter={() => setHold(true)} onPointerLeave={() => setHold(false)}>
           <div role="tablist" aria-orientation="vertical" aria-label="Steps" onKeyDown={onKey} className="space-y-1.5" data-reveal style={{ '--i': 3 }}>
             {STEPS.map((s, i) => {
               const on = step === i
@@ -100,9 +100,9 @@ export function HowItWorks() {
                     >
                       {i + 1}
                     </span>
-                    <span className={cn('text-[16px] font-bold tracking-tight transition-colors', on ? 'text-ink' : 'text-ink2')}>{s.title}</span>
+                    <span className={cn('text-[18px] font-bold tracking-tight transition-colors', on ? 'text-ink' : 'text-ink2')}>{s.title}</span>
                   </span>
-                  <span className={cn('block pl-10 pt-1.5 text-[14.5px] leading-relaxed transition-colors duration-200', on ? 'text-ink2' : 'text-ink3')}>{s.text}</span>
+                  <span className={cn('block pl-10 pt-1.5 text-[16px] leading-relaxed transition-colors duration-200', on ? 'text-ink2' : 'text-ink3')}>{s.text}</span>
                   {on && auto && (
                     <span className="absolute inset-x-5 bottom-0 h-[2px] overflow-hidden rounded-full bg-line" aria-hidden="true">
                       <span key={step} className="block h-full origin-left bg-brand" style={{ animation: `fill-x ${STEP_MS}ms linear both` }} />
@@ -159,9 +159,9 @@ function NarrowStep({ s, i }) {
     <li ref={ref}>
       <div className="flex items-center gap-3" data-reveal>
         <span className="tnum grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand text-[13px] font-bold text-on-brand">{i + 1}</span>
-        <h3 className="text-[18px] font-bold tracking-tight text-ink">{s.title}</h3>
+        <h3 className="text-[20px] font-bold tracking-tight text-ink">{s.title}</h3>
       </div>
-      <p className="mt-2 text-[15px] leading-relaxed text-ink2" data-reveal style={{ '--i': 1 }}>
+      <p className="mt-2 text-[16px] leading-relaxed text-ink2" data-reveal style={{ '--i': 1 }}>
         {s.text}
       </p>
       <div className="mt-4 rounded-[20px] border border-line bg-ground p-2.5" data-reveal style={{ '--i': 2 }}>

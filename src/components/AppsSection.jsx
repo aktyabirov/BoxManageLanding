@@ -65,14 +65,14 @@ export function AppsSection() {
               <div className="flex items-center gap-3">
                 <img src={asset('logo/logo-mark.svg')} alt="" className="h-11 w-11 rounded-xl bg-sheet p-1.5 shadow-[var(--shadow)]" />
                 <div>
-                  <h3 className="text-[22px] font-extrabold tracking-tight text-ink">{a.name}</h3>
-                  <p className="text-[13.5px] font-semibold text-brand-ink">{a.who}</p>
+                  <h3 className="text-[26px] font-extrabold tracking-tight text-ink">{a.name}</h3>
+                  <p className="text-[15px] font-semibold text-brand-ink">{a.who}</p>
                 </div>
               </div>
-              <p className="mt-4 text-[15.5px] leading-relaxed text-ink2">{a.lede}</p>
+              <p className="mt-4 text-[17px] leading-relaxed text-ink2">{a.lede}</p>
               <ul className="mt-5 space-y-2.5">
                 {a.points.map((p) => (
-                  <li key={p} className="flex gap-2.5 text-[14.5px] text-ink">
+                  <li key={p} className="flex gap-2.5 text-[16px] text-ink">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-green" strokeWidth={3} aria-hidden="true" />
                     {p}
                   </li>

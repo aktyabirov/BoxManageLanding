@@ -133,7 +133,7 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-ground font-sans text-ink antialiased;
+    @apply antialiased;
     font-feature-settings: "cv11", "ss01";
     text-rendering: optimizeLegibility;
     overflow-x: clip;
@@ -158,18 +158,46 @@
   }
 }
 
+/* ── Page ground, outside every layer on purpose ─────────────────────────────
+ * Layered rules lose to any unlayered rule, so a host page's own reset (the artifact preview
+ * sets the body's font and background) used to keep the page white in dark mode while the cards
+ * turned dark. These two rules sit outside @layer and win, on the site and in previews alike. */
+html:root {
+  background: var(--ground);
+}
+html:root body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Big screens: the whole page scales up a little, so it fills the screen instead of floating in the middle. */
+@media (min-width: 1680px) {
+  html:root {
+    zoom: 1.1;
+  }
+}
+@media (min-width: 1900px) {
+  html:root {
+    zoom: 1.2;
+  }
+}
+@media (min-width: 2300px) {
+  html:root {
+    zoom: 1.4;
+  }
+}
+
 /* ── Building blocks ──────────────────────────────────────────────────────── */
+/* Content runs up to 1440 px wide with side margins that grow with the screen (20 to 48 px). */
 @utility wrap {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin-inline: auto;
-  padding-inline: 20px;
-  @media (width >= 640px) {
-    padding-inline: 24px;
-  }
-  @media (width >= 1024px) {
-    padding-inline: 32px;
-  }
+  padding-inline: clamp(20px, 3.2vw, 48px);
 }
 
 /* Buttons press down to 0.97 and spring back when let go. */
@@ -265,7 +293,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -284,11 +312,11 @@
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.08;
-  font-size: clamp(30px, 4.2vw, 46px);
+  font-size: clamp(32px, 3.7vw, 58px);
   text-wrap: balance;
 }
 @utility lede {
-  font-size: clamp(16px, 1.6vw, 18px);
+  font-size: clamp(17px, 1.35vw, 20px);
   line-height: 1.6;
   color: var(--ink2);
   text-wrap: pretty;

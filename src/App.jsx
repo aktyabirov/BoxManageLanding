@@ -16,6 +16,18 @@ export default function App() {
           </DemoModalProvider>
         }
       />
+      {/* Direct link for ads and posts: the landing page with the Book a demo form already open. */}
+      {['/book-demo', '/book', '/demo'].map((path) => (
+        <Route
+          key={path}
+          path={path}
+          element={
+            <DemoModalProvider>
+              <LandingPage openForm />
+            </DemoModalProvider>
+          }
+        />
+      ))}
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsAndConditions />} />

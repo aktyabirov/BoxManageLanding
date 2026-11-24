@@ -27,8 +27,10 @@ function apiPlugin() {
       const phone = String(body.phone ?? '').trim()
       const company = String(body.company ?? '').trim()
       const message = String(body.message ?? '').trim()
+      const source = String(body.source ?? '').trim().slice(0, 60)
+      const page = String(body.page ?? '').trim()
       if (!name || !phone) throw Object.assign(new Error('Name and phone are required'), { status: 400 })
-      await sendDemoToTelegram({ name, phone, company, message }, env)
+      await sendDemoToTelegram({ name, phone, company, message, source, page }, env)
     },
     '/api/delete-account': async (body, env) => {
       const phone = String(body.phone ?? '').trim()

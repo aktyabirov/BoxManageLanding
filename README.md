@@ -1,6 +1,6 @@
 # BoxTruckManage Landing
 
-Marketing site for [BoxTruckManage](https://boxtruckmanage.com), the dispatch platform for box truck fleets. It sends visitors to the interactive demo at [demo.boxtruckmanage.com](https://demo.boxtruckmanage.com) and to the BTM Driver and BTM Dispatch apps.
+Marketing site for [BoxTruckManage](https://boxtruckmanage.com), the dispatch platform for box truck fleets, customized for each company. The main call to action is **Book a demo**: the form sends each request to the team's Telegram group.
 
 React 19, Vite and Tailwind CSS v4. Hosted on Netlify.
 
@@ -15,6 +15,7 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ## Design
 
+- Layout: content up to 1440 px wide; on screens 1680 px and wider the whole page scales up (`zoom` in `src/index.css`).
 - The look is the web app's Cobalt (light) and Cobalt Night (dark) themes: the colour tokens in `src/index.css` are copied from the app, the font is Plus Jakarta Sans (self-hosted through `@fontsource-variable`). The theme switch in the header stores the choice in `localStorage` (`btm-landing-theme`).
 - Design system: `design-system/boxtruckmanage/MASTER.md`, generated with the UI/UX Pro Max skill.
 - Every product shot on the page is HTML drawn from the demo's own pages and sample company (Redwood Freight LLC). Names, phones and brokers are invented. The phone screens in `public/apps/` are the App Store screenshots of both apps.
@@ -32,27 +33,29 @@ Open [http://localhost:5173](http://localhost:5173).
 | `src/components/MoneySection.jsx` | Accounting, loads, brokers |
 | `src/components/AppsSection.jsx` | BTM Driver and BTM Dispatch |
 | `src/lib/motion.js` | Scroll reveal, in-view, count-up, FLIP |
-| `src/config.js` | Demo URL (with utm tags per button), store links, contact email |
+| `src/config.js` | Store links, contact email, preview flag |
+| `src/components/PricingSection.jsx` | Price range ($300 to $1,200 a month) and what is included |
+| `src/components/BookDemoModal.jsx` | The Book a demo form |
 
 ## Book a demo form
 
-Demo requests are sent to Telegram:
+Every request goes to Telegram with the name, phone, company, message, the button it came from and the page address (so utm tags show which ad or post brought the visitor).
 
-- **Local dev:** `/api/book-demo` (Vite middleware, reads `.env`)
-- **Production:** `/.netlify/functions/book-demo` (Netlify serverless)
+- **Link for ads and posts:** https://boxtruckmanage.com/book-demo opens the page with the form already open (`/book` and `/demo` work too). Add utm tags as needed, for example `https://boxtruckmanage.com/book-demo?utm_source=instagram&utm_campaign=reel_nov`.
+- **Chat:** the team group `-5363956866` is the default (`DEFAULT_CHAT_ID` in `server/telegram.js`). Set `TELEGRAM_CHAT_ID` to send somewhere else. The old `USER_ID` variable is ignored. The bot must be a member of the group.
+- **Bot token:** `BOT_TOKEN`, set on Netlify (never in frontend code or `VITE_*` variables):
 
-Create a `.env` file with:
-
-```env
-BOT_TOKEN=your_bot_token_from_botfather
-USER_ID=your_telegram_user_id
+```bash
+npx netlify-cli login
+npx netlify-cli link
+npx netlify-cli env:set BOT_TOKEN "PASTE_BOT_TOKEN_HERE"
 ```
 
-**Never** put `BOT_TOKEN` in frontend code or `VITE_*` env vars.
+Environment changes apply from the next deploy. Locally, put `BOT_TOKEN=...` in `.env` and requests go through the Vite middleware at `/api/book-demo`; production uses `/.netlify/functions/book-demo`. Account deletion requests (`/deleteaccount`) use the same bot and chat.
 
 ## Deploy
 
-Netlify builds from `main` with the settings in `netlify.toml` (`npm run build`, publish `dist`). Set `BOT_TOKEN` and `USER_ID` under **Site configuration > Environment variables**.
+Netlify builds from `main` with the settings in `netlify.toml` (`npm run build`, publish `dist`). `BOT_TOKEN` lives under **Site configuration > Environment variables**.
 
 ## Preview build
 

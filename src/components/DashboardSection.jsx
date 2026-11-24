@@ -217,7 +217,7 @@ export function DashboardSection() {
         {/* Leaderboard */}
         <div className="mt-20 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-14">
           <div>
-            <h3 className="text-[clamp(24px,2.6vw,30px)] font-extrabold tracking-tight text-ink" data-reveal>
+            <h3 className="text-[clamp(24px,2.4vw,36px)] font-extrabold tracking-tight text-ink" data-reveal>
               A leaderboard the team checks on its own
             </h3>
             <p className="lede mt-3" data-reveal style={{ '--i': 1 }}>
@@ -225,7 +225,7 @@ export function DashboardSection() {
               and the loads behind each one.
             </p>
           </div>
-          <ul className="space-y-2.5 text-[15px] text-ink2" data-reveal style={{ '--i': 2 }}>
+          <ul className="space-y-3 text-[16.5px] text-ink2" data-reveal style={{ '--i': 2 }}>
             {['Profit = carrier pay minus driver pay', 'Cancelled and rejected loads are left out', 'Days in Central time, updates by itself'].map((t) => (
               <li key={t} className="flex items-center gap-2.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />

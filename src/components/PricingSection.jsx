@@ -14,7 +14,6 @@ import {
 import { DISPATCH_APP_NAME, DRIVER_APP_NAME } from '../config'
 import { useInView } from '../lib/motion'
 import { BookDemoButton } from './BookDemoButton'
-import { TryDemoButton } from './TryDemoButton'
 
 /* What a customer gets: the people and the work behind the software first, then the platform. */
 const SERVICE = [
@@ -39,8 +38,8 @@ function Item({ Icon, title, text, i }) {
         <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
       </span>
       <span className="min-w-0">
-        <span className="block text-[15.5px] font-bold tracking-tight text-ink">{title}</span>
-        <span className="mt-0.5 block text-[14px] leading-relaxed text-ink2">{text}</span>
+        <span className="block text-[17.5px] font-bold tracking-tight text-ink">{title}</span>
+        <span className="mt-1 block text-[15.5px] leading-relaxed text-ink2">{text}</span>
       </span>
     </li>
   )
@@ -55,11 +54,11 @@ function PriceCard() {
       <div className="pointer-events-none absolute right-[-120px] top-[-140px] h-[320px] w-[320px] rounded-full bg-[radial-gradient(closest-side,var(--glow),transparent)]" />
       <p className="relative text-[13px] font-bold uppercase tracking-[0.08em] text-ink3">Per month</p>
       <p className="relative mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-ink">
-        <span className="tnum text-[clamp(44px,6vw,60px)] font-extrabold leading-none tracking-[-0.04em]">$300</span>
+        <span className="tnum text-[clamp(44px,5.4vw,76px)] font-extrabold leading-none tracking-[-0.04em]">$300</span>
         <span className="text-[20px] font-semibold text-ink3">to</span>
-        <span className="tnum text-[clamp(44px,6vw,60px)] font-extrabold leading-none tracking-[-0.04em]">$1,200</span>
+        <span className="tnum text-[clamp(44px,5.4vw,76px)] font-extrabold leading-none tracking-[-0.04em]">$1,200</span>
       </p>
-      <p className="relative mt-3 text-[15.5px] leading-relaxed text-ink2">Your price depends on your volume. Everything below is included.</p>
+      <p className="relative mt-3 text-[17px] leading-relaxed text-ink2">Your price depends on your volume. Everything below is included.</p>
 
       {/* The range: fills from the minimum to the maximum, both ends marked. */}
       <div className="relative mt-7" aria-hidden="true">
@@ -87,9 +86,9 @@ function PriceCard() {
         </span>
       </div>
 
-      <div className="relative mt-8 flex flex-col gap-3 sm:flex-row">
-        <BookDemoButton variant="primary" className="btn-lg w-full sm:w-auto">Get your price</BookDemoButton>
-        <TryDemoButton place="pricing" size="lg" variant="quiet" className="w-full sm:w-auto" />
+      <div className="relative mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+        <BookDemoButton place="Pricing" size="lg" arrow className="w-full sm:w-auto" />
+        <p className="text-[14px] text-ink3">We tell you your price on the call.</p>
       </div>
     </div>
   )
@@ -117,7 +116,7 @@ export function PricingSection() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-2">
           <div className="flex flex-col rounded-[24px] border border-brand/25 bg-brand-soft/40 p-6 sm:p-8">
-            <h3 className="text-[19px] font-extrabold tracking-tight text-ink" data-reveal>
+            <h3 className="text-[23px] font-extrabold tracking-tight text-ink" data-reveal>
               Beyond the software
             </h3>
             <ul className="mt-6 flex flex-1 flex-col justify-between gap-5">
@@ -127,7 +126,7 @@ export function PricingSection() {
             </ul>
           </div>
           <div className="rounded-[24px] border border-line bg-sheet p-6 shadow-[var(--shadow)] sm:p-8">
-            <h3 className="text-[19px] font-extrabold tracking-tight text-ink" data-reveal>
+            <h3 className="text-[23px] font-extrabold tracking-tight text-ink" data-reveal>
               The whole platform
             </h3>
             <ul className="mt-6 grid gap-5 sm:grid-cols-2">
