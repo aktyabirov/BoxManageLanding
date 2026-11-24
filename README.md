@@ -64,7 +64,7 @@ Leads from Meta instant forms (Facebook and Instagram lead ads) go to the same T
 | `META_GRAPH_VERSION` | Optional, default `v23.0` |
 | `META_LEADS_CHAT_ID` | Optional, another chat for leads only |
 
-Until both Meta variables are set the function does nothing. To check it on demand, open `/.netlify/functions/meta-leads-check`: it runs the same check right away and returns which settings are present, how many forms and new leads it found, how many it posted, and any error (no lead details or tokens). Logic and tests: `server/metaLeads.js`, `npm test`. To try it end to end, create a lead with Meta's Lead Ads Testing Tool; it arrives marked `(TEST)`.
+Until both Meta variables are set the function does nothing. To check it on demand, open `/.netlify/functions/meta-leads-check`: it runs the same check right away and returns which settings are present, how many forms and new leads it found, how many it posted, and any error (no lead details or tokens). Add `?peek=1` to only read the saved state, including when the last run happened and whether the schedule or the check made it. Logic and tests: `server/metaLeads.js`, `npm test`. To try it end to end, create a lead with Meta's Lead Ads Testing Tool; it arrives marked `(TEST)`.
 
 ## Deploy
 

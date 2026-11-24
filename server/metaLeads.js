@@ -181,7 +181,7 @@ export async function sendTelegramHtml(text, env = process.env, fetchImpl = fetc
 }
 
 /* store: { get(): Promise<state|null>, set(state): Promise<void> } */
-export async function runMetaLeads({ env = process.env, store, now = Date.now(), fetchImpl = fetch, send = sendTelegramHtml }) {
+export async function runMetaLeads({ env = process.env, store, now = Date.now(), fetchImpl = fetch, send = sendTelegramHtml, by = 'schedule' }) {
   if (!env.META_ACCESS_TOKEN || !env.META_PAGE_ID) {
     return { skipped: 'META_ACCESS_TOKEN or META_PAGE_ID is not set' }
   }
@@ -220,6 +220,7 @@ export async function runMetaLeads({ env = process.env, store, now = Date.now(),
   await store.set({
     since: error ? since : Math.max(since, nowSeconds - OVERLAP_SECONDS),
     sent: [...sent].slice(-MAX_REMEMBERED_IDS),
+    lastRun: { at: new Date(now).toISOString(), by, found: fresh.length, delivered, error },
   })
 
   return { forms: forms.length, found: fresh.length, delivered, error }

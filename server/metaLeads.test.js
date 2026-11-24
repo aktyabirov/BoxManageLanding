@@ -143,3 +143,13 @@ test('does nothing until the Meta settings exist', async () => {
   const result = await runMetaLeads({ env: { BOT_TOKEN: 'x' }, store: memoryStore() })
   assert.ok(result.skipped)
 })
+
+test('records the last run and who made it', async () => {
+  const { fetchImpl } = fakeGraph([lead('L1', 10)])
+  const store = memoryStore()
+  await runMetaLeads({ env, store, now, fetchImpl, send: async () => {} })
+  assert.deepEqual(store.peek().lastRun, { at: '2026-12-01T15:30:00.000Z', by: 'schedule', found: 1, delivered: 1, error: null })
+  await runMetaLeads({ env, store, now, fetchImpl, send: async () => {}, by: 'check' })
+  assert.equal(store.peek().lastRun.by, 'check')
+  assert.equal(store.peek().lastRun.found, 0)
+})
