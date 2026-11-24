@@ -4,8 +4,8 @@ import { APP_NAME, COMPANY_NAME, CONTACT_EMAIL, DRIVER_APP_NAME, SITE_URL } from
 function Section({ title, children }) {
   return (
     <section>
-      <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">{title}</h2>
-      <div className="mt-3 space-y-3 text-slate-400">{children}</div>
+      <h2 className="text-lg font-semibold text-ink sm:text-xl">{title}</h2>
+      <div className="mt-3 space-y-3 text-ink2">{children}</div>
     </section>
   )
 }
@@ -83,7 +83,7 @@ export function TermsAndConditions() {
           If you opt in to SMS messages, you consent to receive automated and operational texts
           related to loads, bids, and your account. Message frequency varies. Message and data rates
           may apply. Reply STOP to opt out where supported; reply HELP for help. See our{' '}
-          <a href="/privacy" className="text-brand-400 hover:text-brand-300">
+          <a href="/privacy" className="font-semibold text-brand-ink hover:underline">
             Privacy Policy
           </a>{' '}
           for how we handle contact information.
@@ -148,7 +148,7 @@ export function TermsAndConditions() {
       <Section title="Changes to these Terms">
         <p>
           We may update these Terms from time to time. The current version will be posted at{' '}
-          <a href={`${SITE_URL}/terms`} className="text-brand-400 hover:text-brand-300">
+          <a href={`${SITE_URL}/terms`} className="font-semibold text-brand-ink hover:underline">
             {SITE_URL}/terms
           </a>
           . Continued use after changes constitutes acceptance of the revised Terms.
@@ -160,12 +160,12 @@ export function TermsAndConditions() {
           {COMPANY_NAME}
           <br />
           Email:{' '}
-          <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-400 hover:text-brand-300">
+          <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-brand-ink hover:underline">
             {CONTACT_EMAIL}
           </a>
           <br />
           Website:{' '}
-          <a href={SITE_URL} className="text-brand-400 hover:text-brand-300">
+          <a href={SITE_URL} className="font-semibold text-brand-ink hover:underline">
             {SITE_URL}
           </a>
         </p>

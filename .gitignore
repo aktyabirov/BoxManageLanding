@@ -1,6 +1,9 @@
 node_modules
 dist
+dist-preview
 .DS_Store
 *.local
 .env
 .env.*
+.*
+!.gitignore

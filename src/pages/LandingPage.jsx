@@ -1,31 +1,36 @@
+import { useRef } from 'react'
+import { useReveal } from '../lib/motion'
 import { Navbar } from '../components/Navbar'
 import { Hero } from '../components/Hero'
-import { Features } from '../components/Features'
-import { LoadBoardSection } from '../components/LoadBoardSection'
-import { DriverAppSection } from '../components/DriverAppSection'
-import { ConversationsSection } from '../components/ConversationsSection'
-import { AiSection } from '../components/AiSection'
-import { OperationsSection } from '../components/OperationsSection'
-import { Pricing } from '../components/Pricing'
-import { Founders } from '../components/Founders'
-import { Cta } from '../components/Cta'
+import { HowItWorks } from '../components/HowItWorks'
+import { DashboardSection } from '../components/DashboardSection'
+import { DriversSection } from '../components/DriversSection'
+import { MoneySection } from '../components/MoneySection'
+import { AppsSection } from '../components/AppsSection'
+import { Toolkit } from '../components/Toolkit'
+import { DemoCta } from '../components/DemoCta'
+import { Faq } from '../components/Faq'
 import { Footer } from '../components/Footer'
 
 export function LandingPage() {
+  const root = useRef(null)
+  useReveal(root)
   return (
-    <div className="relative min-h-screen">
+    <div ref={root} className="relative min-h-screen">
+      <a href="#how" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-sheet focus:px-4 focus:py-2 focus:text-ink focus:shadow-[var(--shadow-2)]">
+        Skip to content
+      </a>
       <Navbar />
       <main>
         <Hero />
-        <Features />
-        <LoadBoardSection />
-        <DriverAppSection />
-        <ConversationsSection />
-        <AiSection />
-        <OperationsSection />
-        {/* <Pricing /> */}
-        <Founders />
-        <Cta />
+        <HowItWorks />
+        <DashboardSection />
+        <DriversSection />
+        <MoneySection />
+        <AppsSection />
+        <Toolkit />
+        <DemoCta />
+        <Faq />
       </main>
       <Footer />
     </div>

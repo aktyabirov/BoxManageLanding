@@ -13,9 +13,9 @@ import { cn } from '../lib/cn'
 
 function InfoBlock({ title, children }) {
   return (
-    <section className="rounded-2xl border border-hair bg-white/[0.03] p-5 sm:p-6">
-      <h2 className="font-display text-lg font-semibold text-ink">{title}</h2>
-      <div className="mt-3 space-y-3 text-sm text-slate-400 sm:text-base">{children}</div>
+    <section className="rounded-2xl border border-line bg-sheet p-5 sm:p-6">
+      <h2 className="text-lg font-semibold text-ink">{title}</h2>
+      <div className="mt-3 space-y-3 text-sm text-ink2 sm:text-base">{children}</div>
     </section>
   )
 }
@@ -60,25 +60,25 @@ export function DeleteAccount() {
   return (
     <LegalLayout title="Delete your account" lastUpdated="July 15, 2026">
       <div className="space-y-6">
-        <p className="text-slate-400">
+        <p className="text-ink2">
           This page is for drivers who use the{' '}
-          <strong className="text-slate-200">{DRIVER_APP_NAME}</strong> mobile app for {APP_NAME},
-          operated by <strong className="text-slate-200">{COMPANY_NAME}</strong>. Use the
+          <strong className="text-ink">{DRIVER_APP_NAME}</strong> mobile app for {APP_NAME},
+          operated by <strong className="text-ink">{COMPANY_NAME}</strong>. Use the
           form below to request deletion of your driver account and associated personal data.
         </p>
 
         <InfoBlock title="How to request account deletion">
           <ol className="list-decimal space-y-2 pl-5">
             <li>
-              Enter the <strong className="text-slate-200">phone number</strong> or{' '}
-              <strong className="text-slate-200">email address</strong> linked to your {APP_NAME}{' '}
+              Enter the <strong className="text-ink">phone number</strong> or{' '}
+              <strong className="text-ink">email address</strong> linked to your {APP_NAME}{' '}
               driver account.
             </li>
             <li>Optionally add a short reason to help us verify your request.</li>
             <li>Submit the form. Our team will process your request within 30 days.</li>
             <li>
               You may also email{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-400 hover:text-brand-300">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-brand-ink hover:underline">
                 {CONTACT_EMAIL}
               </a>{' '}
               with the subject line &quot;Account deletion request&quot;.
@@ -117,7 +117,7 @@ export function DeleteAccount() {
 
         <InfoBlock title="Processing time">
           <p>
-            We aim to complete account deletion requests within <strong className="text-slate-200">30 days</strong>.
+            We aim to complete account deletion requests within <strong className="text-ink">30 days</strong>.
             You will receive confirmation once your account has been deleted. During processing, your
             account may be deactivated immediately upon verification.
           </p>
@@ -125,23 +125,23 @@ export function DeleteAccount() {
 
         <div className="rounded-2xl panel-brand p-5 sm:p-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500/15 text-rose-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-bg text-red">
               <Trash2 className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="font-display text-lg font-semibold text-ink">
+              <h2 className="text-lg font-semibold text-ink">
                 Submit deletion request
               </h2>
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-ink3">
                 {DRIVER_APP_NAME} app · {COMPANY_NAME}
               </p>
             </div>
           </div>
 
           {status === 'success' ? (
-            <div className="mt-6 rounded-xl bg-emerald-500/10 px-4 py-5 text-center ring-1 ring-emerald-500/25">
-              <p className="font-semibold text-emerald-300">Request received</p>
-              <p className="mt-2 text-sm text-slate-400">
+            <div className="mt-6 rounded-xl bg-green-bg px-4 py-5 text-center">
+              <p className="font-semibold text-green">Request received</p>
+              <p className="mt-2 text-sm text-ink2">
                 We will process your account deletion within 30 days. If we need additional
                 information to verify your identity, we will contact you at the phone or email
                 you provided.
@@ -149,13 +149,13 @@ export function DeleteAccount() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-              <p className="text-sm text-slate-500">
-                Provide at least one identifier — the phone number or email you use to sign in to
+              <p className="text-sm text-ink3">
+                Provide at least one identifier: the phone number or email you use to sign in to
                 the driver app.
               </p>
 
               <div>
-                <label className="mb-1.5 block text-xs font-medium text-slate-400">
+                <label className="mb-1.5 block text-xs font-medium text-ink2">
                   Phone number
                 </label>
                 <input
@@ -170,15 +170,15 @@ export function DeleteAccount() {
 
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t border-hair" />
+                  <span className="w-full border-t border-line" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-sheet px-2 text-slate-600">or</span>
+                  <span className="bg-sheet px-2 text-ink3">or</span>
                 </div>
               </div>
 
               <div>
-                <label className="mb-1.5 block text-xs font-medium text-slate-400">
+                <label className="mb-1.5 block text-xs font-medium text-ink2">
                   Email address
                 </label>
                 <input
@@ -192,7 +192,7 @@ export function DeleteAccount() {
               </div>
 
               <div>
-                <label className="mb-1.5 block text-xs font-medium text-slate-400">
+                <label className="mb-1.5 block text-xs font-medium text-ink2">
                   Reason (optional)
                 </label>
                 <textarea
@@ -205,7 +205,7 @@ export function DeleteAccount() {
               </div>
 
               {error && (
-                <p className="text-sm text-rose-400" role="alert">
+                <p className="text-sm text-red" role="alert">
                   {error}
                 </p>
               )}
@@ -233,13 +233,13 @@ export function DeleteAccount() {
           )}
         </div>
 
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-ink3">
           See also our{' '}
-          <a href="/privacy" className="text-brand-400 hover:text-brand-300">
+          <a href="/privacy" className="font-semibold text-brand-ink hover:underline">
             Privacy Policy
           </a>{' '}
           at{' '}
-          <a href={`${SITE_URL}/privacy`} className="text-brand-400 hover:text-brand-300">
+          <a href={`${SITE_URL}/privacy`} className="font-semibold text-brand-ink hover:underline">
             {SITE_URL}/privacy
           </a>
           .

@@ -1,6 +1,8 @@
 # BoxTruckManage Landing
 
-Marketing landing page for [BoxTruckManage](https://boxtruckmanage.com) — AI-powered box truck fleet management.
+Marketing site for [BoxTruckManage](https://boxtruckmanage.com), the dispatch platform for box truck fleets. It sends visitors to the interactive demo at [demo.boxtruckmanage.com](https://demo.boxtruckmanage.com) and to the BTM Driver and BTM Dispatch apps.
+
+React 19, Vite and Tailwind CSS v4. Hosted on Netlify.
 
 ## Quick start
 
@@ -11,68 +13,57 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173).
 
-## Configuration
+## Design
 
-Copy `.env.example` to `.env` and set your Telegram bot credentials:
+- The look is the web app's Cobalt (light) and Cobalt Night (dark) themes: the colour tokens in `src/index.css` are copied from the app, the font is Plus Jakarta Sans (self-hosted through `@fontsource-variable`). The theme switch in the header stores the choice in `localStorage` (`btm-landing-theme`).
+- Design system: `design-system/boxtruckmanage/MASTER.md`, generated with the UI/UX Pro Max skill.
+- Every product shot on the page is HTML drawn from the demo's own pages and sample company (Redwood Freight LLC). Names, phones and brokers are invented. The phone screens in `public/apps/` are the App Store screenshots of both apps.
+- Motion follows the rules in [NurulloMahmud/skill-library](https://github.com/NurulloMahmud/skill-library) (`animations/`): ease-out entrances, exits 20% shorter, 30 to 40 ms staggers, springs with a little overshoot sampled into CSS `linear()` (see the comment above `--spring` in `src/index.css`), transform and opacity only, and a still final state for `prefers-reduced-motion`.
+
+## Where things are
+
+| Path | What |
+|------|------|
+| `src/pages/LandingPage.jsx` | Section order |
+| `src/components/Hero.jsx`, `mock/LiveBoard.jsx` | Hero with the streaming load board |
+| `src/components/HowItWorks.jsx`, `mock/steps.jsx` | Five steps from posted load to paid driver |
+| `src/components/DashboardSection.jsx`, `mock/StateMap.jsx` | Dashboard, US map (shapes in `src/data/usStates.json`, loaded on demand), leaderboard |
+| `src/components/DriversSection.jsx` | Tracking, hiring, onboarding |
+| `src/components/MoneySection.jsx` | Accounting, loads, brokers |
+| `src/components/AppsSection.jsx` | BTM Driver and BTM Dispatch |
+| `src/lib/motion.js` | Scroll reveal, in-view, count-up, FLIP |
+| `src/config.js` | Demo URL (with utm tags per button), store links, contact email |
+
+## Book a demo form
+
+Demo requests are sent to Telegram:
+
+- **Local dev:** `/api/book-demo` (Vite middleware, reads `.env`)
+- **Production:** `/.netlify/functions/book-demo` (Netlify serverless)
+
+Create a `.env` file with:
 
 ```env
 BOT_TOKEN=your_bot_token_from_botfather
 USER_ID=your_telegram_user_id
 ```
 
-Demo requests are sent to your Telegram chat:
-
-- **Local dev:** `/api/book-demo` (Vite middleware, reads `.env`)
-- **Production:** `/.netlify/functions/book-demo` (Netlify serverless)
-
 **Never** put `BOT_TOKEN` in frontend code or `VITE_*` env vars.
 
-## Deploy to Netlify
+## Deploy
 
-### Option A — Git (recommended)
+Netlify builds from `main` with the settings in `netlify.toml` (`npm run build`, publish `dist`). Set `BOT_TOKEN` and `USER_ID` under **Site configuration > Environment variables**.
 
-1. Push this repo to GitHub/GitLab/Bitbucket.
-2. In [Netlify](https://app.netlify.com): **Add new site** → **Import an existing project**.
-3. Build settings are read from `netlify.toml` automatically:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-4. **Site configuration → Environment variables**, add:
-   - `BOT_TOKEN` — from [@BotFather](https://t.me/BotFather)
-   - `USER_ID` — your Telegram numeric user/chat ID
-5. Deploy. Connect custom domain `boxtruckmanage.com` under **Domain management**.
+## Preview build
 
-### Option B — Netlify CLI
+A self-contained copy (relative paths, routes kept in memory, form switched off) for sharing before a release:
 
 ```bash
-npm install -g netlify-cli
-netlify login
-netlify init
-netlify env:set BOT_TOKEN "your_token"
-netlify env:set USER_ID "your_user_id"
-netlify deploy --prod
+VITE_PREVIEW=1 npx vite build --base ./ --outDir dist-preview
 ```
 
-### Test the form after deploy
+## Public URLs used by the store listings
 
-1. Submit **Book demo** on the live site.
-2. In Netlify: **Functions** — confirm `book-demo` is listed (if missing, `netlify/functions/` was not deployed; redeploy from Git with the full repo).
-3. Open `https://YOUR-SITE.netlify.app/.netlify/functions/book-demo` in the browser — you should see `{"error":"Method not allowed"}` (GET), not 404.
-4. Check **Functions → book-demo → Logs** if Telegram messages fail (often missing `BOT_TOKEN` / `USER_ID` env vars).
-
-## Build locally
-
-```bash
-npm run build
-npm run preview
-```
-
-## Mobile app store URLs
-
-Use these public links in App Store / Google Play submissions:
-
-- **Privacy Policy:** https://boxtruckmanage.com/privacy
-- **Terms & Conditions:** https://boxtruckmanage.com/terms
-
-Alternate paths: `/privacy-policy` and `/terms-and-conditions`.
-
-- **Delete account URL (App Store / Google Play):** https://boxtruckmanage.com/deleteaccount
+- Privacy Policy: https://boxtruckmanage.com/privacy (also `/privacy-policy`)
+- Terms & Conditions: https://boxtruckmanage.com/terms (also `/terms-and-conditions`)
+- Delete account: https://boxtruckmanage.com/deleteaccount (also `/delete-account`, `/account-deletion`)

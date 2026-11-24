@@ -1,26 +1,43 @@
+import { asset } from '../config'
 import { cn } from '../lib/cn'
 
-/* The BoxManage cube, straight from public/logo. `logo-mark-dark.svg` is the dark-skin
- * cut — its three faces are exactly --logo-f1 / --logo-f2 / --logo-f3. */
-export function LogoMark({ className }) {
+/* The BoxTruckManage cube, the same file the web app uses on both skins. */
+export function LogoMark({ size = 32, className }) {
   return (
     <img
-      src="/logo/logo-mark-dark.svg"
+      src={asset('logo/logo-mark.svg')}
       alt=""
       aria-hidden="true"
       draggable={false}
-      className={cn('select-none', className ?? 'h-8 w-8')}
+      width={size}
+      height={size}
+      className={cn('block shrink-0 select-none', className)}
+      style={{ width: size, height: size }}
     />
   )
 }
 
-/* Mark + wordmark, the pair used in the navbar, footer and legal header. */
-export function Logo({ className, markClassName, textClassName }) {
+/* Mark beside the two-line wordmark (BOXTRUCK over a letter-spaced MANAGE), as in the app. */
+export function Logo({ size = 32, className, tone = 'ink' }) {
+  const word = Math.round(size * 0.47)
+  const sub = Math.max(8, Math.round(word * 0.56))
+  const light = tone === 'light'
   return (
-    <span className={cn('flex items-center gap-2.5', className)}>
-      <LogoMark className={markClassName} />
-      <span className={cn('font-display font-bold tracking-tight text-ink', textClassName)}>
-        BoxTruck<span className="text-brand-400">Manage</span>
+    <span className={cn('flex items-center', className)} style={{ gap: Math.round(size * 0.3) }}>
+      <LogoMark size={size} />
+      <span className="flex flex-col items-start gap-[3px]">
+        <span
+          className={cn('font-extrabold tracking-[-0.03em]', light ? 'text-white' : 'text-ink')}
+          style={{ fontSize: word, lineHeight: 1 }}
+        >
+          <span className={light ? 'text-[#8AB4FF]' : 'text-brand-ink'}>BOX</span>TRUCK
+        </span>
+        <span
+          className={cn('font-semibold uppercase tracking-[0.38em]', light ? 'text-white/55' : 'text-ink3')}
+          style={{ fontSize: sub, lineHeight: 1 }}
+        >
+          Manage
+        </span>
       </span>
     </span>
   )

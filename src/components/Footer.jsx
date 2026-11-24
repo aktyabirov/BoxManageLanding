@@ -1,61 +1,92 @@
 import { Link } from 'react-router-dom'
-import { LogoMark } from './Logo'
-import { APP_NAME, COMPANY_NAME } from '../config'
+import { COMPANY_NAME, CONTACT_EMAIL, DISPATCH_APP, DRIVER_APP, demoHref } from '../config'
 import { useDemoModal } from '../context/DemoModalContext'
-
-const footerLinks = [
-  { href: '#features', label: 'Features' },
-  { href: '#load-board', label: 'Load board' },
-  { href: '#driver-app', label: 'Driver app' },
-  { href: '#conversations', label: 'Conversations' },
-  { href: '#ai-loads', label: 'AI loads' },
-  { href: '#operations', label: 'Team & money' },
-  { href: '#founders', label: 'Founders' },
-]
+import { Logo } from './Logo'
 
 export function Footer() {
   const { openDemo } = useDemoModal()
+  const link = 'inline-flex min-h-9 items-center text-[14.5px] text-ink2 transition-colors hover:text-ink'
+  const cols = [
+    [
+      'Product',
+      [
+        ['How it works', '#how'],
+        ['Dashboard', '#dashboard'],
+        ['Drivers', '#drivers'],
+        ['Money', '#money'],
+        ['FAQ', '#faq'],
+      ],
+    ],
+    [
+      'Apps',
+      [
+        ['BTM Driver for iPhone', DRIVER_APP.appStore, true],
+        ['BTM Driver for Android', DRIVER_APP.googlePlay, true],
+        ['BTM Dispatch for iPhone', DISPATCH_APP.appStore, true],
+        ['BTM Dispatch for Android', DISPATCH_APP.googlePlay, true],
+      ],
+    ],
+  ]
 
   return (
-    <footer className="border-t border-hair py-12">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-4 sm:flex-row sm:px-6 lg:px-8">
-        <div className="flex items-center gap-2.5">
-          <LogoMark className="-ml-1 h-10 w-10" />
+    <footer className="border-t border-line bg-ground pt-16 pb-10">
+      <div className="wrap">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <p className="font-display text-sm font-bold text-ink">{APP_NAME}</p>
-            <p className="text-xs text-slate-600">by {COMPANY_NAME}</p>
-          </div>
-        </div>
-
-        <nav className="flex flex-wrap justify-center gap-6">
-          {footerLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-slate-500 transition-colors hover:text-slate-300"
-            >
-              {l.label}
+            <Logo size={36} />
+            <p className="mt-4 max-w-[300px] text-[14.5px] leading-relaxed text-ink2">
+              The dispatch platform for box truck fleets, from posted load to paid driver. Made by {COMPANY_NAME}.
+            </p>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="mt-3 inline-flex min-h-9 items-center text-[14.5px] font-semibold text-brand-ink hover:underline">
+              {CONTACT_EMAIL}
             </a>
+          </div>
+          {cols.map(([title, items]) => (
+            <nav key={title} aria-label={title}>
+              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-ink3">{title}</p>
+              <ul className="mt-3 space-y-0.5">
+                {items.map(([label, href, ext]) => (
+                  <li key={label}>
+                    <a href={href} className={link} {...(ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           ))}
-          <Link to="/privacy" className="text-sm text-slate-500 transition-colors hover:text-slate-300">
-            Privacy
-          </Link>
-          <Link to="/terms" className="text-sm text-slate-500 transition-colors hover:text-slate-300">
-            Terms
-          </Link>
-          <Link to="/deleteaccount" className="text-sm text-slate-500 transition-colors hover:text-slate-300">
-            Delete account
-          </Link>
-          <button
-            type="button"
-            onClick={openDemo}
-            className="text-sm text-slate-500 transition-colors hover:text-slate-300"
-          >
-            Book demo
-          </button>
-        </nav>
-
-        <p className="text-xs text-slate-600">
+          <nav aria-label="Company">
+            <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-ink3">Company</p>
+            <ul className="mt-3 space-y-0.5">
+              <li>
+                <a href={demoHref('footer')} target="_blank" rel="noopener" className={link}>
+                  Live demo
+                </a>
+              </li>
+              <li>
+                <button type="button" onClick={openDemo} className={link}>
+                  Book a demo
+                </button>
+              </li>
+              <li>
+                <Link to="/privacy" className={link}>
+                  Privacy policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className={link}>
+                  Terms and conditions
+                </Link>
+              </li>
+              <li>
+                <Link to="/deleteaccount" className={link}>
+                  Delete account
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <p className="mt-12 border-t border-line pt-6 text-[13px] text-ink3">
           © {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.
         </p>
       </div>

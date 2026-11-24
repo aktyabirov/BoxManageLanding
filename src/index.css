@@ -1,435 +1,466 @@
 @import "tailwindcss";
-@import "./fonts.css";
+@import "@fontsource-variable/plus-jakarta-sans";
 
 /* ─────────────────────────────────────────────────────────────────────────────
- * BoxManage dark palette — the product's own colours, stated in oklch.
+ * BoxTruckManage landing - the Cobalt look of the web app.
  *
- * Two layers:
- *   1. @theme — Tailwind's scales, remapped onto this palette. `brand-*` is the
- *      warm orange; `slate-*` is the product's pure-neutral grey ramp (no blue
- *      cast); `emerald / sky(cyan) / amber / rose` are the product's status hues.
- *      Every colour a component already writes therefore lands on-palette with
- *      no class churn.
- *   2. :root — the raw product token names (--paper, --ink, --brand …) for CSS
- *      that wants them directly, same values, same names as the app.
+ * Colours are the app's own Cobalt (light) and Cobalt Night (dark) tokens, copied
+ * from the app's proto.css, so the product shots on this page are the same blues,
+ * greens and oranges people see after they sign in. Components read the raw token
+ * names (--ink, --brand, --cta ...) through Tailwind utilities (text-ink, bg-brand),
+ * and one attribute on <html> swaps every value at once.
+ *
+ * Design system: design-system/boxtruckmanage/MASTER.md (UI/UX Pro Max).
  * ─────────────────────────────────────────────────────────────────────────── */
 
-@theme {
-  /* Gilroy for everything, as the product ships it. It carries both roles here:
-   * `font-display` exists only so the headline class keeps working. */
-  --font-sans: "Gilroy", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Gilroy", var(--font-sans);
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-  /* ── Surfaces — two steps off black, never black itself ─────────────────── */
-  /* The ladder carries a trace of the brand hue — chroma 0.008 at the brand's
-   * own 58°. It is far below the threshold where a surface reads as "orange",
-   * but it stops the greys reading as cold next to the brand fill, which is what
-   * a neutral ramp under a warm accent always does. Neutral values are the same
-   * lightness with chroma 0. */
-  --color-paper: oklch(0.2562 0.008 58);   /* #26221f page background */
-  --color-sheet: oklch(0.2972 0.008 58);   /* #302c29 cards, inputs, panels */
-  --color-sunk: oklch(0.3368 0.008 58);    /* #3a3633 headers, hover, disabled */
-  --color-line: oklch(0.3867 0.008 58);    /* #484340 borders */
-  --color-hair: oklch(0.3485 0.008 58);    /* #3d3936 dividers, hairlines */
+@theme inline {
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-sans);
 
-  /* ── Text ───────────────────────────────────────────────────────────────── */
-  --color-ink: oklch(0.9642 0 0);          /* #f3f3f3 primary — 12:1 on paper */
-  --color-ink2: oklch(0.7348 0 0);         /* #a9a9a9 secondary */
-  --color-ink3: oklch(0.6665 0 0);         /* #949494 tertiary, placeholders */
+  --color-ground: var(--ground);
+  --color-sheet: var(--sheet);
+  --color-sunk: var(--sunk);
+  --color-sunk2: var(--sunk2);
+  --color-line: var(--line);
+  --color-hair: var(--hair);
 
-  /* ── Brand (warm orange) — 500 is the product's #e28122 exactly ─────────── */
-  --color-brand-50: oklch(0.97 0.018 70);
-  --color-brand-100: oklch(0.94 0.038 70);
-  --color-brand-200: oklch(0.89 0.072 68);
-  --color-brand-300: oklch(0.83 0.108 65);
-  --color-brand-400: oklch(0.7653 0.14 61);
-  --color-brand-500: oklch(0.6954 0.1547 58.38);
-  --color-brand-600: oklch(0.63 0.152 52.78);
-  --color-brand-700: oklch(0.54 0.132 50);
-  --color-brand-800: oklch(0.44 0.105 47);
-  --color-brand-900: oklch(0.35 0.08 46);
-  --color-brand-950: oklch(0.2151 0.0452 46.74);
+  --color-ink: var(--ink);
+  --color-ink2: var(--ink2);
+  --color-ink3: var(--ink3);
+  --color-ink4: var(--ink4);
 
-  /* Text that goes ON a brand fill: white measures 2.44:1 there, so it is the
-   * near-black below instead. */
-  --color-brand-fg: oklch(0.2151 0.0452 46.74);
-  --color-brand-hi: oklch(0.7348 0.1504 60.92);
+  --color-brand: var(--brand);
+  --color-brand-press: var(--brand-press);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-ink: var(--brand-ink);
+  --color-sel: var(--sel);
+  --color-on-brand: var(--on-brand);
 
-  /* The mark's three cube faces, one step apart, lit from above. */
-  --color-logo-f1: oklch(0.8474 0.1304 76.61);
-  --color-logo-f2: oklch(0.7313 0.1575 59.05);
-  --color-logo-f3: oklch(0.63 0.152 52.78);
+  --color-green: var(--green);
+  --color-green-bg: var(--green-bg);
+  --color-green-track: var(--green-track);
+  --color-amber: var(--amber);
+  --color-amber-bg: var(--amber-bg);
+  --color-red: var(--red);
+  --color-red-bg: var(--red-bg);
+  --color-violet: var(--violet);
+  --color-violet-bg: var(--violet-bg);
+  --color-gray: var(--gray);
+  --color-gray-bg: var(--gray-bg);
+  --color-rose-row: var(--rose-row);
+  --color-mint-row: var(--mint-row);
+  --color-star: var(--star);
+  --color-inv: var(--inv);
+  --color-on-inv: var(--on-inv);
+  --color-new-flash: var(--new-flash);
 
-  /* ── Neutrals — the `slate-*` scale remapped to the product's pure greys ── */
-  --color-slate-50: oklch(0.985 0 0);
-  --color-slate-100: oklch(0.9642 0 0);    /* #f3f3f3 --ink */
-  --color-slate-200: oklch(0.9052 0 0);
-  --color-slate-300: oklch(0.8452 0 0);
-  --color-slate-400: oklch(0.7348 0 0);    /* #a9a9a9 --ink2 */
-  --color-slate-500: oklch(0.6665 0 0);    /* #949494 --ink3 */
-  --color-slate-600: oklch(0.575 0 0);
-  --color-slate-700: oklch(0.5103 0 0);
-  --color-slate-800: oklch(0.3867 0.008 58); /* #484340 --line */
-  --color-slate-900: oklch(0.2972 0.008 58); /* #302c29 --sheet */
-  --color-slate-950: oklch(0.2562 0.008 58); /* #26221f --paper */
-
-  /* ── Status hues — the exception to the greys: loads and money ──────────── */
-  --color-emerald-50: oklch(0.97 0.025 165);
-  --color-emerald-100: oklch(0.94 0.05 165);
-  --color-emerald-200: oklch(0.9 0.09 165);
-  --color-emerald-300: oklch(0.87 0.112 165);
-  --color-emerald-400: oklch(0.8452 0.1299 164.98); /* #6ee7b7 --st-emerald */
-  --color-emerald-500: oklch(0.76 0.145 164);
-  --color-emerald-600: oklch(0.596 0.1274 163.23);  /* #059669 board dot */
-  --color-emerald-700: oklch(0.5 0.11 164);
-  --color-emerald-800: oklch(0.4 0.085 166);
-  --color-emerald-900: oklch(0.32 0.065 168);
-  --color-emerald-950: oklch(0.2621 0.0487 172.55);
-
-  --color-cyan-50: oklch(0.97 0.015 230);
-  --color-cyan-100: oklch(0.94 0.033 230);
-  --color-cyan-200: oklch(0.89 0.068 230);
-  --color-cyan-300: oklch(0.86 0.086 230);
-  --color-cyan-400: oklch(0.8276 0.1013 230.32);    /* #7dd3fc --st-sky */
-  --color-cyan-500: oklch(0.75 0.115 232);
-  --color-cyan-600: oklch(0.66 0.117 235);
-  --color-cyan-700: oklch(0.55 0.1 238);
-  --color-cyan-800: oklch(0.45 0.08 240);
-  --color-cyan-900: oklch(0.36 0.062 242);
-  --color-cyan-950: oklch(0.28 0.048 244);
-
-  --color-amber-50: oklch(0.98 0.022 95);
-  --color-amber-100: oklch(0.96 0.05 95);
-  --color-amber-200: oklch(0.93 0.1 94);
-  --color-amber-300: oklch(0.9 0.135 92);
-  --color-amber-400: oklch(0.879 0.1534 91.61);     /* #fcd34d --st-amber */
-  --color-amber-500: oklch(0.82 0.155 85);
-  --color-amber-600: oklch(0.72 0.148 72);
-  --color-amber-700: oklch(0.6 0.13 62);
-  --color-amber-800: oklch(0.48 0.105 58);
-  --color-amber-900: oklch(0.38 0.082 56);
-  --color-amber-950: oklch(0.28 0.058 55);
-
-  --color-rose-50: oklch(0.97 0.015 10);
-  --color-rose-100: oklch(0.94 0.032 10);
-  --color-rose-200: oklch(0.89 0.06 11);
-  --color-rose-300: oklch(0.85 0.082 11);
-  --color-rose-400: oklch(0.8097 0.1061 11.64);     /* #fda4af --st-rose */
-  --color-rose-500: oklch(0.7084 0.16 8.99);        /* #f2718c --danger */
-  --color-rose-600: oklch(0.6 0.2 12);
-  --color-rose-700: oklch(0.5 0.18 14);
-  --color-rose-800: oklch(0.4 0.145 14);
-  --color-rose-900: oklch(0.3 0.105 13);
-  --color-rose-950: oklch(0.2026 0.0565 11.27);     /* #2b0910 --danger-fg */
-
-  --color-sky-400: oklch(0.8276 0.1013 230.32);
-  --color-indigo-400: oklch(0.7853 0.1041 274.71);
-  --color-violet-400: oklch(0.8112 0.1013 293.57);
-
-  /* ── Aliases the page already reaches for ───────────────────────────────── */
-  --color-accent: oklch(0.8276 0.1013 230.32);      /* --st-sky */
-  --color-accent-emerald: oklch(0.8452 0.1299 164.98);
-
-  /* ── Elevation ───────────────────────────────────────────────────────────
-   * There is none. On a #232323 ground a drop shadow has no darkness to sink
-   * into, so it reads as grey haze around the box rather than as lift. Depth is
-   * carried entirely by the palette's four surface steps — paper → sheet → sunk
-   * → line — plus a 1px `--sheen` highlight on the top edge of anything raised.
-   * The scale below is flattened to near-nothing so that a stray `shadow-*`
-   * class cannot reintroduce the haze. */
-  --shadow-2xs: 0 0 #0000;
-  --shadow-xs: 0 0 #0000;
-  --shadow-sm: 0 0 #0000;
-  --shadow-md: 0 0 #0000;
-  --shadow-lg: 0 0 #0000;
-  --shadow-xl: 0 0 #0000;
-  --shadow-2xl: 0 0 #0000;
-
-  --animate-float: float 7s ease-in-out infinite;
-  --animate-float-delayed: float 7s ease-in-out 2s infinite;
-  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
-  --animate-gradient: gradient-shift 8s ease infinite;
-  --animate-slide-up: slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-fade-in: fade-in 0.6s ease forwards;
-  --animate-scan: scan 3s ease-in-out infinite;
+  --color-cta: var(--cta);
+  --color-cta-press: var(--cta-press);
+  --color-on-cta: var(--on-cta);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
 }
 
-/* The product's own token names, for CSS that wants them directly. */
-:root {
+/* Cobalt (light), the default. */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --ground: #F8FAFC; --sheet: #FFFFFF; --sunk: #F1F5F9; --sunk2: #E9EFF8; --line: #E2E8F0; --hair: #EDF1F6;
+  --ink: #1E293B; --ink2: #475569; --ink3: #64748B; --ink4: #A3B0C2;
+  --brand: #2563EB; --brand-press: #1D4ED8; --brand-soft: #EAF1FF; --brand-ink: #2563EB; --sel: #F3F7FF; --on-brand: #FFFFFF;
+  --green: #15803D; --green-bg: #E6F6EC; --green-track: #C8E7D3;
+  --amber: #A16207; --amber-bg: #FEF5D6; --red: #C81E1E; --red-bg: #FEE9E9;
+  --violet: #6D28D9; --violet-bg: #EEE8FD; --gray: #475569; --gray-bg: #E9EFF8;
+  --rose-row: #FFF0F1; --mint-row: #ECFBF2; --star: #D97706; --inv: #1E293B; --on-inv: #FFFFFF; --new-flash: #FFF1E0;
+  --cta: #C2410C; --cta-press: #9A3412; --on-cta: #FFFFFF; --accent: #EA580C; --accent-ink: #B4460A; --accent-soft: #FFF1E7;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 1px rgba(15, 23, 42, 0.03);
+  --shadow-2: 0 8px 18px -6px rgba(15, 23, 42, 0.14), 0 2px 4px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 28px 70px -14px rgba(15, 23, 42, 0.32);
+  --glass: rgba(248, 250, 252, 0.78);
+  --glow: rgba(37, 99, 235, 0.10);
+  --dots: rgba(15, 23, 42, 0.09);
+  --scrim: rgba(15, 23, 42, 0.4);
+}
+
+/* Cobalt Night. */
+[data-theme="dark"] {
   color-scheme: dark;
-
-  --paper: oklch(0.2562 0.008 58);
-  --sheet: oklch(0.2972 0.008 58);
-  --sunk: oklch(0.3368 0.008 58);
-  --line: oklch(0.3867 0.008 58);
-  --hair: oklch(0.3485 0.008 58);
-
-  --ink: oklch(0.9642 0 0);
-  --ink2: oklch(0.7348 0 0);
-  --ink3: oklch(0.6665 0 0);
-
-  --brand: oklch(0.6954 0.1547 58.38);
-  --brand-hi: oklch(0.7348 0.1504 60.92);
-  --brand-fg: oklch(0.2151 0.0452 46.74);
-  --brand-ink: oklch(0.6954 0.1547 58.38);
-  --brand-soft: oklch(0.6954 0.1547 58.38 / 0.15);
-  --brand-line: oklch(0.6954 0.1547 58.38 / 0.42);
-  --brand-shadow: oklch(0 0 0 / 0.42);
-  --brand-glow: oklch(0 0 0 / 0.34);
-  --focus: oklch(0.6954 0.1547 58.38 / 0.42);
-  --btn: var(--brand);
-  --btn-fg: var(--brand-fg);
-
-  --danger: oklch(0.7084 0.16 8.99);
-  --danger-hi: oklch(0.7586 0.1325 7.68);
-  --danger-fg: oklch(0.2026 0.0565 11.27);
-  --danger-bg: oklch(0.7084 0.16 8.99 / 0.14);
-  --danger-shadow: oklch(0 0 0 / 0.42);
-
-  --sig: oklch(0.8822 0 0);
-  --sig-bg: oklch(1 0 0 / 0.09);
-  --warn: oklch(0.65 0 0);
-  --warn-bg: oklch(1 0 0 / 0.06);
-  --stop: oklch(1 0 0);
-  --stop-bg: oklch(1 0 0 / 0.12);
-  --cool: oklch(0.7476 0 0);
-  --cool-bg: oklch(1 0 0 / 0.07);
-
-  --st-sky: oklch(0.8276 0.1013 230.32);
-  --st-sky-bg: oklch(0.8276 0.1013 230.32 / 0.15);
-  --st-indigo: oklch(0.7853 0.1041 274.71);
-  --st-indigo-bg: oklch(0.7853 0.1041 274.71 / 0.15);
-  --st-violet: oklch(0.8112 0.1013 293.57);
-  --st-violet-bg: oklch(0.8112 0.1013 293.57 / 0.15);
-  --st-emerald: oklch(0.8452 0.1299 164.98);
-  --st-emerald-bg: oklch(0.8452 0.1299 164.98 / 0.15);
-  --st-amber: oklch(0.879 0.1534 91.61);
-  --st-amber-bg: oklch(0.879 0.1534 91.61 / 0.15);
-  --st-rose: oklch(0.8097 0.1061 11.64);
-  --st-rose-bg: oklch(0.8097 0.1061 11.64 / 0.15);
-
-  --logo-f1: oklch(0.8474 0.1304 76.61);
-  --logo-f2: oklch(0.7313 0.1575 59.05);
-  --logo-f3: oklch(0.63 0.152 52.78);
-
-  --glass: oklch(0.2972 0.008 58 / 0.66);
-  --glass-deep: oklch(0.2562 0.008 58 / 0.78);
-  --scrim: oklch(0 0 0 / 0.52);
-
-  --sheen: oklch(1 0 0 / 0.16);
-  --shadow-ink: oklch(0 0 0 / 0.5);
+  --ground: #070B18; --sheet: #0E1223; --sunk: #131829; --sunk2: #1A1E2F; --line: #232B40; --hair: #1A2135;
+  --ink: #F1F5F9; --ink2: #B4BFD1; --ink3: #8C9AB0; --ink4: #55627A;
+  --brand: #2563EB; --brand-press: #1D4ED8; --brand-soft: #16254A; --brand-ink: #8AB4FF; --sel: #101A33; --on-brand: #FFFFFF;
+  --green: #4ADE80; --green-bg: #0F2A1C; --green-track: #1C4630;
+  --amber: #FBBF24; --amber-bg: #2E230B; --red: #F87171; --red-bg: #351517;
+  --violet: #B79CFF; --violet-bg: #261F45; --gray: #C5CEDB; --gray-bg: #1A2135;
+  --rose-row: #2B1519; --mint-row: #0F2619; --star: #F5B544; --inv: #F1F5F9; --on-inv: #0E1223; --new-flash: #33240F;
+  --cta: #F97316; --cta-press: #EA580C; --on-cta: #1A0E06; --accent: #FB923C; --accent-ink: #FDBA74; --accent-soft: #33200F;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 18px -6px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 0 0 1px rgba(200, 220, 255, 0.05), 0 28px 70px -14px rgba(0, 0, 0, 0.7);
+  --glass: rgba(7, 11, 24, 0.78);
+  --glow: rgba(37, 99, 235, 0.22);
+  --dots: rgba(200, 220, 255, 0.08);
+  --scrim: rgba(0, 0, 0, 0.6);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* ── Motion ────────────────────────────────────────────────────────────────────
+ * Following the animation principles in NurulloMahmud/skill-library:
+ *   - ease-out for entrances, ease-in-out for things moving on screen, ease-in for exits;
+ *   - everyday UI stays under 300 ms, exits are 20% shorter than entrances;
+ *   - springs with a little overshoot for the moments that matter, no bounce elsewhere.
+ * The two springs are damped harmonic oscillators sampled into linear():
+ *   --spring       damping ratio 0.62 (about 8% overshoot): presses released, arrivals that matter
+ *   --spring-soft  damping ratio 0.78 (about 2% overshoot): section and card reveals
+ * To retune, change the damping ratio and resample; tension and mass only scale the duration. */
+:root {
+  --e-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --e-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --e-in: cubic-bezier(0.55, 0, 0.75, 0.2);
+  --spring: linear(0, 0.023, 0.084, 0.17, 0.272, 0.381, 0.491, 0.596, 0.694, 0.781, 0.857, 0.92, 0.972, 1.012, 1.042, 1.063, 1.076, 1.082, 1.083, 1.081, 1.075, 1.067, 1.059, 1.05, 1.04, 1.032, 1.024, 1.017, 1);
+  --spring-soft: linear(0, 0.023, 0.082, 0.163, 0.256, 0.354, 0.451, 0.542, 0.626, 0.702, 0.767, 0.824, 0.871, 0.909, 0.94, 0.965, 0.983, 0.997, 1.007, 1.013, 1.017, 1.019, 1);
+  --d-press: 100ms;
+  --d-ui: 200ms;
+  --d-exit: 160ms;
 }
 
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
-}
-
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scan {
-  0% { top: 0%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
+/* ── Base ─────────────────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
-    @apply antialiased;
+    scroll-padding-top: 88px;
+    -webkit-text-size-adjust: 100%;
   }
-
   body {
-    @apply bg-paper text-ink font-sans overflow-x-hidden;
-    letter-spacing: -0.005em;
+    @apply bg-ground font-sans text-ink antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
-
-  /* Every figure, as the product sets them: columns of money line up and the
-   * tighter tracking keeps a long number from sprawling. */
-  .figure,
-  table {
-    font-variant-numeric: tabular-nums;
-    letter-spacing: -0.02em;
-  }
-
   ::selection {
     background: var(--brand-soft);
     color: var(--ink);
   }
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+  button,
+  [role="button"],
+  a[href],
+  summary {
+    cursor: pointer;
+  }
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
 }
 
-@utility text-gradient {
-  @apply bg-gradient-to-r from-white via-brand-200 to-brand-400 bg-clip-text text-transparent;
+/* ── Building blocks ──────────────────────────────────────────────────────── */
+@utility wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  @media (width >= 640px) {
+    padding-inline: 24px;
+  }
+  @media (width >= 1024px) {
+    padding-inline: 32px;
+  }
 }
 
-@utility text-gradient-brand {
-  @apply bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 bg-clip-text text-transparent;
+/* Buttons press down to 0.97 and spring back when let go. */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-weight: 650;
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    transform 420ms var(--spring),
+    background-color var(--d-ui) var(--e-out),
+    border-color var(--d-ui) var(--e-out),
+    box-shadow var(--d-ui) var(--e-out),
+    color var(--d-ui) var(--e-out);
+  &:active {
+    transform: scale(0.97);
+    transition-duration: var(--d-press);
+    transition-timing-function: var(--e-out);
+  }
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
 }
-
-/* ── Surfaces ────────────────────────────────────────────────────────────────
- * Tone does all of the separating, exactly as the palette intends: "a card on
- * `--sheet` over `--paper` separates without a border doing the work." The 1px
- * `--sheen` on the top edge is what reads as a lit surface; it is not a shadow
- * and costs nothing on this ground. */
-
-/* A card sitting in the flow. */
-@utility panel {
-  background: var(--sheet);
-  border: 1px solid var(--hair);
+@utility btn-lg {
+  min-height: 52px;
+  padding: 0 24px;
+  font-size: 16px;
+  border-radius: 14px;
 }
-
-/* One step further up, for a tile inside a panel. */
-@utility panel-hi {
-  background: var(--sunk);
-  border: 1px solid var(--line);
+@utility btn-primary {
+  background: var(--brand);
+  color: var(--on-brand);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 8px 20px -8px rgba(37, 99, 235, 0.55);
+  &:hover {
+    background: var(--brand-press);
+  }
 }
-
-/* Something that leaves the page — a modal, a menu. It separates by taking a
- * brighter edge, not by casting a shadow. */
-@utility raised {
-  background: var(--sheet);
-  border: 1px solid var(--line);
-}
-
-@utility glass {
-  border: 1px solid var(--hair);
-  background: var(--sheet);
-}
-
-@utility glass-strong {
-  border: 1px solid var(--line);
-  background: var(--glass);
-  backdrop-filter: blur(40px) saturate(115%);
-}
-
-/* Primary fill: gradient, 1px brand border, inner highlight. No cast shadow. */
-@utility btn-brand {
-  background: linear-gradient(to bottom, var(--brand-hi), var(--brand));
-  border: 1px solid var(--brand);
-  color: var(--brand-fg);
-  transition: filter 0.15s ease, transform 0.15s ease;
-}
-
-@utility btn-brand-hover {
-  filter: brightness(1.07);
-}
-
-/* Quiet secondary: a step up in tone, no fill colour. */
 @utility btn-quiet {
-  background: var(--sunk);
-  border: 1px solid var(--line);
+  background: var(--sheet);
   color: var(--ink);
-  transition: background 0.15s ease, border-color 0.15s ease;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  &:hover {
+    background: var(--sunk);
+    border-color: color-mix(in srgb, var(--ink4) 60%, var(--line));
+  }
+}
+@utility btn-cta {
+  background: var(--cta);
+  color: var(--on-cta);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 18px -8px rgba(194, 65, 12, 0.6);
+  &:hover {
+    background: var(--cta-press);
+  }
 }
 
-/* Destructive fill — same construction, and the same reason for the dark label:
- * white on --danger measures 3:1. */
-@utility btn-danger {
-  background: linear-gradient(to bottom, var(--danger-hi), var(--danger));
-  border: 1px solid var(--danger);
-  color: var(--danger-fg);
-  transition: filter 0.15s ease;
+@utility card {
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+@utility card-lg {
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
 }
 
-/* A field is the inverse of a panel: it sinks to --paper under the --sheet card
- * it sits on, with the highlight moved to an inset shadow at the top. A milky
- * white overlay reads as fog on this ground; a tone step reads as a slot. */
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-ink);
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: 2px solid var(--brand-ink);
+  }
+}
+
+/* Section headings: one size scale for every block on the page. */
+@utility h-section {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  font-size: clamp(30px, 4.2vw, 46px);
+  text-wrap: balance;
+}
+@utility lede {
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.6;
+  color: var(--ink2);
+  text-wrap: pretty;
+}
+
+/* Small caps label used inside the product shots, as the app draws its column heads. */
+@utility th {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+/* Form fields (book demo, delete account). */
 @utility field {
-  background: var(--paper);
+  background: var(--sheet);
   border: 1px solid var(--line);
   color: var(--ink);
-  transition: border-color 0.15s ease, outline-color 0.15s ease;
+  transition: border-color var(--d-ui) var(--e-out), box-shadow var(--d-ui) var(--e-out);
+  &::placeholder {
+    color: var(--ink4);
+  }
 }
-
 @utility field-focus {
   border-color: var(--brand);
-  outline: 3px solid var(--focus);
-  outline-offset: -1px;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 22%, transparent);
 }
-
-/* Quiet secondary: a step up in tone, no fill colour, same sheen language. */
-/* Tinted chip. */
-/* A surface the page is pointing at — the featured plan, the CTA panel. Flat
- * --brand-soft over --sheet with the brand hairline, which is `chip-brand` at
- * panel scale. A gradient from brand-950 to sheet fades to mud on this ground. */
-/* Section ground. The brand swells in the middle of the section and is back to
- * nothing at both edges, so every boundary between two sections happens at
- * transparent — there is no seam to see. A tint that starts at full strength at
- * the top edge draws a hard line across the page instead.
- *
- * These fade a low alpha of the brand to `transparent`, never between two opaque
- * colours: that is what made the old `brand-950 → sheet` washes muddy, because
- * every midpoint of such a fade is a real, mixed brown. */
-@utility section-tint {
-  background-image: linear-gradient(
-    to bottom,
-    transparent,
-    oklch(0.6954 0.1547 58.38 / 0.07) 50%,
-    transparent
-  );
-}
-
-/* The same swell, held a little higher and softer, for variety down the page. */
-@utility section-tint-b {
-  background-image: linear-gradient(
-    to bottom,
-    transparent,
-    oklch(0.6954 0.1547 58.38 / 0.05) 38%,
-    transparent
-  );
-}
-
 @utility panel-brand {
-  background-color: var(--sheet);
-  background-image: linear-gradient(
-    155deg,
-    oklch(0.6954 0.1547 58.38 / 0.16),
-    oklch(0.6954 0.1547 58.38 / 0.05) 45%,
-    transparent 85%
-  );
-  border: 1px solid var(--brand-line);
-}
-
-@utility chip-brand {
   background: var(--brand-soft);
-  border: 1px solid var(--brand-line);
-  color: var(--brand-ink);
+  border: 1px solid color-mix(in srgb, var(--brand) 22%, var(--line));
 }
 
+/* The dotted grid behind the hero and the demo panel. */
+@utility dots {
+  background-image: radial-gradient(var(--dots) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+/* ── Scroll reveal ────────────────────────────────────────────────────────────
+ * Things arrive once, as they scroll in: up 16 px with a soft spring and a short blur that
+ * stands in for motion blur. Siblings stagger by 40 ms through --i. */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  filter: blur(6px);
+}
+[data-reveal].in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    transform 700ms var(--spring-soft) calc(var(--i, 0) * 40ms),
+    opacity 380ms var(--e-out) calc(var(--i, 0) * 40ms),
+    filter 380ms var(--e-out) calc(var(--i, 0) * 40ms);
+}
+
+/* ── Keyframes ────────────────────────────────────────────────────────────── */
+@keyframes flash-new {
+  from { background-color: var(--new-flash); }
+  to { background-color: transparent; }
+}
+@keyframes live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@keyframes ping-ring {
+  from { transform: scale(1); opacity: 0.5; }
+  to { transform: scale(2.4); opacity: 0; }
+}
+@keyframes pulse-ok {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--green) 40%, transparent); }
+  100% { box-shadow: 0 0 0 12px transparent; }
+}
+@keyframes pulse-brand {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand) 40%, transparent); }
+  100% { box-shadow: 0 0 0 10px transparent; }
+}
+@keyframes fill-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes fill-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+@keyframes pulse-cta {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--cta) 45%, transparent); }
+  100% { box-shadow: 0 0 0 12px transparent; }
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes caret {
+  50% { opacity: 0; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.98); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes sink {
+  from { opacity: 1; transform: none; filter: none; }
+  to { opacity: 0; transform: translate3d(0, -6px, 0) scale(0.99); filter: blur(3px); }
+}
+
+.live-dot {
+  animation: live 2s var(--e-io) infinite;
+}
+.row-new {
+  animation: flash-new 2.4s var(--e-out) 0.2s both;
+}
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 1.5px;
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: -0.15em;
+  background: var(--brand);
+  animation: caret 1s steps(1) infinite;
+}
+
+/* ── Legal pages ──────────────────────────────────────────────────────────── */
 .legal-content a {
-  @apply underline decoration-brand-500/40 underline-offset-2;
+  color: var(--brand-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-
 .legal-content strong {
-  @apply font-medium text-slate-200;
+  color: var(--ink);
+  font-weight: 650;
 }
-
 .legal-content ul {
-  @apply text-slate-400;
+  list-style: disc;
 }
 
-@utility grid-bg {
-  background-image:
-    linear-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(1 0 0 / 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
+/* ── Theme switch: a circle grows from the toggle (view transitions) ─────── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* ── Reduced motion: show the final state, no movement. ───────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal],
+  [data-reveal].in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/* Delete account: the one destructive button on the site. Fixed red so white text holds 4.5:1 in both themes. */
+@utility btn-danger {
+  background: #C81E1E;
+  color: #FFFFFF;
 }

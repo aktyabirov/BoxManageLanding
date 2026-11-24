@@ -1,23 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo/logo-mark-dark.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo/logo-mark.svg" />
     <link rel="apple-touch-icon" href="/logo/logo-mark.svg" />
-    <meta name="theme-color" content="#232323" />
+    <meta name="theme-color" content="#F8FAFC" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="BoxTruckManage — dispatch platform for box truck fleets. Live load board with nearest-truck matching, AI rate con to load in seconds, broker emails with AI replies, payouts, factoring, and the BTM Driver app for iOS and Android."
+      content="BoxTruckManage is the dispatch platform for box truck fleets: a live load board that picks the nearest truck, bids from your own mailbox, broker conversations, tracking, hiring, payouts and factoring, plus the BTM Driver and BTM Dispatch apps. Try the live demo, no sign-up."
     />
-    <title>BoxTruckManage — Box Truck Dispatch Platform &amp; BTM Driver App</title>
-    <!-- Gilroy is self-hosted from /public/fonts, so there is no third-party font
-         request. Only the four weights the page opens with are preloaded; the
-         rest are fetched on demand by the @font-face rules in src/fonts.css. -->
-    <link rel="preload" href="/fonts/Gilroy-Medium.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/Gilroy-Semibold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/Gilroy-Extrabold.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:title" content="BoxTruckManage - Box truck dispatch, from posted load to paid driver" />
+    <meta property="og:description" content="Live load board, nearest-truck matching, bids from your own mailbox, tracking, payouts and driver apps. Try the live demo, no sign-up." />
+    <meta property="og:url" content="https://boxtruckmanage.com" />
+    <meta property="og:type" content="website" />
+    <title>BoxTruckManage - Box Truck Dispatch Platform with a Live Demo</title>
+    <script>
+      /* Paint the stored theme before the first frame, so a dark choice never flashes light. */
+      try {
+        var t = localStorage.getItem('btm-landing-theme')
+        if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t
+        if (t === 'dark') document.querySelector('meta[name="theme-color"]').content = '#070B18'
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
