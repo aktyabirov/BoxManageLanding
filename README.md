@@ -53,6 +53,19 @@ npx netlify-cli env:set BOT_TOKEN "PASTE_BOT_TOKEN_HERE"
 
 Environment changes apply from the next deploy. Locally, put `BOT_TOKEN=...` in `.env` and requests go through the Vite middleware at `/api/book-demo`; production uses `/.netlify/functions/book-demo`. Account deletion requests (`/deleteaccount`) use the same bot and chat.
 
+## Meta form leads
+
+Leads from Meta instant forms (Facebook and Instagram lead ads) go to the same Telegram group. `netlify/functions/meta-leads.js` is a scheduled function that runs every minute: it lists the Page's lead forms, fetches leads created since the last run, and posts each new one with the contact details, the answers (as the words people tapped), the platform and ad set, and the time in Tashkent and Central. Sent lead ids are kept in the Netlify Blobs store `meta-leads`, so nothing is posted twice; if Telegram fails, the lead is retried the next minute.
+
+| Variable | What |
+|----------|------|
+| `META_ACCESS_TOKEN` | System user token (or Page token) with `leads_retrieval`, `pages_show_list`, `pages_read_engagement`, `pages_manage_ads`; `ads_read` adds the ad set and campaign names |
+| `META_PAGE_ID` | The Facebook Page the forms belong to |
+| `META_GRAPH_VERSION` | Optional, default `v23.0` |
+| `META_LEADS_CHAT_ID` | Optional, another chat for leads only |
+
+Until both Meta variables are set the function does nothing. Logic and tests: `server/metaLeads.js`, `npm test`. To try it end to end, create a lead with Meta's Lead Ads Testing Tool; it arrives marked `(TEST)`.
+
 ## Deploy
 
 Netlify builds from `main` with the settings in `netlify.toml` (`npm run build`, publish `dist`). `BOT_TOKEN` lives under **Site configuration > Environment variables**.

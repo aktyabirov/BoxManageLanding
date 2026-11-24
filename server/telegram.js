@@ -2,7 +2,7 @@
  * variable is ignored on purpose, so a value left over on Netlify cannot send requests elsewhere. */
 const DEFAULT_CHAT_ID = '-5363956866'
 
-function chatOf(env) {
+export function chatOf(env) {
   return env.TELEGRAM_CHAT_ID || DEFAULT_CHAT_ID
 }
 
@@ -16,7 +16,7 @@ function pageOf(url) {
   }
 }
 
-function escapeHtml(value) {
+export function escapeHtml(value) {
   return String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
