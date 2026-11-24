@@ -32,8 +32,8 @@ const LANE = [
 
 const STEPS = [
   ['Start with the core', 'Everything you see in the demo: the board, bids, conversations, tracking, hiring, accounting and both apps.'],
-  ['Show us how you work', 'We go through each step your team does today, including every spreadsheet, side tool and manual habit.'],
-  ['We build the rest', 'Your rules, reports and integrations go into the same platform, one step at a time, until nothing is manual.'],
+  ['Show us how you work', 'Your dedicated account manager goes through each step your team does today, including every spreadsheet, side tool and manual habit.'],
+  ['We build the rest', 'Your rules, reports and integrations go into the same platform, one step at a time, until nothing is manual. Support answers 24/7.'],
 ]
 
 /* Real things built for fleets on BoxTruckManage. */

@@ -9,6 +9,7 @@ import { DriversSection } from '../components/DriversSection'
 import { MoneySection } from '../components/MoneySection'
 import { AppsSection } from '../components/AppsSection'
 import { Toolkit } from '../components/Toolkit'
+import { PricingSection } from '../components/PricingSection'
 import { DemoCta } from '../components/DemoCta'
 import { Faq } from '../components/Faq'
 import { Footer } from '../components/Footer'
@@ -31,6 +32,7 @@ export function LandingPage() {
         <MoneySection />
         <AppsSection />
         <Toolkit />
+        <PricingSection />
         <DemoCta />
         <Faq />
       </main>

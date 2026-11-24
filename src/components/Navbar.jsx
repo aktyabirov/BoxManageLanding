@@ -7,13 +7,14 @@ import { ThemeToggle } from './ThemeToggle'
 import { BookDemoButton } from './BookDemoButton'
 import { TryDemoButton } from './TryDemoButton'
 
+/* `also`: further sections that light up the same link (Product covers the three product tours). */
 export const NAV_LINKS = [
   { id: 'how', label: 'How it works' },
   { id: 'custom', label: 'Built for you' },
-  { id: 'dashboard', label: 'Dashboard' },
-  { id: 'drivers', label: 'Drivers' },
-  { id: 'money', label: 'Money' },
+  { id: 'dashboard', label: 'Product', also: ['drivers', 'money'] },
   { id: 'apps', label: 'Apps' },
+  { id: 'pricing', label: 'Pricing' },
+  { id: 'faq', label: 'FAQ' },
 ]
 
 /* Which section is under the bar: the last one whose top has passed the middle of the screen. */
@@ -46,13 +47,15 @@ function useActiveSection(ids) {
   return active
 }
 
-const IDS = NAV_LINKS.map((l) => l.id)
+const IDS = NAV_LINKS.flatMap((l) => [l.id, ...(l.also ?? [])])
+const LINK_OF = Object.fromEntries(NAV_LINKS.flatMap((l) => [l.id, ...(l.also ?? [])].map((id) => [id, l.id])))
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [menuMounted, setMenuMounted] = useState(false)
-  const active = useActiveSection(IDS)
+  const section = useActiveSection(IDS)
+  const active = section ? LINK_OF[section] : null
   const linksRef = useRef(null)
   const barRef = useRef(null)
   const menuRef = useRef(null)

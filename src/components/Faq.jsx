@@ -12,6 +12,14 @@ const QA = [
     'No. Every company starts with the core you see in the demo, and then we customize it to how you work: your hiring steps, pay rules, factoring company, reports and P&L. Anything your team still does by hand or in a spreadsheet, we can build into the same platform.',
   ],
   [
+    'How much does it cost?',
+    'Between $300 and $1,200 a month, depending on your volume. That covers the whole platform, both apps, the custom features and automation built for you, your dedicated account manager and 24/7 support. Book a demo and we will tell you your price.',
+  ],
+  [
+    'What support do we get?',
+    'A dedicated account manager who knows your company and handles your requests, and support around the clock, 24/7, including nights and weekends.',
+  ],
+  [
     'Which mailboxes can send bids?',
     'The ones your dispatchers already use: Google Workspace or Gmail, Microsoft 365, Zoho, or any mailbox with IMAP and SMTP. Each bid goes out from the dispatcher’s own address, and the broker’s reply comes back into Conversations, tied to the load.',
   ],

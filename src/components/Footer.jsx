@@ -15,6 +15,7 @@ export function Footer() {
         ['Dashboard', '#dashboard'],
         ['Drivers', '#drivers'],
         ['Money', '#money'],
+        ['Pricing', '#pricing'],
         ['FAQ', '#faq'],
       ],
     ],

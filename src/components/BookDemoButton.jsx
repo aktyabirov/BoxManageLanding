@@ -2,7 +2,7 @@ import { cn } from '../lib/cn'
 import { useDemoModal } from '../context/DemoModalContext'
 
 /* Opens the "Book a demo" form (a person walks you through it). */
-export function BookDemoButton({ children = 'Book a demo', className, onClick }) {
+export function BookDemoButton({ children = 'Book a demo', variant = 'quiet', className, onClick }) {
   const { openDemo } = useDemoModal()
   return (
     <button
@@ -11,7 +11,7 @@ export function BookDemoButton({ children = 'Book a demo', className, onClick })
         openDemo(e)
         onClick?.()
       }}
-      className={cn('btn btn-quiet', className)}
+      className={cn('btn', variant === 'primary' ? 'btn-primary' : 'btn-quiet', className)}
     >
       {children}
     </button>
